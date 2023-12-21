@@ -1,0 +1,10 @@
+kind: pipeline
+type: docker
+name: build-and-save
+
+steps:
+  - name: build
+    image: docker
+    commands:
+      - docker build -t chc-snippets .
+      - docker save chc-snippets > chc-snippets.tar
