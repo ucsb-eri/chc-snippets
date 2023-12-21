@@ -8,3 +8,5 @@ steps:
     commands:
       - docker build -t chc-snippets .
       - docker save chc-snippets > chc-snippets.tar
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
