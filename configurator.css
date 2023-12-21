@@ -1,0 +1,183 @@
+html {
+    height: 100%;
+}
+
+body {
+    font: normal 12px Verdana, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.symbol {
+    font-family:modern_pictogramsnormal;
+}
+
+.left-panel {
+    width: 200px;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: lightgray;
+    float: left;
+}
+
+#map-form-controls {
+    display: none;
+}
+
+.right-content-area {
+    padding-left: 20px;
+    padding-top: 20px;
+    min-height: 100%;
+    float: left;
+}
+
+.form-control-group {
+    padding-top: 20px;
+}
+
+.form-control-group:first-child {
+    padding-top: 0;
+}
+
+.form-control-group:first-child {
+    margin-top: 0;
+}
+
+.horizontal-form-input {
+    float: left;
+    margin-left: 5px;
+}
+
+.horizontal-form-input:first-child {
+    margin-left: 0;
+}
+
+.vertical-form-input {
+    margin-top: 10px;
+}
+
+.vertical-form-input:first-child {
+    margin-top: 0;
+}
+
+.map-view {
+    margin-top: 20px;
+}
+
+.code-view {
+    margin-top: 20px;
+    padding: 5px;
+    font-family: "Courier", Courier, monospace;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    width: 590px;
+    background-color: white;
+}
+
+.code-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.code-view-gutter-cell {
+    width: 1%;
+    min-width: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: solid #eee;
+    border-width: 0 1px 0 0;
+}
+
+.code-view-code-cell {
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.code-property {
+    color: rebeccapurple;
+}
+
+.code-string-property-value {
+    color: darkgreen;
+}
+
+.code-number-property-value {
+    color: blue;
+}
+
+.clear-float {
+    float: none;
+    clear: both;
+}
+
+/* fonts */
+h1 {
+    font-family: Cantarell;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 26.4px;
+}
+h2 {
+    font-family: Cantarell;
+    font-size: 19px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 26.4px;
+}
+h3 {
+    font-family: Cantarell;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 15.4px;
+}
+p, li {
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+blockquote {
+    font-family: Cantarell;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+pre {
+    font-family: Cantarell;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}

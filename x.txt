@@ -1,0 +1,41 @@
+
+Snippets Configuration:
+
+Snippets are cofigured by adding the following lines to an HTML file.
+
+<!-- ========================= -->
+
+<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+or if you want to display Kenya wards:
+<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5f_ken_wards.js"></script>
+
+  <div id="ewx-map-h4vbt36xss"></div>
+
+
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'ewx-map-h4vbt36xss',
+      dataset: 'CHIRPS-GEFS',
+      subDataset: 'chirps_gefs',
+      region: 'global',
+      periodicity: '1-day',
+      forecastPeriod: '15day',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 756,
+      height: 790,
+      time: '2021-10-01',
+      zoom: 7,
+      center: [-19.0, 29.0],
+    });
+  </script>
+
+  <center> <img
+     src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+     alt="Legend Not Found" />
+  </center>
+

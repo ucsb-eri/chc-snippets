@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+   <div class="img-box tfloat">
+	<img class="banner" <img src="/images/chglogoheader.png" width="240" height="115">
+  </div>
+  <p>
+  <p>
+  <p>
+  <p>
+  <p>
+  <p>
+  <p>
+  <p>
+  <p>
+  <style type="text/css" media="screen">
+   @import url(/styles/main.css);   
+   @import url(/styles/format.css); 
+   @import url(/styles/normalize.css);
+   @import url(/styles/chirps.css);
+  </style>   
+   <!--[if !IE]><!--> <link rel="stylesheet" type="text/css" href="/styles/gallery.css"> <!--<![endif]-->
+   <!--[if IE 6]> <link rel="stylesheet" type="text/css" href="styles/gallery_ie6.css"> <![endif]-->
+   <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="styles/gallery_ie7.css"> <![endif]-->
+   <!--[if IE 8]> <link rel="stylesheet" type="text/css" href="styles/gallery_ie8.css"> <![endif]-->   
+   <!--[if gte IE 8]> <link rel="stylesheet" type="text/css" href="styles/gallery.css"> <![endif]--> 
+  </head>
+
+ <body>
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
+  <div id="main-container">
+  <a href="/index.html"></a>
+  
+   <div id="top_bar">
+    <div id="menu-links">
+     <a href="./index.html">Home</a>
+     <a href="./about/index.html">About</a>
+     <a href="./news/index.html">News</a>
+     <a href="./publications/index.html">Publications</a>
+     <!-- <a href="/research/index.html">Research</a>-->
+     <a href="./forecasts/index.html">Forecasts</a>
+     <a href="http://blog.chg.ucsb.edu/">Blog</a>
+     <a href="./people/index.html">People</a>
+     <a href="./gallery/index.html">Gallery</a>
+     <a href="./data/index.html">Data</a>
+     <a href="./tools/index.html">Tools</a>
+     <a href="./data/trends/index.html">Trends</a>
+    </div>
+</div>
+
+   
+
+ <title>CHC - Tools - Snippets</title>        
+ 
+ <!--<link rel="stylesheet" href="http://ewx.geog.ucsb.edu/ewx-snippets/ewxmap/styles.css">
+ <script type="text/javascript" src="./ewxmap.js"></script>-->
+ <script src="./ewxmap.js"></script>
+
+ <div class="title"><a href="./tools/"> TOOLS </a></div>
+ <div class="subtitle">EWX GeoServer Snippets</div>  
+     
+  <div id="sidebar" class="side slink">
+  <div class="hd-side">Data & Tools</div>
+ <ul>
+  <li><a href="./data/">Data Mainx</a></li>
+  <li><a href="./data/chirps/">CHIRPS</a></li>
+  <li><a href="./data/CHPclim/">CHPclim</a></li>
+  <li><a href="./data/centrends/">CenTrends</a></li>
+  <li><a href="./data/trends/">Trend Analysis</a></li>
+  <hr>
+  <li><a href="./tools/">Tools Main</a></li>
+  <li><a href="./tools/ewx/">EWX</a></li>
+  <li><a href="./tools/geoclim/">GeoCLIM</a></li>
+  <li><a href="./tools/geowrsi/">GeoWRSI</a></li>
+  <li><a href="./tools/geocof/">GeoCOF</a></li>
+  <li><a href="./tools/snippets/">Snippets</a></li>
+  <!--<li><a href="./tools/wbpp/">wbpp</a></li>-->
+ </ul>
+
+</div>
+
+  <div class="sub-contain">
+
+    <div class="hd3">
+     Add EWX-based data maps to your own webpage! 
+    </div>
+
+    <p>
+     Snippets are a free and publicly accessible way to display maps from our <a href"http://ewx.chg.ucsb.edu:8080/EWX/index.html">EWX online application</a> on your own webpage. To generate the code and markup needed to display your desired data, please visit our <a href="./configurator.html">NEW EWX Map Snippet Configurator</a> tool. 
+     Snippets are a free and publicly accessible way to display maps from our <a href"http://ewx.chg.ucsb.edu:8080/EWX/index.html">EWX online application</a> on your own webpage. To generate the code and markup needed to display your desired data, please visit our <a href="./configurator.html">EWX Map Snippet Configurator</a> tool. 
+    </p>    
+    
+    <a href="./configurator.html">
+     <img class="cimg" src="./images/datatools/snippets-menu.png">
+    </a>
+    
+    <p>
+     The Configurator produces a small chuck of code for your website that displays a map, tailored to your specific needs, of datasets available in our <a href="/tools/ewx">EWX</a> viewer. Snippet maps are active windows with zoom, pan and temporal navigation capabilities. With the <a href="./configurator.html">EWX Map Snippet Configurator</a>, you can quickly and easily customize your EWX map by selecting the data parameters available from EWX. The Configurator provides not just the code, but also all the necessary html markup. Snippets allow you to create your map, copy, paste, and be web-ready in moments. For more information on the parameter options, please visit our <a href="http://wiki.chg.ucsb.edu/wiki/Snippets">Snippets wiki page</a>.
+    </p>    
+    <p>
+     Please direct any questions, comments, or suggestions regarding EWX Snippets or the EWX Map Snippet Configurator to <a href="mailto:marty.landsfeld@ucsb.edu">marty.landsfeld@ucsb.edu </a>.
+    </p>
+      
+    <p class="snipp-note">
+     <strong>Note:</strong> Use +/- (or the scroll wheel on your mouse) to zoom in/out. Click and drag to pan.
+    </p>
+	
+    
+    <div class="snippet">
+     <h2>Example Snippet</h2>
+     <div class="snipp-box">
+     <div id="ewx-map-flgafy0z21" class="map"></div>
+     </div>
+     <!--<div class="snipp-exp">
+      CHIRPS Africa data
+     </div>-->
+    </div>   
+    
+     <div class="bounds">
+      <code>
+      <h2>Snippet Code Sample</h2>
+       <pre>
+<span class="red">&lt;script src=</span><span class="blue">"./ewxmap.js"</span><span class="red">>&lt;/script></span>
+
+<span class="dark-blue bold">&lt;div id=</span><span class="blue">"ewx-map-flgafy0z21"</span> <span class="dark-blue">class=<span class="blue">"map"</span><span class="dark-blue">>&lt;/div></span>
+<span class="red">&lt;script></span>
+ <span class="dark-blue bold">new</span> EwxMap <span class="dark-blue bold">({</span>
+ 	ewxUrl<span class="blue">: 'http://chg-ewx.geog.ucsb.edu:8080/EWX'</span>,
+	id<span class="blue">: 'ewx-map-flgafy0z21'</span>,
+	dataset<span class="blue">: 'chirps'</span>,
+	region<span class="blue">: 'africa'</span>,
+	periodicity<span class="blue">: '1-dekad'</span>,
+	period<span class="blue">:</span> <span class="dark-blue bold">{</span> year<span class="blue">:</span> <span class="red">2016</span>, month<span class="blue">:</span> <span class="red">2</span>, dekad<span class="blue">:</span> <span class="red">3</span> <span class="dark-blue bold">}</span>,
+  	showDekadControl<span class="dark-blue bold">: true</span>,
+  	showYearControl<span class="dark-blue bold">: true</span>,
+	units<span class="blue">: 'mm'</span>,
+	statistic<span class="blue">: 'data'</span>,
+	width<span class="red">: 427</span>,
+	height<span class="red">: 455</span>,
+	zoom<span class="red">: 3</span>,
+	center<span class="dark-blue bold">: [</span><span class="red">1.5</span>, <span class="red">17</span><span class="dark-blue bold">]</span>,
+	<!--legendPosition<span class="blue">: 'lower-left'</span>-->
+ <span class="dark-blue bold">})</span><strong>;</strong>
+<span class="red">&lt;/script></span>
+      </pre>
+     </code> 
+    </div>
+      
+    <script>
+     new EwxMap({
+  		ewxUrl: 'http://ewx.chg.ucsb.edu:8080/EWX',
+  		id: 'ewx-map-flgafy0z21',
+  		dataset: 'chirps',
+  		region: 'africa',
+  		periodicity: '1-dekad',
+  		period: { year: 2016, month: 2, dekad: 3 },
+  		showDekadControl: true,
+  		showYearControl: true,
+  		units: 'mm',
+  		statistic: 'data',
+  		width: 427,
+  		height: 455,
+  		zoom: 3,
+  		center: [1.5, 17],
+	});
+   </script>   
+  </div></div>
+ </body>
+</html>
+

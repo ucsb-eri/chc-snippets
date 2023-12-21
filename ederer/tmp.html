@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Snippets Page</title>
+  </head>
+  <body>
+    <div id="ewx-map-1ykj2zotwf"></div>
+    <script src="ewxmap.js"></script>
+    <script>
+      new EwxMap({
+        ewxUrl: 'http://ewx.chg.ucsb.edu:8080/EWX',
+        id: 'ewx-map-1ykj2zotwf',
+        dataset: 'chirps',
+        region: 'africa',
+        periodicity: '1-dekad',
+        period: { year: 2016, month: 2, dekad: 3 },
+        showDekadControl: true,
+        showYearControl: true,
+        units: 'none',
+        statistic: 'z-score',
+        width: 427,
+        height: 455,
+        zoom: 3,
+        center: [1.5, 17],
+      });
+    </script>
+  </body>
+</html>

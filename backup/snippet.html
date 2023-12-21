@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snippet Example Page</title>
+  </head>
+
+ <body>
+
+  <script src="http://m03.chc.ucsb.edu/ewxmap/ewxmap.js"></script>
+
+  <br>
+
+  <b> Climate Hazards Center Infrared Precipitation with Stations (CHIRPS): </b>
+  <br>
+  <p> A 30+ year quasi-global rainfall data set. Spanning 50*S-50*N (and all longitudes), starting in 1981 to near-presents, CHIRPS incorporates 0.05* resolution satellite imagery with in-situ station data to create gridded rainfall timeseries for trend analysis and seasonal drought monitoring. </p>
+
+  <br>
+  <br>
+
+  <div id="ewx-map-r9tn2da2zu"></div>
+  <script>
+  new EwxMap({
+    ewxUrl: 'https://chc-ewx2.chc.ucsb.edu:8443',
+    id: 'ewx-map-r9tn2da2zu',
+    dataset: 'chirps',
+    region: 'africa',
+    periodicity: '1-dekad',
+    period: 'latest',
+    showDekadControl: true,
+    showYearControl: true,
+    units: 'mm',
+    statistic: 'data',
+    width: 496,
+    height: 545,
+    zoom: 6,
+    center: [-19.54, 29.66],
+  });
+  </script>
+
+  <br>
+  <br>
+
+  <b> CHIRPS-GEFS 15 Day Forecast: </b>
+  <br>
+  <p> The CHIRPS-GEFS data set uses the higher spatial resolution of CHIRPS and the advanced forecasting ability of GEFS to provide weatehr forecasts, updated daily at a spatial resolution of 5 km. In blending CHIRPS and GEFS, GEFS is bias corrected and downscaled with repect to CHIRPS. </p>
+
+  <br>
+  <br>
+
+  <div id="ewx-map-5j7ec7qsa"></div>
+  <script>
+  new EwxMap({
+    ewxUrl: 'https://chc-ewx2.chc.ucsb.edu:8443',
+    id: 'ewx-map-5j7ec7qsa',
+    dataset: 'chirpsgefs15day2',
+    region: 'africa',
+    periodicity: '1-day',
+    period: 'latest',
+    showMonthControl: true,
+    showDekadControl: true,
+    showYearControl: true,
+    units: 'mm',
+    statistic: 'data',
+    width: 496,
+    height: 545,
+    zoom: 6,
+    center: [-19.54, 29.66],
+  });
+  </script>
+
+  <br>
+  <br>
+
+  <b> Early Estimates Forecast Total Precipitation 5-pentad: </b>
+  <br>
+  <p> The CHC Early Estimates are regional rainfall maps designed to support agroclimatic monitoring. These maps, which are updated every five days with the latest CHIRPS data, show rainfall conditions for multiple accumulation periods. Forecasts provides an outlook using a 15-day forecast. </p>
+
+  <br>
+  <br>
+
+  <div id="ewx-map-2el3eac5j"></div>
+  <script>
+  new EwxMap({
+    ewxUrl: 'https://chc-ewx2.chc.ucsb.edu:8443',
+    id: 'ewx-map-2el3eac5j',
+    dataset: 'earlyestimates06',
+    region: 'africa',
+    periodicity: '1-pentad',
+    period: 'latest',
+    showMonthControl: true,
+    showDekadControl: true,
+    showYearControl: true,
+    units: 'mm',
+    statistic: 'data',
+    width: 496,
+    height: 545,
+    zoom: 6,
+    center: [-19.54, 29.66],
+  });
+  </script>
+
+  <br>
+
+  </div></div>
+ </body>
+</html>
+
