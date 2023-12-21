@@ -7,11 +7,3 @@ steps:
     image: docker
     commands:
       - docker build -t chc-snippets .
-    volumes:
-      - name: dockersock
-        path: /var/run/docker.sock
-
-volumes:
-  - name: dockersock
-    host:
-      path: /var/run/docker.sock
