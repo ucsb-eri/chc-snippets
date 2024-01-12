@@ -19,7 +19,7 @@ jobs:
     - name: Test SSH Connection
       run: |
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
-        ssh -o StrictHostKeyChecking=no -T dokku@grit-web02.grit.ucsb.edu
+        ssh -vvv -o StrictHostKeyChecking=no -T dokku@grit-web02.grit.ucsb.edu
     - name: Push to Dokku
       run: |
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
