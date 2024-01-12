@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Consider updating this if a newer version is available
     - name: Setup SSH Keys
       run: |
         mkdir -p ~/.ssh
@@ -18,11 +18,6 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
     - name: Push to Dokku
       run: |
-        ssh-keyscan -p [DOKKU_SSH_PORT] [DOKKU_HOST] >> ~/.ssh/known_hosts
-        git remote add dokku [DOKKU_USER]@[DOKKU_HOST]:[APP_NAME]
+        ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
+        git remote add dokku dokku@grit-web02.grit.ucsb.edu:chc-snippets
         git push dokku main
-      env:
-        DOKKU_SSH_PORT: 22  # Replace with your Dokku SSH port if not 22
-        DOKKU_HOST: grit-web02.grit.ucsb.edu         # Replace with your Dokku server's host
-        DOKKU_USER: dokku                      # Usually 'dokku'
-        APP_NAME: chc-snippets              # Replace with your Dokku app name
