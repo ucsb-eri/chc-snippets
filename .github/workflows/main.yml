@@ -18,5 +18,5 @@ jobs:
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
-          git_remote_url: 'ssh://dokku@grit-web01.grit.ucsb.edu:22/chc-snippets'
+          git_remote_url: 'ssh://dokku@grit-web02.grit.ucsb.edu:22/chc-snippets'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
