@@ -16,6 +16,10 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+    - name: Test SSH Connection
+      run: |
+        ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
+        ssh -o StrictHostKeyChecking=no -T dokku@grit-web02.grit.ucsb.edu
     - name: Push to Dokku
       run: |
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
