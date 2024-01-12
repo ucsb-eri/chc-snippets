@@ -1,56 +1,28 @@
-name: Docker Image CI/CD
+name: Deploy to Dokku
 
-# Triggers the workflow on push events to the 'main' branch
 on:
   push:
-    branches: [ "main" ]
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+    branches:
+      - main  # Set this to the branch you want to deploy from
 
 jobs:
-  build-and-push-image:
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Log in to the GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract metadata for Docker
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Cloning repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Push to dokku
-        uses: dokku/github-action@master
-        with:
-          git_remote_url: 'ssh://dokku@grit-web02.grit.ucsb.edu:22/chc-snippets'
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Setup SSH Keys
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.DOKKU_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+    - name: Push to Dokku
+      run: |
+        ssh-keyscan -p [DOKKU_SSH_PORT] [DOKKU_HOST] >> ~/.ssh/known_hosts
+        git remote add dokku [DOKKU_USER]@[DOKKU_HOST]:[APP_NAME]
+        git push dokku main
+      env:
+        DOKKU_SSH_PORT: 22  # Replace with your Dokku SSH port if not 22
+        DOKKU_HOST: grit-web02.grit.ucsb.edu         # Replace with your Dokku server's host
+        DOKKU_USER: dokku                      # Usually 'dokku'
+        APP_NAME: chc-snippets              # Replace with your Dokku app name
