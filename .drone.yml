@@ -6,4 +6,4 @@ steps:
   - name: build
     image: docker
     commands:
-      - docker build -t chc-snippets .
+      - docker build -t chc-snippets .   
