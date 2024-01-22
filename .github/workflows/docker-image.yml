@@ -1,27 +1,21 @@
-name: Deploy to Dokku
+name: 'deploy'
 
 on:
   push:
     branches:
-      - main  # Set this to the branch you want to deploy from
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3  # Consider updating this if a newer version is available
-    - name: Setup SSH Keys
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-    - name: Test SSH Connection
-      run: |
-        ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
-        ssh -vvv -o StrictHostKeyChecking=no -T dokku@grit-web02.grit.ucsb.edu
-    - name: Push to Dokku
-      run: |
-        ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
-        git remote add dokku dokku@grit-web02.grit.ucsb.edu:chc-snippets
-        git push dokku main
+      - name: Cloning repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push to dokku
+        uses: dokku/github-action@master
+        with:
+          git_remote_url: 'ssh://dokku@grit-web02.grit.ucsb.edu:22/chc-snippets'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
