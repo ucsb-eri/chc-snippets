@@ -1,22 +1,25 @@
----
-name: 'deploy'
+name: Deploy to Dokku
 
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: Cloning repo
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: Push to dokku
-        uses: dokku/github-action@master
-        with:
-          git_remote_url: 'ssh://dokku@grit-web02.grit.ucsb.edu:22/chc-snippets'
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
+
+    - name: Deploy to Dokku
+      run: |
+        git remote add dokku ssh://dokku@grit-web02.grit.ucsb.edu:22/chc-snippets
+        git push dokku main
