@@ -23,4 +23,4 @@ jobs:
       run: |
         git remote remove dokku || true
         git remote add dokku ssh://dokku@grit-web02.grit.ucsb.edu:chc-snippets
-        git push dokku main
+        git push dokku +main
