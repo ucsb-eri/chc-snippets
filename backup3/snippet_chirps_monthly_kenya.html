@@ -24,7 +24,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 10-day anomaly</title>
+  <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -179,27 +179,23 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
 						    <br>
 
                 <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
-                application on your own webpage.
+                application on your own webpage.</p>
 
-                <h2>Example</h2>
+                <h2>Examples</h2>
 
-                <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 10-day anomaly</b> data set.</p>
+                <p>Below is an example of a Snippet map highlighting Zimbabwe with the latestxx <a href="https://chc.ucsb.edu/data/chirps">
+                CHIRPS</a> data set.</p>
 
                 <br>
 
-                <b> CHIRPS-compatible GEFS precipitation forecasts for anticipating flood and drought hazards (CHIRPS-GEFS): </b>
+                <b> Climate Hazards Center InfraRed Precipitation with Stations (CHIRPS): </b>
                 <br>
-					      <p> CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (
-                  <a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-ensemble-forecast">GEFS</a>)
-                  version 12 precipitation forecasts made to be spatially compatible with Climate Hazards Center InfraRed
-                  Precipitation with Stations (<a href="https://chc.ucsb.edu/data/chirps">CHIRPS</a>) data. The CHIRPS-GEFS
-                  data set provides next 5-day to 15-day precipitation forecasts, updated daily, at a spatial resolution
-                  of ~5 km across the globe. </p>
+					      <p> A 30+ year quasi-global rainfall data set. Spanning 50<small>o</small>S-50<small>o</small>N (and all longitudes), starting in 1981 to near-presents, CHIRPS incorporates 0.05<small>o</small>-resolution satellite imagery with in situ station data to create gridded rainfal time-series for trend analysis and seasonal drought monitoring. </p>
+
                 <br>
                 <br>
 
-                <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"></script>
+		<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"></script>
 
 					      <div id="ewx-map-h4vbt36xss"></div>
 
@@ -211,29 +207,26 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                   new EwxMapG5({
                     ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
                     id: 'ewx-map-h4vbt36xss',
-                    dataset: 'CHIRPSGEFS',
-                    subDataset: 'chirps_gefs',
+                    dataset: 'CHIRPS',
+                    subDataset: 'chirps',
                     region: 'global',
-                    periodicity: '1-day',
-                    forecastPeriod: '10day',
+                    periodicity: '1-month',
                     period: 'latest',
                     showDekadControl: true,
                     showYearControl: true,
                     units: 'mm',
-                    statistic: 'anomaly',
+                    statistic: 'data',
                     width: 850,
                     height: 790,
-                    time: '2021-10-01',
-                    zoom: 6.0,
-                    center: [3.8, 42.3],
+                    zoom: 6.5,
+                    center: [0.1, 38.0],
                   });
                 </script>
                 <center>
-                  <img 
-                    width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png" 
-                    alt="Legend Not Found" 
-                  />
+                   <img 
+                      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png" 
+                      alt="Legend Not Found" 
+                   />
                 </center>
 
 

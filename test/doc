@@ -1,0 +1,32 @@
+
+  <div id="ewx-map-h4vbt36xss"></div>
+
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'ewx-map-h4vbt36xss',
+      dataset: 'CHIRPS',
+      subDataset: 'chirps',
+      region: 'global',
+      periodicity: '1-month',
+      forecastPeriod: '15day',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 750,
+      height: 750,
+      time: ‘Not implemented’,
+      zoom: 6.8,
+      center: [-19.0, 29.15],
+    });
+  </script>
+
+  <!-- Legend image -->
+
+  <center> <img
+     src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+     alt="Legend Not Found" />
+  </center>
+

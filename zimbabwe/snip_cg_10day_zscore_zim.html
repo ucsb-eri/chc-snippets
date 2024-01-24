@@ -24,7 +24,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 10-day anomaly</title>
+  <title>C-G 10-day Z-score</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -181,10 +181,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                 <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
                 application on your own webpage.
 
-                <h2>Example</h2>
+                <h2>Eample</h2>
 
                 <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 10-day anomaly</b> data set.</p>
+                CHIRPS-GEFs</a> 10-day Z-score </b>data set.</p>
 
                 <br>
 
@@ -219,19 +219,19 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                     period: 'latest',
                     showDekadControl: true,
                     showYearControl: true,
-                    units: 'mm',
-                    statistic: 'anomaly',
+                    units: '',
+                    statistic: 'zscore',
                     width: 850,
                     height: 790,
                     time: '2021-10-01',
-                    zoom: 6.0,
-                    center: [3.8, 42.3],
+                    zoom: 7.0,
+                    center: [-19.0, 29.0],
                   });
                 </script>
                 <center>
                   <img 
                     width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png" 
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_zscore_raster.png" 
                     alt="Legend Not Found" 
                   />
                 </center>

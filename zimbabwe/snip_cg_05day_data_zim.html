@@ -24,7 +24,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 10-day anomaly</title>
+  <title>C-G 5-day data</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -183,9 +183,6 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
 
                 <h2>Example</h2>
 
-                <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 10-day anomaly</b> data set.</p>
-
                 <br>
 
                 <b> CHIRPS-compatible GEFS precipitation forecasts for anticipating flood and drought hazards (CHIRPS-GEFS): </b>
@@ -199,9 +196,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                 <br>
                 <br>
 
-                <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"></script>
+                <b><p>Below is an example of a Snippet map highlighting Zimbabwe with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
+                CHIRPS-GEFs</a> 5-day data </b>set.</p></b>
 
-					      <div id="ewx-map-h4vbt36xss"></div>
+                <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+
+		<div id="ewx-map-h4vbt36xss"></div>
 
                 <br>
                 <br>
@@ -215,23 +215,23 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                     subDataset: 'chirps_gefs',
                     region: 'global',
                     periodicity: '1-day',
-                    forecastPeriod: '10day',
+                    forecastPeriod: '05day',
                     period: 'latest',
                     showDekadControl: true,
                     showYearControl: true,
                     units: 'mm',
-                    statistic: 'anomaly',
-                    width: 850,
-                    height: 790,
+                    statistic: 'data',
+                    width: 800,
+                    height: 800,
                     time: '2021-10-01',
-                    zoom: 6.0,
-                    center: [3.8, 42.3],
+                    zoom: 7.0,
+                    center: [-19.0, 29.0],
                   });
                 </script>
                 <center>
                   <img 
                     width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png" 
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png" 
                     alt="Legend Not Found" 
                   />
                 </center>

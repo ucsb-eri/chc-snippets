@@ -235,6 +235,7 @@ var EwxMapG5 = function(configuration) {
         console.log('data item META: ', ewx_config.ARC2[dataItemName]);
 
         layerName = 'EWX_' + dataItemName + ':' + dataItemName;
+console.log("dataItemName: ", dataItemName);
         _this.config.start_date = _ewx_config[dataItemName].end.granule_start;
         _this.config.start_date_arr = _this.config.start_date.split("-");
         console.log('layerName: ', layerName);

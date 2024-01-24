@@ -24,7 +24,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 10-day anomaly</title>
+  <title>C-G 5-day Anomaly E. Africa</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -163,45 +163,48 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                                             <div class="field-item even">
 
 
-						    <h2>Introduction:</h2>
+                <h2>Introduction:</h2>
 
-						    <p>Snippets are easy-to-embed interactive maps of Geospatial Data. Snippets access the Climate Hazards Center
+                <p>Snippets are easy-to-embed interactive maps of Geospatial Data. Snippets access the Climate Hazards Center
                 Geospatial Data Store-most commonly used in the <a href="https://chc.ucsb.edu/tools/ewx">Early Warning eXplorer</a>.
                 The CHC maintains <a href="https://data.chc.ucsb.edu/">extensive data stores</a> that can be easily accessed and
                 regularly updated. </p>
-						    <br>
+                <br>
 
-						    <p>The Climate Hazards Center, as a part of <a href="https://fews.net/">FEWS NET</a>, has vast information stored
+                <p>The Climate Hazards Center, as a part of <a href="https://fews.net/">FEWS NET</a>, has vast information stored
                 in the GeoEngine and Early Warning eXplorer. And yet, the most important decisions are local. The Snippets were
                 developed to allow national, meteorological, hydrological, and agricultural agencies to easily set up localized
                 web-mapping services. We hope that Snippets can help inform proactive decisions that enhance resilience.</p>
 
-						    <br>
+                <br>
 
                 <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
                 application on your own webpage.
 
-                <h2>Example</h2>
-
-                <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 10-day anomaly</b> data set.</p>
-
+                <br>
                 <br>
 
                 <b> CHIRPS-compatible GEFS precipitation forecasts for anticipating flood and drought hazards (CHIRPS-GEFS): </b>
                 <br>
-					      <p> CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (
+                CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (
                   <a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-ensemble-forecast">GEFS</a>)
                   version 12 precipitation forecasts made to be spatially compatible with Climate Hazards Center InfraRed
                   Precipitation with Stations (<a href="https://chc.ucsb.edu/data/chirps">CHIRPS</a>) data. The CHIRPS-GEFS
                   data set provides next 5-day to 15-day precipitation forecasts, updated daily, at a spatial resolution
-                  of ~5 km across the globe. </p>
+                  of ~5 km across the globe.
+
                 <br>
                 <br>
 
+                <h2>Example</h2>
+
+                <b><p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
+                CHIRPS-GEFs</a> 10-day anomaly</b> data set.</p></b>
+
+                <br>
                 <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"></script>
 
-					      <div id="ewx-map-h4vbt36xss"></div>
+                <div id="ewx-map-h4vbt36xss"></div>
 
                 <br>
                 <br>
@@ -220,7 +223,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                     showDekadControl: true,
                     showYearControl: true,
                     units: 'mm',
-                    statistic: 'anomaly',
+                    statistic: 'zscore',
                     width: 850,
                     height: 790,
                     time: '2021-10-01',
@@ -229,11 +232,11 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                   });
                 </script>
                 <center>
-                  <img 
+                <img
                     width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png" 
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_zscore_raster.png" 
                     alt="Legend Not Found" 
-                  />
+                /img>
                 </center>
 
 
