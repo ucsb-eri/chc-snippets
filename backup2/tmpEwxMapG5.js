@@ -87,7 +87,7 @@ var tmpEwxMapG5 = function(configuration) {
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "https://snippets.chc.ucsb.edu/styles.css"
+          href: "/styles.css"
           // xhref: "file:///Users/marty/Projects/EWX/snippets/Snippets/styles.css"
           // href: "styles.css" mfl
         }).appendTo("head");

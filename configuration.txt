@@ -4,11 +4,11 @@ Snippets are cofigured by adding the following lines to an HTML file.
 
 <!-- ========================= -->
 
-<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+<script type="text/javascript" src="/ewxmapG5.js"></script>
 
 or if you want to display Kenya wards:
 
-<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"></script>
+<script type="text/javascript" src="/ewxmapG5_ken_wards.js"></script>
 
   <div id="ewx-map-h4vbt36xss"></div>
 
@@ -44,7 +44,7 @@ or if you want to display Kenya wards:
 
 The following is a line by line description of the Snippet HTML code.
 
-<script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+<script type="text/javascript" src="/ewxmapG5.js"></script>
 
   This calls the Javascript code that builds the map. We usually use this script
   but we also have an ewxmapG5_ken_wards.js that also displays Kenyan ward boundaries
