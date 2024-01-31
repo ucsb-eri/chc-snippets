@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: grit-web01
     steps:
     - name: Check out code
       uses: actions/checkout@v3
