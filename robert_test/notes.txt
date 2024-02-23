@@ -1,0 +1,5 @@
+Things to do for the Snippets
+* get 2 & 3 month periodicity working
+* get Temp datasets to work
+* have configurator work for multiple dataset
+* get configurator pop-up to work

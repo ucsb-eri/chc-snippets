@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Config CHIRTS-ERA5 Tmax</title>
+    <link rel="stylesheet" href="configurator.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cantarell"/>
+    <link rel="stylesheet" href="fonts/webfontkit-20160329-183933/stylesheet.css" type="text/css" charset="utf-8"/>
+    <script type="text/javascript" src="ewxmapG5.js"></script>
+  </head>
+  <body>
+    <div class="center">
+      <div>
+        <div style="float: left;">
+          <div style="width: 590px;">
+            <h1>CHRITS ERA5 Snippet Configurator</h1>
+            <p>
+            </p>
+      <div class="clear-float"></div>
+      <hr/>
+
+    <p> Select Periodicity:
+        <select id="periodicity">
+          <option value="1-month">Monthly</option>
+          <option value="1-pentad">Pentadal</option>
+        </select>
+    </p>
+
+    <p> Select Statistic:
+        <select id="statistic">
+            <option value="data">Data</option>
+            <option value="anom">Anomaly</option>
+            <option value="zscore">Z-score</option>
+        </select>
+    </p>
+
+    <form>
+      <label  for="width">Width:</label><br>
+      <input type="text" id="width" name="width" value="500"><br>
+    </form>
+    <br>
+
+    <form>
+      <label for="height">Height:</label><br>
+      <input type="text" id="height" name="height" value="500">
+    </form>
+    <br>
+
+    <form>
+      <label for="zoom">zoom:</label><br>
+      <input type="text" id="zoom" name="zoom" value="6.0">
+    </form>
+    <br>
+
+    <form>
+      <label for="longitude">Center longitude:</label><br>
+      <input type="text" id="longitude" name="longitude" value="29.15">
+    </form>
+    <br>
+
+    <form>
+      <label for="latitude">Center latitude:</label><br>
+      <input type="text" id="latitude" name="latitude" value="-19.0">
+    </form>
+
+    <br>
+    <br>
+    <button onclick="getOptions()"> Create Configuration </button>
+    <br>
+
+
+<br>
+<A HREF="/working/snip_chirps_monthly_data.html" onClick="return popup(this, 'notes')">View Snippet</A>
+<br>
+<br>
+
+<!-- <button onclick="location.href='https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';">View Snippet></button> -->
+<button onclick="displaySnippet()">View Snippet</button>
+
+<p id="demo"></p>
+<p id="html_demo"></p>
+
+<br>
+
+
+<script type="text/javascript">
+  //const fs = require('fs');
+  //let txt = "mmm";
+
+
+  function getOptions() {
+    element = document.querySelector('#periodicity');
+    periodicity = element.value;
+
+    element = document.querySelector('#statistic');
+    statistic = element.value;
+	
+    element = document.querySelector('#width');
+    width = element.value;
+	
+    element = document.querySelector('#height');
+    height = element.value;
+	
+    element = document.querySelector('#zoom');
+    zoom = element.value;
+	
+    element = document.querySelector('#latitude');
+    latitude = element.value;
+	
+    element = document.querySelector('#longitude');
+    longitude = element.value;
+
+    // chirts-era5tmax_global_1_monthly_data
+    // chirts-era5tmax_global_1_monthly_anom
+    // chirts-era5tmax_global_pentad_data
+
+	  // https://chc-ewx3.chc.ucsb.edu:8443/geoserver/wms?... 
+    // LAYERS=EWX_chirts-era5tmax_global_1_monthly_data:chirts-era5tmax_global_1_monthly_data
+    // sonLayerId=chirtsera5maxAfricaData1Monthly&
+    // STYLES=ir_temp_data&
+    // TIME=2024-01-01
+
+    let txt = "&lt!DOCTYPE html&gt" + "<br>";
+    txt += "&lthtml&gt" + "<br><br>";
+    txt += "&nbsp;&nbsp;&lthead&gt" + "<br>";
+    txt += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTester&lt/title&gt' + "<br>";
+    txt += "&nbsp;&nbsp;&lt/head&gt" + "<br><br>";
+    txt += "&ltbody&gt" + "<br><br>";
+    txt += '&nbsp;&nbsp;&ltscript src="https://snippets.chc.ucsb.edu/ewxmapG5_test.js"&gt&lt/script&gt' + "<br>";
+    txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
+    txt += "<br>";
+    txt += '&nbsp;&nbsp;&ltscript type="text/javascript"&gt' + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRTSERA5', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirts-era5tmax', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'C', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: '" + statistic + "', " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: " + width + ", " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: " + height + ", " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: " + zoom + ", " + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [" + latitude + ", " + longitude + "]," + "<br>";
+    txt += "&nbsp;&nbsp;});" + "<br>";
+    txt += "&nbsp;&nbsp;&lt/script&gt" + "<br>";
+    txt += "<br>";
+    txt += "&lt/body&gt" + "<br>";
+    txt += "&lt/html&gt" + "<br>";
+    txt += "<br>";
+    txt += "<br>";
+
+    //html_txt = txt;
+    
+    document.getElementById("demo").innerHTML = txt;
+
+    //fs.writeFileSync("results.txt", txt)
+  }
+
+
+  function displaySnippet() {
+    console.log('in displaySnippet');
+    //document.getElementById("demo").innerHTML = 'https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';
+    //document.getElementById("html_demo").innerHTML = txt;
+    var newWindow = window.open();
+    //var htxt="ohaio";
+    //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
+
+    //var htxt=txt;
+    newWindow.document.write("!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='https://snippets.chc.ucsb.edu/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br><br>&lt!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='https://snippets.chc.ucsb.edu/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br>");
+  }
+
+</script>
+
+  </body>
+</html>

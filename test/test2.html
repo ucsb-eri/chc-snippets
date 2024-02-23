@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Snippets Page</title>
-  </head>
-  <body>
-    <div id="ewx-map-4b42nl2le9"></div>
-    <script src="http://m03.chc.ucsb.edu/ewxmap/ewxmap.js"></script>
-    <script>
-    new EwxMap({
-      ewxUrl: 'https://chc-ewx2.chc.ucsb.edu:8443',
-      id: 'ewx-map-4b42nl2le9',
-      dataset: 'chirps',
-      region: 'africa',
-      periodicity: '1-dekad',
+<script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'snippet-51m08f05l65',
+      dataset: 'CHIRPSGEFS',
+      subDataset: 'chirps_gefs',
+      region: 'global',
+      periodicity: '1-day',
+      forecastPeriod: '15day',
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
       units: 'mm',
       statistic: 'data',
-      width: 427,
-      height: 455,
-      zoom: 3,
-      center: [1.5, 17.0],
+      width: 850,
+      height: 790,
+      time: '2021-10-01',
+      zoom: 6.0,
+      center: [3.8, 42.3],
     });
-    </script>
-  </body>
-</html>
+  </script>

@@ -57,7 +57,7 @@ var EwxMapG5 = function(configuration) {
     var _this = this;
     if (window.jQuery === undefined) {
       console.log('in window undefined...');
-      _this.loadScript('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', _this.loadAssets, _this.loadEwxConfig);
+      _this.loadScript('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', _this.loadAssets, _this.loadEwxConfig);
     } else {
       console.log('in window defined...');
       _this.loadAssets(_this.loadEwxConfig);
@@ -87,7 +87,7 @@ var EwxMapG5 = function(configuration) {
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "/styles.css"
+          href: "https://snippets.chc.ucsb.edu/styles.css"
           // xhref: "file:///Users/marty/Projects/EWX/snippets/Snippets/styles.css"
           // href: "styles.css" mfl
         }).appendTo("head");
@@ -124,12 +124,12 @@ var EwxMapG5 = function(configuration) {
       baseUrl = a.protocol + '//' + a.hostname + ':' + a.port;
       ewxUrlPath = a.pathname;
 
-      console.log('baseUrl: ', baseUrl);
+      console.log('in showTimeNave, baseUrl: ', baseUrl);
 
 
       geoengineUrl = a.protocol + "//" + a.hostname;
       var temporalConfigUrl = 'https://chc-ewx2.chc.ucsb.edu:8919' + '/rest/dataset/' + _this.config.dataset + '/region/' + _this.config.region + '/periodicity/' + _this.config.periodicity + '/statistic/' + _this.config.statistic + '?listCoverages=true';
-      // var temporalConfigUrl = geoengineUrl + '/api/rest/version/5.0/config';
+      var temporalConfigUrl = geoengineUrl + '/api/rest/version/5.0/config';
       console.log('temporalConfigURL: ', temporalConfigUrl);
       $.ajax({
         url: temporalConfigUrl,
@@ -168,7 +168,7 @@ var EwxMapG5 = function(configuration) {
     console.log('in loadEwxConfig...');
 
     baseUrl = this.config.ewxUrl;
-    console.log('baseUrl: ', baseUrl);
+    console.log('loadEwxConfig, baseUrl: ', baseUrl);
 
     // I don't think this a variable is used
     var a = $('<a>', {
@@ -294,7 +294,7 @@ console.log("dataItemName: ", dataItemName);
     var title = this.calculateTitle();
     console.log('Title: ', title);
     baseUrl = baseUrl + "8443"
-    console.log('baseUrl: ', baseUrl);
+    console.log('createMap, baseUrl: ', baseUrl);
 
     if (title) {
       var outerDiv = $('<div class="map-container"></div>').css('width', (this.config.width) + 'px').css('height', (this.config.height + 24) + 'px');
@@ -319,12 +319,14 @@ console.log("dataItemName: ", dataItemName);
     rootNode.css('border-right', '1px solid gray');
     rootNode.css('border-bottom', '1px solid gray');
 
+    console.log('load Leaflet...');
     var map = L.map(this.config.id, {  // L is leaflet so this creates a leaflet map object
       center: this.config.center,
       zoom: this.config.zoom,
       attributionControl: false
     });
     this.map = map;
+    console.log('loaded Leaflet...');
 
     console.log('creating mapLayer with TIME=', wmstTime);
     var mapLayer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
@@ -857,7 +859,7 @@ console.log("dataItemName: ", dataItemName);
       //var timeString = this.config.start_date;
       var periodicity = this.config.periodicity;
 
-      console.log("in calculateTitle, timeString: ", timeString);
+      console.log("inx calculateTitle, timeString: ", timeString);
 /*
       if (periodicity == '1-month' || periodicity == '2-month' || periodicity == '3-month') {
         timeString += ' ' + monthNumberToName(this.config.period.temporal1);
