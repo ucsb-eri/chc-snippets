@@ -1,99 +1,41 @@
-EWX:
-https://chc-ewx3.chc.ucsb.edu:8443/geoserver/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&
-FORMAT=image/png&TRANSPARENT=true&
-LAYERS=EWX_chirps_global_1_monthly_data:chirps_global_1_monthly_data&
-TILED=true&SRS=EPSG:3857&jsonLayerId=chirpsAfricaData1Monthly&
-STYLES=precip_monthly_data_raster&
-TIME=2023-11-01&WIDTH=256&HEIGHT=256&CRS=EPSG:3857&
-
-Dekad:
-https://chc-ewx3.chc.ucsb.edu:8443/geoserver/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&
-FORMAT=image/png&TRANSPARENT=true&
-LAYERS=EWX_chirps_global_dekad_data:chirps_global_dekad_data&
-TILED=true&SRS=EPSG:3857&jsonLayerId=chirpsAfricaDataDekadal&
-STYLES=precip_dekad_data_raster&
-TIME=2023-11-01&WIDTH=256&HEIGHT=256&CRS=EPSG:3857
-
-EWX CHIRPS global monthly
-https://chc-ewx3.chc.ucsb.edu:8443/geoserver/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&
-FORMAT=image/png&TRANSPARENT=true&
-LAYERS=EWX_chirps_global_1_monthly_data:chirps_global_1_monthly_data&
-TILED=true&SRS=EPSG:3857&jsonLayerId=chirpsGlobalData1Monthly&
-STYLES=precip_monthly_data_raster&
-TIME=2023-10-01&WIDTH=256&HEIGHT=256&CRS=EPSG:3857&
-
-From Snippet, monthly:
-https://ewx3.chc.ucsb.edu:8443/geoserver/wms?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.0&
-LAYERS=EWX_chirps_global_1_monthly_data:chirps_global_1_monthly_data&
-STYLES=&FORMAT=image/png&TRANSPARENT=true&HEIGHT=256&WIDTH=256&
-TIME=2023-12-01&SRS=EPSG:3857
+Legend?
+https://dmsdata.cr.usgs.gov/geoserver/gwc/service/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER=fews_chirps_global_pentad_data:chirps_global_pentad_data&SCALE=40483992.68881473&STYLE=fews_chirps_pentad_data_raster_ngviewer_legend&WIDTH=20&HEIGHT=17&LEGEND_OPTIONS=fontStyle:normal;fontColor:000000;fontSize:13;absoluteMargins:true;labelMargin:5;dx:10;dy:0.2;mx:0.2;my:0.2
 
 
-myurl... https://chc-ewx3.chc.ucsb.edu/api/rest/version/5.0/config
+https://dmsdata.cr.usgs.gov/geoserver/gwc/service/wms
+REQUEST=GetMap&SERVICE=WMS&VERSION=1.3.0&FORMAT=image/png&
+STYLES=fews_chirps_month_data_raster_ngviewer&TRANSPARENT=true&LAYERS=fews_chirps_global_month_data:chirps_global_month_data&
+TILED=true&SRS=EPSG:3857&jsonLayerId=africaChirpsMonthlyData&
+TIME=2024-01-01
 
-=========== Snippets Talk ==================
+tester
+https://earlywarning.usgs.gov:8443/geoserver/wms?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.0&LAYERS=EWX_chirps_global_1_monthly_data%3Achirps_global_month_data&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=true&HEIGHT=256&WIDTH=256&TIME=2024-01-01&SRS=EPSG%3A3857&BBOX=-17532819.799940586,-7.081154551613622e-10,-15028131.257091932,2504688.5428486555
 
-Snippets are a way of esentially embedding an EWX map window in any web page.
+eros
+https://dmsdata.cr.usgs.gov/geoserver/gwc/service/wms?REQUEST=GetMap&SERVICE=WMS&VERSION=1.3.0&FORMAT=image%2Fpng&STYLES=fews_chirps_month_data_raster_ngviewer&TRANSPARENT=true&LAYERS=fews_chirps_global_month_data%3Achirps_global_month_data&TILED=true&SRS=EPSG%3A3857&jsonLayerId=africaChirpsMonthlyData&TIME=2024-01-01&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX=5009377.085697312%2C1878516.4071364924%2C5635549.221409475%2C2504688.5428486564
 
-Snippets can display any of the datasets that are available in our EWX
+https://dmsdata.cr.usgs.gov/geoserver/gwc/service/wms?REQUEST=GetMap&SERVICE=WMS&VERSION=1.3.0&FORMAT=image%2Fpng&STYLES=fews_chirps_month_data_raster_ngviewer&TRANSPARENT=true&LAYERS=fews_chirps_global_month_data%3Achirps_global_month_data&TILED=true&SRS=EPSG%3A3857&jsonLayerId=africaChirpsMonthlyData&TIME=2024-01-01&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX=5009377.085697312%2C1878516.4071364924%2C5635549.221409475%2C2504688.5428486564
 
-With modification, other EWX installations can be used.
 
-Viewers can pan and zoom the maps and change dates to view historical data.
+Swank, mysql, root, Swanky8
+Swank, mysql, ewx, mypasswd
+Swank, geoserver, admin, geoserver
+CHG2, animator, LiPeJo1
+Skype, mlandsfeld, Wingsrule51
 
-----
-
-The web developer only needs to add a few lines of Javascript code to an HTML page to install.
-
-Download the JS contoller...
-<script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
-
-Add a div tag to place the Snippet on the web page
-<div id="snippet-m08f05L58"></div>
-
-Add the configuration code to focus the Snippet on the ROI
-<script> type="text/javascript"
-  new EwxMapG5({
-    ewxUrl: src='https://ewx3.chc.ucsb.edu/ewx',
-    id: 'snippet-m08f05L58',
-    dataset: 'CHIRPS',
-    subDataset: 'chirps',
-    region: 'global',
-    periodicity: 'dekad',
-    period: 'latest',
-    showDekadControl: 'true',
-    showYearControl: 'true',
-    units: 'mm',
-    statistic: 'data',
-    width: 800,
-    height: 600,
-    zoom: 5.5,
-    center: [3.8, 42.3],
-  });
-  </script>
-
-The use can modifiy and install this code by using our Configuration Documentation
-  https://snippets.chc.ucsb.edu/configuration.html
-  
-  Which describes all the parameters of the configuratio 
-  Or...
-
-  ----
-
-  Snippets Configurator
-
-  We are developing Configurators specific for each dataset:
-    CHIRPS
-    CHIRPS-GEFS
-    LST
-     CHIRPTS-ERA5
-    CHIRPS 3.2
-    CHIMES
-    NDVI (from EROS)
-
-    For CHIRPS:
-      https://snippets.chc.ucsb.edu/configurator_chirps.html
-
-    Enter your options and select the Create Config button and you have the code to put in your HTML
-
-    Comming soon... a function to create a popup window to view the results
+Microsoft Visual Studio, marty.landsfeld@ucsb.edu, Wingsrule1
+Shinyapps, marty.landsfeld@ucsb.edu, crazy diamond
+Slack, mlandsfeld@gmail.com, wingsrule
+Kanbanflow.com mlandsfeld@gmail.com, wingsrule
+CNSI mlandsfeld@knot.cnsi.ucsb.edu pw=CHG PW
+jacana, postgres, Postgr3s
+ICESS email, marty, 73-pp-m8
+CUASHI Hydrologic group, mlandsfeld, Moh2OzvKrXt$
+Software Depot lauralhess Zoot2suiT
+Software Depot, satchm0, Wingsrule1
+Manifold Community, mlandsfeld, manifoldrules
+UCSB Net ID, satchm0, Wingsrule51,  secret word: alabaster
+atyourserviceonline.ucop.edu, mlandsfeld, studaBubba67!, security word, satchm0, dream car mustang
+retirementatyourservice.ucop.edu mlandsfeld studaBubba67!  https://retirementatyourservice.ucop.edu/UCRAYS/Account/LoginEretirementatyourservice.ucop.edu mlandsfeld studaBubba67!  https://retirementatyourservice.ucop.edu/UCRAYS/Account/LoginEretirementatyourservice.ucop.edu mlandsfeld studaBubba67!  https://retirementatyourservice.ucop.edu/UCRAYS/Account/LoginE
+Fidelity retirement benefits  mlandsfeld51 Zoot2suit..
+Social Security account mlandsfeld@gmail.com Wingsrule51!reentry number  19258711

@@ -105,7 +105,7 @@
     txt += "&nbsp;&nbsp;&lt/head&gt" + "<br>";
     txt += "&ltbody&gt" + "<br>";
     txt += '&nbsp;&nbsp;&lt/div id="snippet-m08f05L58&gt&lt/div&gt"' + "<br>";
-    txt += '&nbsp;&nbsp;&ltscript src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"&gt&lt/script&gt' + "<br>";
+    txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5_ken_wards.js"&gt&lt/script&gt' + "<br>";
     txt += "<br>";
     txt += '&nbsp;&nbsp;&ltscript&gt type="text/javascript"' + "<br>";
     txt += "&nbsp;&nbsp;new EwxMapG5({" + "<br>";
@@ -182,7 +182,7 @@
         <table class="code-table">
           <tbody>
             <tr>
-              <td class="code-view-code-cell">&lt;script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"&gt;&lt;/script&gt;</td>
+              <td class="code-view-code-cell">&lt;script src="/ewxmapG5.js"&gt;&lt;/script&gt;</td>
               <td  class="code-view-code-cell">&lt<td id="ewx-map-h4vbt36xss"></td>
             </tr>
           </tbody>
@@ -196,7 +196,7 @@
         <table class="code-table">
           <tbody>
             <tr>
-              <td class="code-view-code-cell">&lt;script src="https://snippets.chc.ucsb.edu/ewxmapG5_ken_wards.js"&gt;&lt;/script&gt;</td>
+              <td class="code-view-code-cell">&lt;script src="/ewxmapG5_ken_wards.js"&gt;&lt;/script&gt;</td>
             </tr>
           </tbody>
         </table>
@@ -251,7 +251,7 @@
               <td class="code-view-code-cell"></td>
             </tr>
             <tr>
-              <td class="code-view-code-cell">&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src=&quot;https://snippets.chc.ucsb.edu/ewxmapG5.js&quot;&gt;&lt;/script&gt;</td> 
+              <td class="code-view-code-cell">&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src=&quot;/ewxmapG5.js&quot;&gt;&lt;/script&gt;</td> 
             </tr>
             <tr>
               <td class="code-view-code-cell">&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;</td>
@@ -339,7 +339,7 @@
         <table class="code-table">
           <tbody>
             <tr>
-              <td class="code-view-code-cell">&lt;script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"&gt;&lt;/script&gt;</td>
+              <td class="code-view-code-cell">&lt;script src="/ewxmapG5.js"&gt;&lt;/script&gt;</td>
             </tr>
           </tbody>
         </table>

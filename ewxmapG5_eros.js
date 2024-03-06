@@ -2,7 +2,7 @@ var EwxMapG5 = function(configuration) {
 
   this.config = configuration;
   var subDataset = this.config.subDataset;
-  console.log("subDataset; ", subDataset);
+  console.log("periodicity; ", this.config.periodicity);
 
   this.config.period = this.config.period ? this.config.period : 'latest';
   var latest = this.config.period == 'latest';
@@ -16,7 +16,7 @@ var EwxMapG5 = function(configuration) {
 
   if (this.config.periodicity === '1-dekad') {
     this.config.period.temporal1 = padDateNumber(((this.config.period.month - 1) * 3) + this.config.period.dekad);
-  } else if (this.config.periodicity === '1-month' || this.config.periodicity === '2-month' || this.config.periodicity === '3-month') {
+  } else if (this.config.periodicity === 'month' || this.config.periodicity === '2-month' || this.config.periodicity === '3-month') {
     this.config.period.temporal1 = padDateNumber(this.config.period.month);
   } else if (this.config.periodicity === '1-pentad') {
     this.config.period.temporal1 = padDateNumber(((this.config.period.month - 1) * 6) + this.config.period.pentad);
@@ -57,7 +57,7 @@ var EwxMapG5 = function(configuration) {
     var _this = this;
     if (window.jQuery === undefined) {
       console.log('in window undefined...');
-      _this.loadScript('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', _this.loadAssets, _this.loadEwxConfig);
+      _this.loadScript('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', _this.loadAssets, _this.loadEwxConfig);
     } else {
       console.log('in window defined...');
       _this.loadAssets(_this.loadEwxConfig);
@@ -101,7 +101,7 @@ var EwxMapG5 = function(configuration) {
           if (done) done.call(_this, _this.loadEwxConfig);
         });
       } else {
-        console.log('in window.L === undefined else...');
+        console.log('in window.L NOT === undefined else...');
 
         if (done) done.call(_this, _this.loadEwxConfig);
       }
@@ -186,7 +186,8 @@ var EwxMapG5 = function(configuration) {
     //var myurl = 'https://chc-ewx2.chc.ucsb.edu:8919' + '/rest/dataset/' + _this.config.dataset + '/region/' + _this.config.region +
     //  '/periodicity/' + _this.config.periodicity + '/statistic/' + _this.config.statistic + '/latest'
 
-    var myurl = 'https://chc-ewx3.chc.ucsb.edu/api/rest/version/5.0/config'
+    // var myurl = 'https://chc-ewx3.chc.ucsb.edu/api/rest/version/5.0/config'
+    var myurl = 'https://edcintl.cr.usgs.gov/geoengine5/rest/version/5.0/config'
 
 
     console.log('congif url: ', myurl);
@@ -198,6 +199,7 @@ var EwxMapG5 = function(configuration) {
 
     if (this.config.period == 'latest') {
       console.log('in latest...');
+      console.log('myurl...', myurl);
 
       $.ajax({
         url: myurl,
@@ -205,6 +207,7 @@ var EwxMapG5 = function(configuration) {
         jsonp: "callback",
         dataType: "jsonp"
       }).done(function(data) {
+        console.log('in done...');
 
         ewx_config = data;
         console.log('ewx_config: ', ewx_config);
@@ -219,29 +222,41 @@ var EwxMapG5 = function(configuration) {
         console.log('_ewx_config: ', _ewx_config);
 
         var periodicity;
-        if (_this.config.periodicity == '1-month') {
-          periodicity = '1_monthly';
+        if (_this.config.periodicity == 'month') {
+          periodicity = 'month';
+        }
+        if (_this.config.periodicity == '1-pentad') { //mfl
+          periodicity = 'pentad';
+        }
+        if (_this.config.periodicity == 'dekad') { //mfl
+          periodicity = 'dekad';
         }
         if (_this.config.periodicity == '1-day') {
-          periodicity = _this.config.forecast_period ;
+          periodicity = _this.config.forecastPeriod ;
         }
 
         dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + periodicity + '_' + _this.config.statistic;
+        
         if (_this.config.periodicity === '1-day') {
           console.log('in 1-day periodicity...')
-          dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + _this.config.forecast_period + '_' + _this.config.statistic;
+          dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + _this.config.forecastPeriod + '_' + _this.config.statistic;
         }
-        console.log('dataItemName: ', dataItemName);
-        console.log('data item META: ', ewx_config.ARC2[dataItemName]);
+        console.log('dataItemNamex: ', dataItemName);
+        //console.log('dataset config: ', ewx_config.dataset[dataItemName]);
 
-        layerName = 'EWX_' + dataItemName + ':' + dataItemName;
+        layerName = 'fews_' + dataItemName + ':' + dataItemName;
         _this.config.start_date = _ewx_config[dataItemName].end.granule_start;
         _this.config.start_date_arr = _this.config.start_date.split("-");
+        console.log('start_date: ', _this.config.start_date);
         console.log('layerName: ', layerName);
 
         //_this.config.period = data.data.regions[0].periodicities[0].statistics[0].end;
 
-        if (_this.config.periodicity === '1-dekad') {
+        // MFL All the following need to calc a wmstTime **********
+
+        if (_this.config.periodicity === 'dekad') {
+          wmstTime = _ewx_config[dataItemName].end.granule_start;
+          console.log('in loadEwxConfig, wmstTime: ', wmstTime);
           _this.config.temporal1 = _this.config.period.dekad;
           _this.config.period.temporal1 = _this.config.period.dekad;
         } else if (_this.config.periodicity === '1-day') {
@@ -250,6 +265,8 @@ var EwxMapG5 = function(configuration) {
           _this.config.temporal1 = _this.config.period.day;
           _this.config.period.temporal1 = _this.config.period.day;
         } else if (_this.config.periodicity === '1-pentad') {
+          wmstTime = _ewx_config[dataItemName].end.granule_start;
+          console.log('in loadEwxConfig, wmstTime: ', wmstTime);
           _this.config.temporal1 = _this.config.period.period;
           _this.config.period.temporal1 = _this.config.period.pentad;
         } else {
@@ -292,7 +309,7 @@ var EwxMapG5 = function(configuration) {
     var rootNode = $('#' + this.config.id); //rootNode is an HTML element with the matching id
     var title = this.calculateTitle();
     console.log('Title: ', title);
-    baseUrl = baseUrl + "8443"
+    //baseUrl = baseUrl + "8443" // EROS needs no port #
     console.log('baseUrl: ', baseUrl);
 
     if (title) {
@@ -336,6 +353,7 @@ var EwxMapG5 = function(configuration) {
     mapLayer.addTo(map);
     this.currentMapLayer = mapLayer;
 
+/*  EROS does not use country layer
     var g20080Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
       layers: "EWX_g2008_1:g2008_1",
       format: 'image/png',
@@ -344,9 +362,11 @@ var EwxMapG5 = function(configuration) {
     });
     g20080Layer.addTo(map);
     this.g20080Layer = g20080Layer;
+*/
 
     var g20081Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
-      layers: "EWX_g2008_0:g2008_0",
+      // layers: "EWX_g2008_0:g2008_0",
+      layers: "fews_shapefile_g2008_af_1:shapefile_g2008_af_1", //EROSv
       format: 'image/png',
       transparent: true,
       version: '1.1.0'
@@ -624,11 +644,15 @@ var EwxMapG5 = function(configuration) {
     }
 
     var _ewx_config = ewx_config[this.config.dataset];
+    console.log('_ewx_config', _ewx_config);
 
     timeArr = wmstTime.split("-");
     var year = Number(timeArr[0]);
     var month = Number(timeArr[1]);
     var day = Number(timeArr[2]);
+    var y = year;
+    var m = month;
+    var d = day;
 
     var startWmstTime = _ewx_config[dataItemName].start.granule_start
     console.log("start time: ", startWmstTime);
@@ -644,104 +668,171 @@ var EwxMapG5 = function(configuration) {
     var endMonth = Number(endTimeArr[1]);
     var endDay = Number(endTimeArr[2]);
 
+    const pentadStartDay = [1, 6, 11, 16, 21, 26];
+    const dekadStartDay = [1, 11, 21];
+    
     if (this.isLeapYear(year)) {
-      var nDaysMo = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366];
+      var nDaysMo = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     } else {
-      var nDaysMo = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
+      var nDaysMo = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     }
+
+    var startDoy = nDaysMo[startMonth - 1] + startDay;
+    var endDoy = nDaysMo[endMonth - 1] + endDay;
 
     var nextGeoServerName; // remove this when done with wmstTime
 
-    if ($(evt.target).hasClass('previous-year-button')) { //-------------
+    if ($(evt.target).hasClass('previous-year-button')) {
 
       console.log('in previous-year-button: ', dataItemName );
-      console.log('_ewx_config', _ewx_config)
-      var year = Number(timeArr[0]);
-      var newYear = year - 1;
-      var startWmstTime = _ewx_config[dataItemName].start.granule_start
-      var startTimeArr = startWmstTime.split("-");
-      var startYear = Number(startTimeArr[0]);
-      console.log('startYear: ', year, startYear);
-      if (newYear >= startYear) {
-        wmstTime = String(newYear) + '-' + timeArr[1] + '-' + timeArr[2];
-        console.log('wmstTime: ', wmstTime);
-      } else {
-        console.log('reached startYear, wmstTime: ', wmstTime);
-      }
+      y = y - 1;
 
-    } else if ($(evt.target).hasClass('next-year-button')) { //-----------
+    } else if ($(evt.target).hasClass('next-year-button')) {
 
       console.log('in next-year-button: ', dataItemName );
-      console.log('_ewx_config', _ewx_config)
-      var year = Number(timeArr[0]);
-      var newYear = year + 1;
-      console.log('startYear: ', year, startYear);
-      if (newYear >= startYear) {
-        wmstTime = String(newYear) + '-' + timeArr[1] + '-' + timeArr[2];
-        console.log('wmstTime: ', wmstTime);
-      } else {
-        console.log('reached startYear, wmstTime: ', wmstTime);
-      }
-      //nextGeoServerName = this.timeNavigator.getNextYearGeoServerName(dataItemName);
+      y = y + 1;
 
-      console.log('in next-year-button: ', dataItemName );
-      console.log('_ewx_config', _ewx_config)
-      var year = Number(timeArr[0]);
-      var newYear = year + 1;
-      var endWmstTime = _ewx_config[dataItemName].end.granule_start
-      console.log('year newYear endYear: ', year, newYear, endYear);
-
-      if (newYear < endYear+1) {
-        wmstTime = String(newYear) + '-' + timeArr[1] + '-' + timeArr[2];
-        console.log('wmstTime: ', wmstTime);
-      } else {
-        console.log('reached endYear, wmstTime: ', wmstTime);
-      }
-
-    } else if ($(evt.target).hasClass('previous-temporal1-button')) { //---------
+    } else if ($(evt.target).hasClass('previous-temporal1-button')) {
       console.log('in previous-temporal1-button: ', this );
 
-      var nextMonth = month - 1;
+      if (this.config.periodicity == 'month') {
+        m = m - 1;
 
-      if (nextMonth < 1) {
-        var nextYear = year - 1;
-
-        if (nextYear <= startYear && nextMonth < startMonth) {
-          return;
-        } else {
-          nextYear = String(year - 1);
-          nextMonth = "12";
-          wmstTime = nextYear + '-' + nextMonth + '-' + timeArr[2];
+        if (m < 1) {
+          y = y - 1;
+          m = 12;
+          //d = 31;
         }
+      } else if (this.config.periodicity == '1-day') {
+        console.log('in 1-day...');
+        d = d - 1;
 
-      } else {
-        nextMonth = String(month - 1).padStart(2, "0");
-        wmstTime = timeArr[0] + '-' + nextMonth + '-' + timeArr[2];
+        if (d < 1) {
+          m = m - 1;
+          if (m < 1 ) {
+            y = y - 1;
+            m = 12;
+            d = 31;
+          } else {
+            d = nDaysMo[m];
+          }
+        }
+      } else if (this.config.periodicity == '1-pentad') {
+        console.log('in 1-pentad...', d);
+        var dayIndex = pentadStartDay.indexOf(d);
+        dayIndex = dayIndex - 1;
+        console.log('dayIndex =.', dayIndex);
+
+        if (dayIndex < 0) {
+          d = pentadStartDay[5];
+          m = m - 1;
+          if (m < 1) {
+            y = y - 1;
+            m = 12;
+          }
+        } else {
+          d = pentadStartDay[dayIndex];
+        }
+      }  else if (this.config.periodicity == 'dekad') {
+        console.log('in dekad...', d);
+        var dayIndex = dekadStartDay.indexOf(d);
+        dayIndex = dayIndex - 1;
+        console.log('dayIndex =.', dayIndex);
+
+        if (dayIndex < 0) {
+          d = dekadStartDay[2];
+          m = m - 1;
+          if (m < 1) {
+            y = y - 1;
+            m = 12;
+          }
+        } else {
+          d = dekadStartDay[dayIndex];
+        }
+        console.log('day = ', d);
       }
-    console.log('exit prev temporal1...');
-
-    } else if ($(evt.target).hasClass('next-temporal1-button')) { //---------
+    }  else if ($(evt.target).hasClass('next-temporal1-button')) {
       console.log('in next-temporal1-button: ', this );
 
-      var nextMonth = month + 1;
+      if (this.config.periodicity == 'month') {
+        m = m + 1;
 
-      if (nextMonth > 12) {
-        var nextYear = year + 1;
-
-        if (nextYear >= endYear) {
-          return;
-        } else {
-          nextYear = String(year + 1);
-          nextMonth = "1";
-          wmstTime = nextYear + '-' + nextMonth + '-' + timeArr[2];
+        if (m > 12) {
+          y = y + 1;
+          m = 1;
+          //d = 1;
         }
+      } else if (this.config.periodicity == '1-day') {
+        console.log('in 1-day...');
+        d = d + 1;
 
-      } else {
-        nextMonth = String(month + 1).padStart(2, "0");
-        wmstTime = timeArr[0] + '-' + nextMonth + '-' + timeArr[2];
+        if (d > nDaysMo[m]) {
+          m = m + 1;
+          if (m > 12 ) {
+            y = y + 1;
+            m = 1;
+            d = 1;
+          } else {
+            d = 1;
+          }
+        }
+      } else if (this.config.periodicity == '1-pentad') {
+        console.log('in 1-pentad...', d);
+        var dayIndex = pentadStartDay.indexOf(d);
+        dayIndex = dayIndex + 1;
+        console.log('dayIndex =.', dayIndex);
+
+        if (dayIndex > 5) {
+          d = pentadStartDay[0];
+          m = m + 1;
+          if (m > 12) {
+            y = y + 1;
+            m = 1;
+          }
+        } else {
+          d = pentadStartDay[dayIndex];
+        }
+        console.log('day = ', d);
+      } else if (this.config.periodicity == 'dekad') {
+        console.log('in dekad...', d);
+        var dayIndex = dekadStartDay.indexOf(d);
+        dayIndex = dayIndex + 1;
+        console.log('dayIndex =.', dayIndex);
+
+        if (dayIndex > 2) {
+          d = dekadStartDay[0];
+          m = m + 1;
+          if (m > 12) {
+            y = y + 1;
+            m = 1;
+          }
+        } else {
+          d = dekadStartDay[dayIndex];
+        }
+        console.log('day = ', d);
       }
-    console.log('exit next temporal1...');
     }
+
+    var doy = nDaysMo[m - 1] + d;
+    var inBounds = true;
+
+    if (y < startYear || y > endYear) {
+      inBounds = false;
+    } else if (y == startYear && doy < startDoy) {
+      inBounds = false;
+    } else if (y == endYear && doy > endDoy){
+      inBounds = false;
+    }
+
+    if (inBounds) {
+      wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0")
+    }
+    
+   
+    //if ((y >= startYear && doy >= startDoy) && (y <= endYear && m <= endMonth)) {
+    //  wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0");
+    //  console.log('new wmstTime =.', wmstTime);
+    //}
 
     //if (!nextGeoServerName) {
     //  return;
@@ -803,10 +894,12 @@ var EwxMapG5 = function(configuration) {
     //  datePart + '_' + this.config.units + '_' + this.config.statistic;
 
   // mfl var geoserverUrl = a.protocol + "//" + a.hostname + ":8080";
+  /*
     var url_G5 = geoserverUrl + "/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=17&LAYER=" +
       layerName + "&LEGEND_OPTIONS=dx:10.0;dy:0.2;mx:0.2;my:0.2;fontStyle:normal;fontColor:000000;absoluteMargins:true;labelMargin:5;" +
       "fontSize:13&height=13"
     console.log('url_G5: ', url_G5);
+*/
 
     var url_eros = 'https://dmsdata.cr.usgs.gov/geoserver/gwc/service/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&' +
       'FORMAT=image/png&LAYER=fews_chirps_global_pentad_data:chirps_global_pentad_data&SCALE=40483992.68881473&' +
@@ -881,9 +974,12 @@ var EwxMapG5 = function(configuration) {
       timeString += ', ' + this.config.period.year;
 */
 
-        //title = periodicityDisplayName(periodicity) + ' ' +
-        title = this.config.forecast_period + ' ' +
-        capitaliseFirstLetter(this.config.region) + ' ' +
+        var periodDisName = periodicityDisplayName(periodicity);
+        if (this.config.periodicity == '1-day') {
+          var periodDisName = this.config.forecastPeriod;
+        }
+        title = periodDisName + ' ' +
+        // capitaliseFirstLetter(this.config.region) + ' ' +
         this.config.dataset.toUpperCase() + ' ' + timeString + ' ' +
         capitaliseFirstLetter(this.config.statistic);
       if (this.config.units && this.config.units != 'none') {
@@ -939,11 +1035,31 @@ var EwxMapG5 = function(configuration) {
     day = day - d[month - 1];
 
     return {
+      doy: doy
+    };
+  };
+
+  this.MonthAndDayToDoy = function(year, month, day) { //mfl
+
+    // need to make this able to cross the year boundary
+    if (this.isLeapYear(year)) {
+      d = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366];
+    } else {
+      d = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
+    }
+
+    doy = d[month - 1] + day 
+    month = 1;
+    while (day > d[month]) {
+      month++;
+    }
+    day = day - d[month - 1];
+
+    return {
       month: month,
       day: day
     };
   };
-
 
   this.loadScript = function(url, callback, done) {
     console.log('in loadScript...');
@@ -1241,11 +1357,11 @@ function monthNumberToName(num) {
 }
 
 var periodicityDisplayNames = {
-  '1-month': 'Monthly',
+  'month': 'Monthly',
   '2-month': 'Two Month',
   '3-month': 'Three Month',
-  '1-dekad': 'Dekadal',
-  '1-day': 'Daily', //this.config.forecast_period,
+  'dekad': 'Dekadal',
+  '1-day': 'Daily',
   '1-pentad': 'Pentadal'
 };
 

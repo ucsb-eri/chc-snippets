@@ -604,4 +604,4 @@ function EwxMapSnippetConfigurator(geoEngineUrl) {
   };
 }
 
-new EwxMapSnippetConfigurator('https://snippets.chc.ucsb.edu/configurator.html'); //mfl
+new EwxMapSnippetConfigurator('/configurator.html'); //mfl

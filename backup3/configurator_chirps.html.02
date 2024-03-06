@@ -80,7 +80,7 @@
 <br>
 <br>
 
-<button onclick="location.href='https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';">View Snippet></button>
+<button onclick="location.href='/working/snip_chirps_monthly_data.html';">View Snippet></button>
 <!-- <button onclick="displaySnippet()">View Snippet></button>-->
 
 <p id="demo"></p>
@@ -88,7 +88,7 @@
 <br>
 <script>
   function displaySnippet() {
-  document.getElementById("demo").innerHTML = 'https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';
+  document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
 }
 </script>
 
@@ -97,8 +97,8 @@
   let txt = "";
 
   function displaySnippet() {
-    document.getElementById("demo").innerHTML = 'https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';
-    document.getElementById("demo").innerHTML = 'https://snippets.chc.ucsb.edu/working/snip_chirps_monthly_data.html';
+    document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
+    document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
   }
 
   function getOptions() {
@@ -129,7 +129,7 @@
     txt += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt' + "<br>";
     txt += "&nbsp;&nbsp;&lt/head&gt" + "<br><br>";
     txt += "&ltbody&gt" + "<br><br>";
-    txt += '&nbsp;&nbsp;&ltscript src="https://snippets.chc.ucsb.edu/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
+    txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
     txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
     txt += "<br>";
     txt += '&nbsp;&nbsp;&ltscript type="text/javascript"&gt' + "<br>";

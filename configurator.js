@@ -686,5 +686,5 @@ function EwxMapSnippetConfigurator(geoEngineUrl) {
   };
 }
 
-new EwxMapSnippetConfigurator('https://snippets.chc.ucsb.edu:configurator.html');
+new EwxMapSnippetConfigurator(':configurator.html');
 //new EwxMapSnippetConfigurator('https://chc-ewx2.chc.ucsb.edu:8919');
