@@ -28,3 +28,4 @@ jobs:
         git remote add dokku dokku@grit-web02.grit.ucsb.edu:chc-snippets || git remote set-url dokku dokku@grit-web02.grit.ucsb.edu:chc-snippets
         git push dokku +main
       working-directory: ./
+#testing
