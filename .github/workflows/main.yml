@@ -10,9 +10,7 @@ jobs:
     runs-on: grit-web01
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      uses: actions/checkout@v4
 
     - name: Set up SSH
       run: |
