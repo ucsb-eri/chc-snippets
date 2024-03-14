@@ -18,6 +18,9 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
+    - name: Unlock Dokku app (if locked)
+      run: |
+        ssh -o StrictHostKeyChecking=no dokku@grit-web02.grit.ucsb.edu dokku apps:unlock spatial || echo "App not locked or unlock failed, proceeding..."
 
     - name: Deploy to Dokku
       run: |
