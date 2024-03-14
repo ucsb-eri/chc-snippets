@@ -20,7 +20,7 @@ jobs:
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
     - name: Unlock Dokku app (if locked)
       run: |
-        ssh -o StrictHostKeyChecking=no dokku@grit-web02.grit.ucsb.edu dokku apps:unlock spatial || echo "App not locked or unlock failed, proceeding..."
+        ssh -o StrictHostKeyChecking=no dokku@grit-web02.grit.ucsb.edu dokku apps:unlock snippets || echo "App not locked or unlock failed, proceeding..."
 
     - name: Deploy to Dokku
       run: |
