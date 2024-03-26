@@ -119,7 +119,7 @@
     let txt = "&lt!DOCTYPE html&gt" + "<br>";
     txt += "&lthtml&gt" + "<br><br>";
     txt += "&nbsp;&nbsp;&lthead&gt" + "<br>";
-    txt += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest.html&lt/title&gt' + "<br>";
+    txt += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt' + "<br>";
     txt += "&nbsp;&nbsp;&lt/head&gt" + "<br><br>";
     txt += "&ltbody&gt" + "<br><br>";
     txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
@@ -151,6 +151,7 @@
     txt += "<br>";
     txt += "<br>";
 
+    //html_txt = txt;
     
     document.getElementById("demo").innerHTML = txt;
 
@@ -160,19 +161,14 @@
 
   function displaySnippet() {
     console.log('in displaySnippet');
-
-    var newWindow = window.open();
-
     //document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
     //document.getElementById("html_demo").innerHTML = txt;
+    var newWindow = window.open();
+    //var htxt="ohaio";
+    //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
 
-    // this works but it is a long way  from the whole snippet page...
-    newWindow.document.write('<html><head><title>Test3</title></head><body>Snip...<br>&nbsp;&nbspthis...</body></html>');
-
-    // it seems that this would be the easiest and simplest approach but...
-    // newWindow.document.write(txt);
-
-    // newWindow.document.write("!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br><br>&lt!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br>");
+    //var htxt=txt;
+    newWindow.document.write("!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br><br>&lt!DOCTYPE html&gt<br>&lthtml&gt<br><br>&nbsp;&nbsp;&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTest3&lt/title&gt<br>&nbsp;&nbsp;&lt/head&gt<br><br>&ltbody&gt<br><br>&nbsp;&nbsp;&ltscript src='/ewxmapG5.js'&gt&lt/script&gt<br>&nbsp;&nbsp;&ltdiv id='snippet-m08f05L58'&gt&lt/div&gt<br><br>&nbsp;&nbsp;&ltscript type='text/javascript'&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: 'data', <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 500, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 6.0, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [-19.0, 29.15],<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt<br><br>");
   }
 
 </script>
