@@ -81,10 +81,11 @@
 <br>
 <br>
 
-<! *-- <button onclick="location.href='/working/snip_chirps_monthly_data.html';">View Snippet></button> -- *>
-<button onclick="displaySnippet()">View Snippet</button>
 -------------------
 -->
+
+<! *-- <button onclick="location.href='/working/snip_chirps_monthly_data.html';">View Snippet></button> -- *>
+<button onclick="displaySnippet()">View Snippet</button>
 
 <p id="demo"></p>
 <p id="html_demo"></p>
@@ -160,6 +161,16 @@
     txt += "<br>";
     txt += "<br>";
 
+    let txtx = "&lt!DOCTYPE html&gt" + "<br>";
+    txtx += "&lthtml&gt" + "<br><br>";
+    txtx += "&nbsp;&nbsp;&lthead&gt" + "<br>";
+    txtx += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTester&lt/title&gt' + "<br>";
+    txtx += "&nbsp;&nbsp;&lt/head&gt" + "<br><br>";
+    txtx += "&ltbody&gt" + "<br><br>";
+
+    txtx += "&lt/body&gt" + "<br>";
+    txtx += "&lt/html&gt" + "<br>";
+
     //html_txt = txt;
 
     document.getElementById("demo").innerHTML = txt;
@@ -171,8 +182,8 @@
   function displaySnippet() {
     console.log('in displaySnippet');
     //document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
-    //document.getElementById("html_demo").innerHTML = txt;
-    var newWindow = window.open();
+    document.getElementById("html_demo").innerHTML = txtx;
+    //var newWindow = window.open();
     //var htxt="ohaio";
     //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
 
