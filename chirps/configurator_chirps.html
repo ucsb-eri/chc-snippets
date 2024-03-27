@@ -84,10 +84,11 @@
 -------------------
 -->
 
+<button onclick="displaySnippet()">View Snippet</button>
+
 <!--
 <button onclick="location.href='/working/snip_chirps_monthly_data.html';">View Snippet></button>
 
-<button onclick="displaySnippet()">View Snippet</button>
 -->
 
 <p id="demo"></p>
@@ -183,7 +184,7 @@
 
 
   function displaySnippet() {
-    console.log('in displaySnippet: ');
+    console.log('in displaySnippet: ', txt);
     //document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
     document.getElementById("html_demo").innerHTML = txtx;
     //var newWindow = window.open();
