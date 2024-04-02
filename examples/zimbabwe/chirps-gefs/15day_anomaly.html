@@ -8,6 +8,17 @@
 
 <head>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSB3P4X3WT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CSB3P4X3WT');
+  </script>
+
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
   <link rel="stylesheet" type="text/css" href="/styles.css">
@@ -24,7 +35,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 10-day Z-score</title>
+  <title>C-G 15-day anomaly</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -181,10 +192,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                 <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
                 application on your own webpage.
 
-                <h2>Eample</h2>
+                <h2>Example</h2>
 
                 <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 10-day Z-score </b>data set.</p>
+                CHIRPS-GEFs</a> 15-day anomaly </b>data set.</p>
 
                 <br>
 
@@ -215,24 +226,24 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                     subDataset: 'chirps_gefs',
                     region: 'global',
                     periodicity: '1-day',
-                    forecastPeriod: '10day',
+                    forecastPeriod: '15day',
                     period: 'latest',
                     showDekadControl: true,
                     showYearControl: true,
-                    units: '',
-                    statistic: 'zscore',
+                    units: 'mm',
+                    statistic: 'anomaly',
                     width: 850,
                     height: 790,
                     time: '2021-10-01',
-                    zoom: 6.0,
-                    center: [3.8, 42.3],
+                    zoom: 7.0,
+                    center: [-19.0, 29.0],
                   });
                 </script>
                 <center>
-                  <img 
+                  <img
                     width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_zscore_raster.png" 
-                    alt="Legend Not Found" 
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+                    alt="Legend Not Found"
                   />
                 </center>
 

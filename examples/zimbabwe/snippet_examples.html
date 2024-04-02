@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!OCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
@@ -7,6 +7,16 @@
 <!--<![endif]-->
 
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSB3P4X3WT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CSB3P4X3WT');
+  </script>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
@@ -24,7 +34,7 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>C-G 15-day data</title>
+  <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_-TNq6F6EH1K3WcBMUMQP90OkyCq0Lyv1YnyoEj3kxiU.css" media="screen" />
   <style type="text/css" media="print">
@@ -181,14 +191,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                 <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
                 application on your own webpage.
 
-                <h2>Example</h2>
+                <h2>Examples</h2>
 
-                <p>Below is an example of a Snippet map highlighting eastern Africa with the latest <b><a href="https://chc.ucsb.edu/data/chirps-gefs">
-                CHIRPS-GEFs</a> 15-day data </b>set.</p>
 
                 <br>
 
-                <b> CHIRPS-compatible GEFS precipitation forecasts for anticipating flood and drought hazards (CHIRPS-GEFS): </b>
+                <b>CHIRPS-compatible GEFS precipitation forecasts for anticipating flood and drought hazards (CHIRPS-GEFS): </b>
                 <br>
 					      <p> CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (
                   <a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-ensemble-forecast">GEFS</a>)
@@ -198,44 +206,54 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie"
                   of ~5 km across the globe. </p>
                 <br>
                 <br>
+                <font size="+1">
+                  <b><p>Below are examples of Snippet maps highlighting Zimbabwe with the latest <a href="https://chc.ucsb.edu/data/chirps-gefs">
+                  CHIRPS-GEFs</a> data sets.</p></b>
+                  <script type="text/javascript" src="/ewxmapG5.js"></script>
+                </font>
 
-                <script type="text/javascript" src="/ewxmapG5_test.js"></script>
-
+                <br>
 					      <div id="ewx-map-h4vbt36xss"></div>
-
-                <br>
                 <br>
 
- 
-                <script type="text/javascript">
-                  new EwxMapG5({
-                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-                    id: 'ewx-map-h4vbt36xss',
-                    dataset: 'CHIRPSGEFS',
-                    subDataset: 'chirps_gefs',
-                    region: 'global',
-                    periodicity: '1-day',
-                    forecastPeriod: '05day',
-                    period: 'latest',
-                    showDekadControl: true,
-                    showYearControl: true,
-                    units: 'mm',
-                    statistic: 'data',
-                    width: 850,
-                    height: 790,
-                    time: '2021-10-01',
-                    zoom: 6.0,
-                    center: [3.8, 42.3],
-                  });
-                </script>
-                <center>
-                  <img 
-                    width=350, height=85
-                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png" 
-                    alt="Legend Not Found" 
-                  />
-                </center>
+                <table>
+		  <tr>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/15day_data.html">CHIRPS-GEFS 15day data</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/15day_anom.html">CHIRPS-GEFS 15day anomaly</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/15day_zscore.html">CHIRPS-GEFS 15day Z-score</a>
+ 			</td>
+                  </tr>
+		  <tr>
+ 			<td>
+<a href="/chirps-gefs/10day_data.html">CHIRPS-GEFS 10day data</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/10day_anom.html">CHIRPS-GEFS 10day anomaly</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/10day_zscore.html">CHIRPS-GEFS 10day Z-score</a>
+ 			</td>
+                  </tr>
+		  <tr>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/05day_data.html">CHIRPS-GEFS 5day data</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/05day_anom.html">CHIRPS-GEFS 5day anomaly</a>
+ 			</td>
+ 			<td>
+<a href="/examples/zimbabwe/chirps-gefs/05day_zscore.html">CHIRPS-GEFS 5day Z-score</a>
+ 			</td>
+                  </tr>
 
+
+
+		</table>
 
                                               <br>
                                             </div>
