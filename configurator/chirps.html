@@ -121,8 +121,21 @@
         <div style="float: left;">
           <div style="width: 590px;">
             <h1>CHIRPS Snippet Configurator</h1>
+
+            <br>
             <p>
+              To configure your CHIRTS ERA5 EWX Map Snippet, select the desired Periodicity and Statistic of coverage, below.
+              Enter the Width and Height of your Snippet, the Center Latitude and Longitude and the Zoom level of the map.
+              Then click the Create Configuration button to generate the HTML code for the Snippet.
             </p>
+            <p>
+              Copy and paste the generated code into your web page to view the Snippet. You can make any adjustments
+              to the parameters, back in the configurator, to get the Snippet exactly how you want it to appear in your web page.
+              Copy the new cofiguration into your web page to view the new results.
+            </p>
+            <br>
+
+
       <div class="clear-float"></div>
       <hr/>
 
@@ -234,12 +247,14 @@
     // STYLES=ir_temp_data
     // IME=2024-01-01
 
+/*
     let txt = "&lt!DOCTYPE html&gt" + "<br>";
     txt += "&lthtml&gt" + "<br><br>";
     txt += "&nbsp;&nbsp;&lthead&gt" + "<br>";
     txt += '&nbsp;&nbsp;&nbsp;&nbsp;&lttitle&gtTesty&lt/title&gt' + "<br>";
     txt += "&nbsp;&nbsp;&lt/head&gt" + "<br><br>";
     txt += "&ltbody&gt" + "<br><br>";
+*/
     txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5_test.js"&gt&lt/script&gt' + "<br>";
     txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
     txt += "<br>";
@@ -264,11 +279,11 @@
     txt += "&nbsp;&nbsp;});" + "<br>";
     txt += "&nbsp;&nbsp;&lt/script&gt" + "<br>";
     txt += "<br>";
-    txt += "&lt/body&gt" + "<br>";
+/*    txt += "&lt/body&gt" + "<br>";
     txt += "&lt/html&gt" + "<br>";
     txt += "<br>";
     txt += "<br>";
-
+*/
     console.log('getOptions txt: ', txt);
 
     let txtx = "<!DOCTYPE html>" + "<br>";
