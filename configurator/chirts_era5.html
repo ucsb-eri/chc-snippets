@@ -134,7 +134,13 @@
               Then click the Create Configuration button to generate the HTML code for the Snippet.
             </p>
             <p>
-              Copy and paste the generated code into your web page to view the Snippet. You can make any adjustments
+              Copy and paste the first line of code and paste it above the intended location of the first EWX map in your web page. 
+              Make sure this line appears only once in your page. Place the second line at the location you want the
+              Snippet to appear.
+            </p>
+            <p>
+              Copy the remainder of the code into your web page to view the Snippet.
+              You can make any adjustments
               to the parameters, back in the configurator, to get the Snippet exactly how you want it to appear in your web page.
               Copy the new cofiguration into your web page to view the new results.
             </p>
@@ -251,7 +257,9 @@
     txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
     txt += "<br>";
     txt += '&nbsp;&nbsp;&ltscript type="text/javascript"&gt' + "<br>";
+    txt += "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
+    txt += "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', " + "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRTSERA5', " + "<br>";
