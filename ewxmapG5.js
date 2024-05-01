@@ -233,9 +233,15 @@ var EwxMapG5 = function(configuration) {
         if (_this.config.periodicity == '1-day') {
           periodicity = _this.config.forecastPeriod ;
         }
+        if (_this.config.periodicity == '2-month') {
+          periodicity = '2_monthly';
+        }
+        if (_this.config.periodicity == '3-month') {
+          periodicity = '3_monthly';
+        }
 
         dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + periodicity + '_' + _this.config.statistic;
-        
+
         if (_this.config.periodicity === '1-day') {
           console.log('in 1-day periodicity...')
           dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + _this.config.forecastPeriod + '_' + _this.config.statistic;
@@ -666,7 +672,7 @@ var EwxMapG5 = function(configuration) {
 
     const pentadStartDay = [1, 6, 11, 16, 21, 26];
     const dekadStartDay = [1, 11, 21];
-    
+
     if (this.isLeapYear(year)) {
       var nDaysMo = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     } else {
@@ -823,8 +829,8 @@ var EwxMapG5 = function(configuration) {
     if (inBounds) {
       wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0")
     }
-    
-   
+
+
     //if ((y >= startYear && doy >= startDoy) && (y <= endYear && m <= endMonth)) {
     //  wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0");
     //  console.log('new wmstTime =.', wmstTime);
@@ -1042,7 +1048,7 @@ var EwxMapG5 = function(configuration) {
       d = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
     }
 
-    doy = d[month - 1] + day 
+    doy = d[month - 1] + day
     month = 1;
     while (day > d[month]) {
       month++;
