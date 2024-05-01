@@ -116,7 +116,9 @@
 
         const statistic = document.getElementById("statistic").value;
 
-        map.updateRasterLayer({statistic});
+        const periodicity = document.getElementById("periodicity").value
+
+        map.updateRasterLayer({statistic,periodicity});
       }
 
       function displaySnippet() {
