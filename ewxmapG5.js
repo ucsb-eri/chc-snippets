@@ -87,7 +87,7 @@ var EwxMapG5 = function(configuration) {
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "/styles.css"
+          href: "https://snippets.chc.ucsb.edu/styles.css"
           // xhref: "file:///Users/marty/Projects/EWX/snippets/Snippets/styles.css"
           // href: "styles.css" mfl
         }).appendTo("head");
@@ -232,12 +232,6 @@ var EwxMapG5 = function(configuration) {
         }
         if (_this.config.periodicity == '1-day') {
           periodicity = _this.config.forecastPeriod ;
-        }
-        if (_this.config.periodicity == '2-month') {
-          periodicity = '2_monthly';
-        }
-        if (_this.config.periodicity == '3-month') {
-          periodicity = '3_monthly';
         }
 
         dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + periodicity + '_' + _this.config.statistic;
@@ -636,6 +630,7 @@ var EwxMapG5 = function(configuration) {
     // can be removed when wmstTime is implemented for all
 
     console.log('in changeTemporalIndex, dataItemName: ', dataItemName);
+    console.log('wmstTime: ', wmstTime);
     //console.log('evt: ', evt);
 
     evt.preventDefault();
@@ -646,41 +641,51 @@ var EwxMapG5 = function(configuration) {
     }
 
     var _ewx_config = ewx_config[this.config.dataset];
-    console.log('_ewx_config', _ewx_config);
+    //console.log('_ewx_config', _ewx_config);
 
-    timeArr = wmstTime.split("-");
+    //var timeObj = new Date(wmstTime);
+    //console.log('timeObj: ', timeObj);
+    //var year = Number(timeObj.getFullYear());
+    //var day = Number(timeObj.getDate());
+    //var month = Number(timeObj.getMonth()) + 1;
+    //console.log('year, month, day: ', year, month, day);
+
+    var timeArr = wmstTime.split("-");
     var year = Number(timeArr[0]);
     var month = Number(timeArr[1]);
     var day = Number(timeArr[2]);
     var y = year;
     var m = month;
     var d = day;
+    console.log('y, m, d: ', y, m, d);
 
     var startWmstTime = _ewx_config[dataItemName].start.granule_start
-    console.log("start time: ", startWmstTime);
+    //console.log("start time: ", startWmstTime);
     var startTimeArr = startWmstTime.split("-");
     var startYear = Number(startTimeArr[0]);
     var startMonth = Number(startTimeArr[1]);
     var startDay = Number(startTimeArr[2]);
 
-    var endWmstTime = _ewx_config[dataItemName].end.granule_start
-    console.log("end time: ", endWmstTime);
+    var endWmstTime = _ewx_config[dataItemName].end.granule_start;
+    //console.log("end time: ", endWmstTime);
     var endTimeArr = endWmstTime.split("-");
     var endYear = Number(endTimeArr[0]);
     var endMonth = Number(endTimeArr[1]);
     var endDay = Number(endTimeArr[2]);
 
-    const pentadStartDay = [1, 6, 11, 16, 21, 26];
-    const dekadStartDay = [1, 11, 21];
+    let pentadStartDay = [1, 6, 11, 16, 21, 26];
+    let dekadStartDay = [1, 11, 21];
 
     if (this.isLeapYear(year)) {
       var nDaysMo = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      var nDaysYr = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366];
     } else {
       var nDaysMo = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      var nDaysYr = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
     }
 
-    var startDoy = nDaysMo[startMonth - 1] + startDay;
-    var endDoy = nDaysMo[endMonth - 1] + endDay;
+    var startDoy = nDaysYr[startMonth - 1] + startDay;
+    var endDoy = nDaysYr[endMonth - 1] + endDay;
 
     var nextGeoServerName; // remove this when done with wmstTime
 
@@ -694,8 +699,10 @@ var EwxMapG5 = function(configuration) {
       console.log('in next-year-button: ', dataItemName );
       y = y + 1;
 
-    } else if ($(evt.target).hasClass('previous-temporal1-button')) {
-      console.log('in previous-temporal1-button: ', this );
+
+    } // ---------------- Previous Temporal ------------------
+    else if ($(evt.target).hasClass('previous-temporal1-button')) {
+      //console.log('in previous-temporal1-button... ' );
 
       if (this.config.periodicity == '1-month') {
         m = m - 1;
@@ -706,9 +713,19 @@ var EwxMapG5 = function(configuration) {
           //d = 31;
         }
       } else if (this.config.periodicity == '1-day') {
-        console.log('in 1-day...');
-        d = d - 1;
+        //console.log('in 1-day...', timeObj);
+        console.log('\nin 1-day...', y, m, d);
 
+        //timeObj.setDate(timeObj.getDate() - 1);
+        //y = Number(timeObj.getFullYear());
+        //m = Number(timeObj.getMonth()) + 1;
+        //d = Number(timeObj.getDate());
+
+        //console.log('mid 1-day...', timeObj);
+        //console.log('mid 1-day...', typeof(y), m, d);
+
+
+        d = d - 1;
         if (d < 1) {
           m = m - 1;
           if (m < 1 ) {
@@ -719,6 +736,9 @@ var EwxMapG5 = function(configuration) {
             d = nDaysMo[m];
           }
         }
+
+        console.log('outta 1-day...', typeof(y), m, d);
+
       } else if (this.config.periodicity == '1-pentad') {
         console.log('in 1-pentad...', d);
         var dayIndex = pentadStartDay.indexOf(d);
@@ -753,7 +773,8 @@ var EwxMapG5 = function(configuration) {
         }
         console.log('day = ', d);
       }
-    }  else if ($(evt.target).hasClass('next-temporal1-button')) {
+    }  // ---------------- Next Temporal ------------------
+    else if ($(evt.target).hasClass('next-temporal1-button')) {
       console.log('in next-temporal1-button: ', this );
 
       if (this.config.periodicity == '1-month') {
@@ -815,7 +836,7 @@ var EwxMapG5 = function(configuration) {
       }
     }
 
-    var doy = nDaysMo[m - 1] + d;
+    var doy = nDaysYr[m - 1] + d;
     var inBounds = true;
 
     if (y < startYear || y > endYear) {
@@ -830,7 +851,7 @@ var EwxMapG5 = function(configuration) {
       wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0")
     }
 
-
+    // mfl
     //if ((y >= startYear && doy >= startDoy) && (y <= endYear && m <= endMonth)) {
     //  wmstTime = String(y) + '-' + String(m).padStart(2, "0") + '-' + String(d).padStart(2, "0");
     //  console.log('new wmstTime =.', wmstTime);
@@ -991,7 +1012,9 @@ var EwxMapG5 = function(configuration) {
       return this.config.title;
     }
 
-    console.log("done calculateTitle, title: ", title);
+    console.log("done calculateTitle, title: ", title, "\n\n");
+    console.log(".");
+    console.log(".");
     return title;
   };
 
