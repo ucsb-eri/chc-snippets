@@ -233,6 +233,12 @@ var EwxMapG5 = function(configuration) {
         if (_this.config.periodicity == '1-day') {
           periodicity = _this.config.forecastPeriod ;
         }
+        if (_this.config.periodicity == '2-month') {
+          periodicity = '2_monthly';
+        }
+        if (_this.config.periodicity == '3-month') {
+          periodicity = '3_monthly';
+        }
 
         dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + periodicity + '_' + _this.config.statistic;
 
