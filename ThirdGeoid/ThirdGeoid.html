@@ -31,7 +31,7 @@
       if (window.focus) {
         newwindow.focus()}
       }
-      
+
       function imagemap(type) {
         document.getElementById('map').useMap = type;
       }
@@ -65,12 +65,12 @@
     </script>
 
     <!-- EWX Snippet Map -->
-    <script 
+    <script
       src="http://snippets.chc.ucsb.edu/ewxmap.js">
     </script>
 
     <title>Third Geoid Home</title>
-    
+
     <!-- Style for Nav Bar   -->
     <style>
     body {
@@ -78,7 +78,7 @@
     	background-color: #f1f1f1;
     	font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     #navbar {
     	background-color: #333;
     	position: fixed;
@@ -87,7 +87,7 @@
     	display: block;
     	transition: top 0.3s;
     }
-    
+
     #navbar a {
     	float: left;
     	display: block;
@@ -97,13 +97,13 @@
     	text-decoration: none;
     	font-size: 17px;
     }
-    
+
     #navbar a:hover {
     	background-color: #ddd;
     	color: black;
     }
     </style>
-    
+
     <!-- Script for Nav Bar to hide  -->
     <script>
     var prevScrollpos = window.pageYOffset;
@@ -117,7 +117,7 @@
     	prevScrollpos = currentScrollPos;
     }
     </script>
-    
+
 
   <style>
   * {
@@ -196,14 +196,30 @@ li.dropdown {
 
 </style>
 
+<script>
+  var c = 0;
+  const d = new Date();
+
+  function refreshImage() {
+
+    console.log('http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?'+d.getMilliseconds());
+    document.getElementById('SYM_webcam').src='http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?'+d.getMilliseconds();
+    var t = setTimeout(refreshImage,5000);
+    c=c+1;
+    console.log('c: ', c);
+    if(c>5)
+      clearTimeout(t);
+  }
+</script>
+
 </head>
-  
+
 
 
 <!-- ================================ START BODY ================================ -->
 
 <body style="background-color: silver;">
-  
+
 <ul>
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
@@ -215,7 +231,7 @@ li.dropdown {
   </li>
 </ul>
 
-  
+
    <a id=home> </a>
 
     <br>
@@ -245,64 +261,68 @@ li.dropdown {
     </div>
     <br>
     <br>
-    
+
 <!--
     < !-- ============ Visible Channel SB with Topo BG ============ -- >
     <div style="width:50%;margin-left: auto;margin-right: auto;">
       <h1> Visible Channel SB </h1>
       <a href="http://www.wunderground.com/cgi-bin/satblast/satBlast?lat=34.5&amp;lon=-120.064621&amp;zoom=6&amp;height=480&amp;width=640&amp;SatType=VIS&amp;brand=">
-      <img src="http://satvis.wunderground.com/cgi-bin/satBanner?satellite=1&amp;lat=34.500000&amp;lon=-120.064621&amp;width=640&amp;height=480&amp;zoom=6" 
-        height="360" 
-        width="480"> 
+      <img src="http://satvis.wunderground.com/cgi-bin/satBanner?satellite=1&amp;lat=34.500000&amp;lon=-120.064621&amp;width=640&amp;height=480&amp;zoom=6"
+        height="360"
+        width="480">
       </a>
     </div>
     <br>
     <br>
-    
+
     <! -- ============ Visible Channel SB ============ -- >
     <h1> Visible Channel NRL </h1>
     <div style="width:50%;margin-left: auto;margin-right: auto;">
       <a href="http://www.nrlmry.navy.mil/sat-bin/display10.cgi?SIZE=thumb&amp;PHOT=yes&amp;AREA=pacific/eastern/pt_mugu&amp;PROD=vis&amp;NAV=epac_westcoast&amp;CGI=epac_westcoast.cgi&amp;DISPLAY=Latest&amp;MOSAIC_SCALE=15&amp;CURRENT=LATEST.jpg">
-      <img src="http://www.nrlmry.navy.mil/archdat/pacific/eastern/pt_mugu/vis/LATEST.jpg" 
-        alt="Visible Channel Santa Barbara, NRL"> 
-      </a> 
+      <img src="http://www.nrlmry.navy.mil/archdat/pacific/eastern/pt_mugu/vis/LATEST.jpg"
+        alt="Visible Channel Santa Barbara, NRL">
+      </a>
     </div>
     <br>
     <br>
 -->
-    
-    <a href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html"> 
+
+    <a href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html">
       <h1 href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html"> Santa Ynez Mt. webcams </h1>
     </a>
     <!-- ============ Santa Ynez Mt. webcam ============ -->
+
+    <img src="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg" id="SYM_webcam" onload="refreshImage()" width="800" border="1" />
+
+
     <div class="row_flex">
       <div class="column2">
         <a href="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg">
-          <img src="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg" style="width:100%"> 
-        </a> 
+          <img src="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg" style="width:100%">
+        </a>
       </div>
       <div class="column2">
         <a href="http://hpwren.ucsd.edu/cameras/L/syp-w-mobo-c.jpg">
-          <img src="http://hpwren.ucsd.edu/cameras/L/syp-w-mobo-c.jpg" style="width:100%"> 
-        </a> 
+          <img src="http://hpwren.ucsd.edu/cameras/L/syp-w-mobo-c.jpg" style="width:100%">
+        </a>
       </div>
     </div>
     <br>
     <br>
 
 
-    <!-- ============ Wind Speed SB 9am & 6pm PT ============ -->      
+    <!-- ============ Wind Speed SB 9am & 6pm PT ============ -->
     <h1> Wind Speed SB 9am & 6pm PT</h1>
     <div class="row_flex">
       <div class="column2">
         <a href="http://clivac.eri.ucsb.edu/clivac/wrfreal/wrf-winds10m.html">
-          <img src="images/plt_winds_10m.000018.png" style="width:100%"> 
-        </a> 
+          <img src="images/plt_winds_10m.000018.png" style="width:100%">
+        </a>
       </div>
       <div class="column2">
         <a href="http://clivac.eri.ucsb.edu/clivac/wrfreal/wrf-winds10m.html">
-          <img src="images/plt_winds_10m.000027.png" style="width:100%"> 
-        </a> 
+          <img src="images/plt_winds_10m.000027.png" style="width:100%">
+        </a>
       </div>
     </div>
     <br>
@@ -312,18 +332,18 @@ li.dropdown {
     <center>
       <a href="http://clivac.eri.ucsb.edu/clivac/wrfreal/index.html">
         Other CLIVAC/WRF products
-      </a> 
-    </center>	
+      </a>
+    </center>
     <br>
     <br>
-    
+
     <!-- ============  Wave prediction  & Tide Chart LA ============ -->
 <!--
     <div class="row_flex" title="============  Wave prediction  & Tide Chart LA ============">
       <div class="column2">
         <a href="http://17ft.com/">
-          <img src="http://cdip.ucsd.edu/recent/model_images/socal_now.png" style="width:100%": height:50%> 
-        </a> 
+          <img src="http://cdip.ucsd.edu/recent/model_images/socal_now.png" style="width:100%": height:50%>
+        </a>
       </div>
       <div class="column2" style="width: 468px; background-color: white;" align="center">
         <script type="text/javascript" src="http://freetidetables.com/scripts/?script=468x310_tgi&amp;uid=d64df87e"></script>
@@ -340,12 +360,12 @@ li.dropdown {
     <div id="map" alt="Current Trafic, Google Maps"> </div>
     <br>
     <br>
-    
+
     <!-- ============ Swell Height So Cal =========== -->
     <h1> Swell Height So Cal </h1>
     <a href="http://17ft.com/">
       <IMG SRC="http://cdip.ucsd.edu/recent/model_images/socal_now.png" height="613" width="500">
-    </a> 
+    </a>
     <br>
     <br>
 
@@ -396,7 +416,7 @@ li.dropdown {
     </a>
 
     <!-- ============   Sunrise Sunset Calendar ============ -->
-    <a href="https://www.sunrisesunset.com/calendar.asp?back=USA&comb_city_info=Goleta%2C+California%2C+USA%3B119.8276%3B34.4358%3B-8%3B1&want_info=1&want_mphase=1&want_mrms=1&want_eqx_sol=1&want_daylen=1&time_type=0&wsom=0" > 
+    <a href="https://www.sunrisesunset.com/calendar.asp?back=USA&comb_city_info=Goleta%2C+California%2C+USA%3B119.8276%3B34.4358%3B-8%3B1&want_info=1&want_mphase=1&want_mrms=1&want_eqx_sol=1&want_daylen=1&time_type=0&wsom=0" >
       <img src="images/sunrise_sunset.png" > Goleta, CA
     </a>
 
@@ -414,7 +434,7 @@ li.dropdown {
     </a>
 
     <!-- ============  Weather Model Comparison Map, Windy.com ============ -->
-    <a href="https://www.windy.com/?namConus,34.433,-119.837,7"> 
+    <a href="https://www.windy.com/?namConus,34.433,-119.837,7">
       <img src="images/Windy.png" alt="Windy.com"></img>
     </a>
     <br>
@@ -422,7 +442,7 @@ li.dropdown {
 
    <!-- ============ GOES Image Viewer, NOAA =========== -->
     <a href="https://www.star.nesdis.noaa.gov/GOES/sector.php?sat=G17&sector=psw">
-      <img src="images/GOES_image_viewer_logo.png"  alt="GOES viewer PSW"/> 
+      <img src="images/GOES_image_viewer_logo.png"  alt="GOES viewer PSW"/>
     </a>
 
     <!-- ============   NWS Radar ============ -->
@@ -439,19 +459,19 @@ li.dropdown {
     </a>
     <br>
     <!-- ============ Meteograms WXMaps LA  =========== -->
-<!-- 
+<!--
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57105.20874117416!2d-119.77276777331306!3d34.43751720505122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e96ab1f99098df%3A0xd8115b97dec69d2a!2s430+Camino+del+Remedio%2C+Santa+Barbara%2C+CA+93110!5e1!3m2!1sen!2sus!4v1517275561401" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
     </iframe>
       <br>
       <br>
       <a href="http://wxmaps.org/meteograms.php">
       <IMG SRC="http://wxmaps.org/pix/laxgfs.png" height="660" width="660">
-      </a> 
+      </a>
 -->
 <!--
       <a href="http://www.nrlmry.navy.mil/nexsat-bin/nexsat.cgi?BASIN=CONUS&amp;SUB_BASIN=focus_regions&amp;AGE=Latest&amp;CCA=NorthAmerica-x-x&amp;SSC=x-x-x&amp;SIZE=Thumb&amp;PRODUCT=vis_ir_background&amp;SUB_PRODUCT=goes&amp;PATH=CONUS/focus_regions/NorthAmerica-x-x/x-x-x/vis_ir_background/goes&amp;buttonPressed=Animate&amp;ANIM_TYPE=Instant">
       <img src="http://www.nrlmry.navy.mil/nexdat/CONUS/focus_regions/NorthAmerica-x-x/x-x-x/vis_ir_background/goes_lowcloud/CURRENT.jpg" height="550" width="617">
-      <img src="http://www.nrlmry.navy.mil/nexdat/CONUS/focus_regions/Full/Overview/vis_ir_background/goes_lowcloud/CURRENT.jpg" height="400" width="650"> 
+      <img src="http://www.nrlmry.navy.mil/nexdat/CONUS/focus_regions/Full/Overview/vis_ir_background/goes_lowcloud/CURRENT.jpg" height="400" width="650">
 
 
     </a>
@@ -517,7 +537,7 @@ li.dropdown {
 
 
 
-<!-- 
+<!--
     <div class="row_flex">
       <div class="column2">
         <a href="https://forecast.weather.gov/MapClick.php?lat=36.4607&lon=-116.8440&smap=1&unit=0&lg=en&FcstType=graphical">
@@ -557,7 +577,7 @@ new EwxMap({
   center: [40.98, -112.98],
 });
 </script>
-    
+
 
     <!-- ============= Earthquake Map NOAA NWS ============= -->
     <br>
@@ -574,7 +594,7 @@ new EwxMap({
     </a>
     <br>
     <br>
-    
+
     <!-- ============= Surface Analysis ============= -->
     <a href="http://www.intellicast.com/National/Surface/Current.aspx">
     <img src="http://images.intellicast.com/WxImages/SurfaceAnalysis/usa.gif">
@@ -607,7 +627,7 @@ new EwxMap({
     <br>
 
 
-    
+
     <!-- ============= High Temperature Today & Tomorrow ============= -->
     <h1> High Temperature Today & Tomorrow  </h1>
     <div class="row_flex">
@@ -651,11 +671,11 @@ new EwxMap({
     </a>
     <br>
     <br>
-    
+
     <!-- ============= Global Satellite image ============= -->
     <a href="https://www.nrlmry.navy.mil">
       <img "https://www.nrlmry.navy.mil/archdat/global/stitched/ir/LATEST.jpg" width="1000" height="347"
-        alt="Global Stitched Satellite image, NRL"> 
+        alt="Global Stitched Satellite image, NRL">
     </a>
     <br>
     <br>
@@ -671,20 +691,20 @@ new EwxMap({
 
     <br>
     <br>
-    
+
     <!-- ============= Hurricane Tracking (current) ============= --x >
     NEED TO FIND NEW SOURCE
     http://www.metoc.navy.mil/jtwc/products/abpwsair.jpg ???
-    
+
     https://icons.wxug.com/data/images/sst_basin/gl_anom_mm.gif
-    
+
     <a href="http://www.wunderground.com/tropical/">
       <img src="http://icons.wxug.com/data/images/sst_basin/gl_sst_mm.gif">
     </a>
     <br>
     <br>
     -->
-    
+
     <!-- ============= Sea Surface Temp Anomalies (last month) ============= -->
     <a href="http://www.cpc.ncep.noaa.gov/products/analysis_monitoring/lanina/enso_evolution-status-fcsts-web.pdf">
       <img src="images/sst_anomaly-008.png">
@@ -692,7 +712,7 @@ new EwxMap({
     </a>
     <br>
     <br>
-    
+
     <!-- ============= Land/Sea & Clouds Montoge (current) ============= -->
     <a id="bottom" href="http://www.ssec.wisc.edu/data/composites.html">
       <img src="http://www.ssec.wisc.edu/data/comp/latest_cmoll.gif">
@@ -700,14 +720,14 @@ new EwxMap({
     </a>
     <br>
     <br>
-    
+
     <!-- ============= 200 mb Wind Speed (current) ============= -->
     <a  href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.00hr.png">
     </a>
     <br>
     <br>
-    
+
     <!-- ============= 200 mb Wind Speed (0, 1 and 2 day forecasts) ============= -->
     <a href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.00hr.png" height="310" width="400">
@@ -715,7 +735,7 @@ new EwxMap({
       <img src="http://wxmaps.org/pix/hemi5.48hr.png" height="310" width="400">
     </a>
     <br>
-    
+
     <!-- ============= 200 mb Wind Speed (3, 4 and 5 day forecasts) ============= -->
 
     <a href="http://wxmaps.org/pix/hemi.jet.html">
@@ -725,11 +745,8 @@ new EwxMap({
     </a>
     <br>
     <br>
-    
-    
-    
+
+
+
   </body>
 </html>
-
-
-
