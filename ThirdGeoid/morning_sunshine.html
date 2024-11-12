@@ -25,7 +25,8 @@
     const d = new Date();
     document.getElementById("Banner").innerHTML=d.toLocaleTimeString();
 
-    document.getElementById("SYM_webcam").src='http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
+   document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/sojr-e-mobo-c.jpg?c='+counter;
+   <!-- Santa Ynez peak document.getElementById("SYM_webcam").src='http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter; -->
 
     console.log(d.toLocaleTimeString(), ', ', d.getMilliseconds());
     console.log('http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter);
