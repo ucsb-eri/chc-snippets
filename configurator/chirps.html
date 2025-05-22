@@ -303,7 +303,10 @@
 
   function displaySnippet() {
     console.log('in displaySnippet...');
-    window.open("https://chc.ucsb.edu/tools", "_blank");
+    var html = '<html><head></head><body>Snip this MoJo</body></html>';
+    var uri = "data:text/html," + encodeURIComponent(html);
+    var newWindow = window.open(uri, "_blank");
+    //window.open("https://chc.ucsb.edu/tools", "_blank");
     //document.getElementById("html_demo").innerHTML = txt;
     //var newWindow = window.open();
     //var htxt="ohaio";
