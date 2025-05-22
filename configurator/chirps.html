@@ -200,7 +200,7 @@
     <br>
 
 
-    <button onclick="displaySnippet()">View Snippet</button>
+    <button onclick="displaySnippet()">View Snippetx</button>
 
 <p id="demo"></p>
 <p id="html_demo"></p>
@@ -270,7 +270,7 @@
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: " + width + ", " + "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: " + height + ", " + "<br>";
     txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: " + zoom + ", " + "<br>";
-    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centerx: [" + latitude + ", " + longitude + "]," + "<br>";
+    txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [" + latitude + ", " + longitude + "]," + "<br>";
     txt += "&nbsp;&nbsp;});" + "<br>";
     txt += "&nbsp;&nbsp;&lt/script&gt" + "<br>";
     txt += "<br>";
@@ -303,8 +303,8 @@
 
   function displaySnippet() {
     console.log('in displaySnippet: ', txt);
-    //document.getElementById("demo").innerHTML = '/working/snip_chirps_monthly_data.html';
-    document.getElementById("html_demo").innerHTML = txt;
+    window.open("https://chc.ucsb.edu/tools", _blank);
+    //document.getElementById("html_demo").innerHTML = txt;
     //var newWindow = window.open();
     //var htxt="ohaio";
     //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
