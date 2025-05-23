@@ -213,10 +213,8 @@
     function displaySnippet() {
       console.log('in displaySnippet... snippet_html');
       //document.getElementById("html_demo").innerHTML='<b>booya</b>';
+      document.getElementById("html_demo").SetHTML='<b>booya</b>';
 
-      var script = document.createElement('script');
-      script[(script.innerText===undefined?"textContent":"innerText")] = "new TradingView.widget({ 'width': 580, 'height': 400, 'symbol': 'NASDAQ:"+ticker+ "','interval': 'D','timezone': 'Etc/UTC','theme': 'White','style': '1','locale': 'en','toolbar_bg': '#f1f3f6','enable_publishing': false,'hide_top_toolbar': true,'save_image': false,'hideideas': true});";
-      document.getElementById("html_demo").appendChild(script);
 
 
       var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
