@@ -200,7 +200,7 @@
     <br>
 
 
-    <button onclick="displaySnippet()">View Snippetx</button>
+    <button onclick="displaySnippet()">View Snippet</button>
 
 <p id="demo"></p>
 <p id="html_demo"></p>
@@ -307,8 +307,8 @@
     console.log('snippet_html...', snippet_html);
     var uri = "data:text/html," + encodeURIComponent(snippet_html);
 
-    var myWindow = window.open("", "", "width=500,height=500");
-    //var newWindow = window.open(snippet_html, "_blank");
+    //var myWindow = window.open("", "", "width=500,height=500");
+    var myWindow = window.open("https://snippets.chc.ucsb.edu/", "_blank");
 
     //window.open("https://chc.ucsb.edu/tools", "_blank");
     //document.getElementById("html_demo").innerHTML = txt;
