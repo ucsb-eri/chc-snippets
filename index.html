@@ -169,7 +169,7 @@
 
                 <form>
                   <label for="zoom">zoom:</label><br>
-                  <input type="text" id="zoom" name="zoom" value="3.0">
+                  <input type="text" id="zoom" name="zoom" value="5.0">
                 </form>
                 <br>
 
@@ -202,7 +202,7 @@
                     height: 790,
                     height: 790,
                     time: '2021-10-01',
-                    zoom: zoomer,
+                    zoom: document.querySelector('#zoom').value,
                     center: [6.0, 17.0],
                   });
                 </script>
