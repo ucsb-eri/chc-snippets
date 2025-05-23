@@ -195,12 +195,9 @@
     <br>
     <br>
     <button onclick="getOptions()"> Create Configuration </button>
-    <br>
-    <br>
-    <br>
+    <br><br><br>
 
-
-    <button onclick="displaySnippet()">View Snippetx</button>
+    <button onclick="displaySnippet()">View Snippetz</button>
 
 <p id="demo"></p>
 <p id="html_demo"></p>
@@ -212,6 +209,24 @@
   //const fs = require('fs');
   //let txt = "mmm";
 
+
+    function displaySnippet() {
+      console.log('in displaySnippet... snippet_html');
+      document.getElementById("html_demo").innerHTML = "booya";
+
+      var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
+      console.log('snippet_html...', snippet_html);
+      var uri = "data:text/html," + encodeURIComponent(snippet_html);
+
+      //var myWindow = window.open("", "", "width=500,height=500");
+      //var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=800");
+
+      //window.open("https://chc.ucsb.edu/tools", "_blank");
+      //document.getElementById("html_demo").innerHTML = txt;
+      //var newWindow = window.open();
+      //var htxt="ohaio";
+      //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
+  }
 
   function getOptions() {
     element = document.querySelector('#periodicity');
@@ -301,7 +316,7 @@
   }
 
 
-  function displaySnippet() {
+  function displaySnippetxxx() {
     console.log('in displaySnippet... snippet_html');
     var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
     console.log('snippet_html...', snippet_html);
