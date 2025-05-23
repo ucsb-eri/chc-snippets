@@ -197,7 +197,7 @@
     <button onclick="getOptions()"> Create Configuration </button>
     <br><br><br>
 
-    <button onclick="displaySnippet()">View Snippetz</button>
+    <button onclick="displaySnippet()">View Snippetzx</button>
 
 <p id="demo"></p>
 <p id="html_demo"></p>
@@ -212,7 +212,7 @@
 
     function displaySnippet() {
       console.log('in displaySnippet... snippet_html');
-      document.getElementById("html_demo").innerHTML = "<b>booya</b>";
+      document.getElementById("html_demo").innerHTML = "<script>console.log('sdfsdfsd');</script><b>booya</b>";
 
       var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
       console.log('snippet_html...', snippet_html);
