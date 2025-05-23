@@ -302,8 +302,9 @@
 
 
   function displaySnippet() {
-    console.log('in displaySnippet...');
+    console.log('in displaySnippet... snip_html');
     var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
+    console.log('snippet_html...', snippet_html);
     var uri = "data:text/html," + encodeURIComponent(snippet_html);
     var newWindow = window.open(uri, "_blank");
     //window.open("https://chc.ucsb.edu/tools", "_blank");
