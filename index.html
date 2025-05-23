@@ -34,8 +34,8 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  
-  
+
+
   <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_llzQLqlfgvHUmPhYCKLb9mCMSITzjwE6GnnFyhSZJ34.css" media="screen" />
 
   <script type="text/javascript" src="https://chc.ucsb.edu/sites/default/files/js/js_YD9ro0PAqY25gGWrTki6TjRUG8TdokmmxjfqpNNfzVU.js"></script>
@@ -83,9 +83,9 @@
 <div id="branding" class="branding-elements clearfix">
   <div id="logo" style="padding: 0.25rem 1rem; max-width: 192px;">
     <a href="https://chc.ucsb.edu">
-      <img 
-        class="site-logo" 
-        src="CHC_logo.jpg" 
+      <img
+        class="site-logo"
+        src="CHC_logo.jpg"
         alt="Climate Hazards Center - UC Santa Barbara"
         style="width: 180px; height: auto; display: block;"
       />
@@ -93,7 +93,7 @@
   </div>
 </div>
 
-      
+
       <!-- !Breadcrumbs -->
 
       <!-- !Messages and Help -->
@@ -144,13 +144,13 @@
                 Geospatial Data Store-most commonly used in the <a href="https://chc.ucsb.edu/tools/ewx">Early Warning eXplorer</a>.
                 The CHC maintains <a href="https://data.chc.ucsb.edu/">extensive data stores</a> that can be easily accessed and
                 regularly updated. </p>
-						  
+
 						    <p>The Climate Hazards Center, as a part of <a href="https://fews.net/">FEWS NET</a>, has vast information stored
                 in the GeoEngine and Early Warning eXplorer. And yet, the most important decisions are local. The Snippets were
                 developed to allow national, meteorological, hydrological, and agricultural agencies to easily set up localized
                 web-mapping services. We hope that Snippets can help inform proactive decisions that enhance resilience.</p>
 						     <p>Snippets are a free, publicly accessible way to display maps from our Early Warning Explorer (EWX) online
-                application on your own webpage. 				
+                application on your own webpage.
                 <br>
                 <br>
 
@@ -160,12 +160,21 @@
                   version 12 precipitation forecasts made to be spatially compatible with Climate Hazards Center InfraRed
                   Precipitation with Stations (<a href="https://chc.ucsb.edu/data/chirps">CHIRPS</a>) data. The CHIRPS-GEFS
                   data set provides next 5-day to 15-day precipitation forecasts, updated daily, at a spatial resolution
-                  of ~5 km across the globe. </p>				  
-              				<h2>Examples</h2>      
-				
+                  of ~5 km across the globe. </p>
+              				<h2>Examples</h2>
+
 				          <p>Below is an example of a Snippet map highlighting Africa with the latest <a href="https://chc.ucsb.edu/data/chirps-gefs">
                 CHIRPS-GEFS</a> data set.</p>
                 <br>
+
+                <form>
+                  <label for="zoom">zoom:</label><br>
+                  <input type="text" id="zoom" name="zoom" value="3.0">
+                </form>
+                <br>
+
+                    element = document.querySelector('#zoom');
+                    zoomer = element.value;
 
                 <script type="text/javascript" src="/ewxmapG5.js"></script>
 
@@ -193,7 +202,7 @@
                     height: 790,
                     height: 790,
                     time: '2021-10-01',
-                    zoom: 3.5,
+                    zoom: zoomer,
                     center: [6.0, 17.0],
                   });
                 </script>
@@ -253,7 +262,7 @@ Other examples of CHIRPS-GEFS Snippets can be found here:
       </div><!-- /end #columns -->
 
       <!-- !Tertiary Content Region -->
-     
+
               </div>
             </div>
           </div>
