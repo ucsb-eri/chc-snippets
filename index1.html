@@ -34,8 +34,8 @@
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  
-  
+
+
    <link type="text/css" rel="stylesheet" href="https://chc.ucsb.edu/sites/default/files/css/css_llzQLqlfgvHUmPhYCKLb9mCMSITzjwE6GnnFyhSZJ34.css" media="screen" />
 
   <script type="text/javascript" src="https://chc.ucsb.edu/sites/default/files/js/js_YD9ro0PAqY25gGWrTki6TjRUG8TdokmmxjfqpNNfzVU.js"></script>
@@ -79,22 +79,22 @@
         </div>
       </div>
       <header id="header" class="clearfix" role="banner">
-	  
+
         <!-- Branding Section -->
 <!-- Branding Section -->
 <div id="branding" class="branding-elements clearfix">
   <div id="logo" style="padding: 0.25rem 1rem; max-width: 192px;">
     <a href="https://chc.ucsb.edu">
-      <img 
-        class="site-logo" 
-        src="CHC_logo.jpg" 
+      <img
+        class="site-logo"
+        src="CHC_logo.jpg"
         alt="Climate Hazards Center - UC Santa Barbara"
         style="width: 180px; height: auto; display: block;"
       />
     </a>
   </div>
 </div>
-      
+
       <!-- !Breadcrumbs -->
 
       <!-- !Messages and Help -->
@@ -175,6 +175,15 @@
                 <br>
                 <br>
 
+                <form>
+                  <label for="zoom">zoom:</label><br>
+                  <input type="text" id="zoom" name="zoom" value="5.0">
+                </form>
+                <br>
+
+                element = document.querySelector('#zoom');
+                zoomer = element.value;
+
                 <script type="text/javascript" src="/ewxmapG5.js"></script>
 
 					      <div id="ewx-map-h4vbt36xss"></div>
@@ -201,7 +210,7 @@
                     height: 790,
                     height: 790,
                     time: '2021-10-01',
-                    zoom: 3.5,
+                    zoom: document.querySelector('#zoom').value,
                     center: [6.0, 17.0],
                   });
                 </script>
@@ -258,10 +267,10 @@ Other examples of CHIRPS-GEFS Snippets can be found here:
 
         <!-- !Sidebar Regions -->
 
-      </div><!-- /end #columns -->  
-         <!-- !Tertiary Content Region -->     
-   
-    
+      </div><!-- /end #columns -->
+         <!-- !Tertiary Content Region -->
+
+
   </div>
 </div>
   </body>
