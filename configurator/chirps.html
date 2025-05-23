@@ -306,7 +306,10 @@
     var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
     console.log('snippet_html...', snippet_html);
     var uri = "data:text/html," + encodeURIComponent(snippet_html);
-    var newWindow = window.open(snippet_html, "_blank");
+
+    var myWindow = window.open("", "", "width=500,height=500");
+    //var newWindow = window.open(snippet_html, "_blank");
+
     //window.open("https://chc.ucsb.edu/tools", "_blank");
     //document.getElementById("html_demo").innerHTML = txt;
     //var newWindow = window.open();
