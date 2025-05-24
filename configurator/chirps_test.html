@@ -156,7 +156,7 @@
     <button onclick="getOptions()"> Create Configuration </button>
     <br><br><br>
 
-    <button onclick="displaySnippet()">View Snippet</button>
+    <button onclick="displaySnippet()">Refresh Snippet</button>
 
     <p id="demo"></p>
     <p id="snippetsdf_view"></p>
@@ -169,6 +169,27 @@
 
     <script type="text/javascript">
 
+
+      new EwxMapG5({
+        ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+        id: 'snippet_view',
+        dataset: 'CHIRPSGEFS',
+        subDataset: 'chirps_gefs',
+        region: 'global',
+        periodicity: '1-day',
+        forecastPeriod: '15day',
+        period: 'latest',
+        showDekadControl: true,
+        showYearControl: true,
+        units: 'mm',
+        statistic: 'data',
+        width: 756,
+        height: 400,
+        height: 500,
+        time: '2021-10-01',
+        zoom: 2.5,
+        center: [6.0, 17.0],
+      });
 
         function displaySnippet() {
             console.log('in displaySnippet... chirps_test.html');
