@@ -11,12 +11,12 @@
     </style>
 
 
+
 </head>
 
 
 
 <body>
-
 
     <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
 
@@ -44,8 +44,16 @@
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    
     const width = urlParams.get('width');
+    const height = urlParams.get('height');
+    const fperiod = urlParams.get('fperiod');
+    const stat = urlParams.get('stat');
+    const lat = urlParams.get('lat');
+    const lon = urlParams.get('lon');
+    const zoom = urlParams.get('zoom');
     console.log('width: ', width);
+    console.log('zoom: ', zoom);
 
     console.log('---------------------');
 
@@ -56,219 +64,20 @@
         subDataset: 'chirps_gefs',
         region: 'global',
         periodicity: '1-day',
-        forecastPeriod: '15day',
+        forecastPeriod: fperiod,
         period: 'latest',
         showDekadControl: true,
         showYearControl: true,
         units: 'mm',
-        statistic: 'data',
+        statistic: stat,
         width: width,
-        height: 400,
+        height: height,
         time: '2021-10-01',
-        zoom: 2.5,
-        center: [6.0, 17.0],
+        zoom: zoom,
+        center: [lat, lon],
       });
 
-        function displaySnippet() {
-
-            new EwxMapG5({
-              ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-              id: 'snippet_view',
-              dataset: 'CHIRPSGEFS',
-              subDataset: 'chirps_gefs',
-              region: 'global',
-              periodicity: '1-day',
-              forecastPeriod: '15day',
-              period: 'latest',
-              showDekadControl: true,
-              showYearControl: true,
-              units: 'mm',
-              statistic: 'data',
-              width: 756,
-              height: 790,
-              height: 790,
-              time: '2021-10-01',
-              zoom: 3.5,
-              center: [6.0, 17.0],
-            });
-
-            //document.getElementById("html_demo").innerHTML='<b>booya</b>';
-            //document.getElementById("html_demo").SetHTML = "<b>booya</b>";
-
-
-
-            //var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
-            //console.log('snippet_html...', snippet_html);
-            //var uri = "data:text/html," + encodeURIComponent(snippet_html);
-
-            //var myWindow = window.open("https://chc.ucsb.edu", "", "width="+width+",height=500");
-
-            // works var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=800");
-            //var myWindow = window.open("", "", "width=800,height=800");
-            //myWindow.innerHTML = "<h2>Hello World</h2>";
-            //window.open("https://chc.ucsb.edu/tools", "_blank");
-            document.getElementById("snippet_view").innerHTML='https://chc.ucsb.edu';
-            //var newWindow = window.open();
-            //var htxt="ohaio";
-            //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
-
-            console.log('leaving displaySnippet... chirps_test.html');
-        }
-
-        function getOptions() {
-            element = document.querySelector('#periodicity');
-            periodicity = element.value;
-
-            element = document.querySelector('#statistic');
-            statistic = element.value;
-
-            element = document.querySelector('#width');
-            width = element.value;
-
-            element = document.querySelector('#height');
-            height = element.value;
-
-            element = document.querySelector('#zoom');
-            zoom = element.value;
-
-            element = document.querySelector('#latitude');
-            latitude = element.value;
-
-            element = document.querySelector('#longitude');
-            longitude = element.value;
-
-            let txt = '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
-            txt += "<br>";
-            txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
-            txt += "<br>";
-            txt += '&nbsp;&nbsp;&ltscript type="text/javascript"&gt' + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: '" + statistic + "', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: " + width + ", " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: " + height + ", " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: " + zoom + ", " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [" + latitude + ", " + longitude + "]," + "<br>";
-            txt += "&nbsp;&nbsp;});" + "<br>";
-            txt += "&nbsp;&nbsp;&lt/script&gt" + "<br>";
-            txt += "<br>";
-
-            console.log('getOptions txt: ', txt);
-
-
-            document.getElementById("demo").innerHTML = txt;
-
-        }
-
-
-        function displaySnippetxxx() {
-            console.log('in displaySnippet... snippet_html');
-            var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
-            console.log('snippet_html...', snippet_html);
-            var uri = "data:text/html," + encodeURIComponent(snippet_html);
-
-            //var myWindow = window.open("", "", "width=500,height=500");
-            var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=800");
-
-            //window.open("https://chc.ucsb.edu/tools", "_blank");
-            //document.getElementById("html_demo").innerHTML = txt;
-            //var newWindow = window.open();
-            //var htxt="ohaio";
-            //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
-
-        }
     </script>
-
-    <!--  FOOTER --------------------- -->
-    <div>
-
-
-        <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
-            <tr>
-                <td>
-                    <p style="color:#ffffff;">Climate Hazards Center<br />
-                        UC Santa Barbara<br />
-                        Santa Barbara, CA 93106
-                    </p>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                    <a href="https://x.com/climatehazards" target="_blank">
-                        <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png" style="width: 33px; height: 33px;">
-                        <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
-                        </a>
-                        <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png" style="width: 33px; height: 33px;">
-                    </a>
-                    <br />
-                    <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-                        <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png" style="width: 33px; height: 33px;">
-                    </a>
-                    <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
-                        <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png" style="width: 33px; height: 33px;">
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <a href="http://www.college.ucsb.edu" style="color:#ffffff;">College of Lettersand Science</a>
-                </td>
-                <td>
-                    <a href="http://www.ucsb.edu" style="color:#ffffff;">UC Santa Barbara</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff;">Accessibility</a>
-                </td>
-                <td>
-                    <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff;">Appropriate Use</a>
-                </td>
-                <td>
-                    <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
-                </td>
-                <td>
-                    <a href="mailto:jwayhenthorne@ucsb.edu" style="color:#ffffff;">Webmaster</a>
-                </td>
-                <td></td>
-            </tr>
-
-
-            <tr>
-                <td></td>
-                <td colspan=5 style="color:#ffffff; text-align:center;">
-                    &copy;2022 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-
-        </table>
-    </div>
-
-
-
 
 </body>
 
