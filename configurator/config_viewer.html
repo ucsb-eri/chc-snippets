@@ -44,13 +44,13 @@
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    
+
     const width = urlParams.get('width');
     const height = urlParams.get('height');
-    const fperiod = urlParams.get('fperiod');
-    const stat = urlParams.get('stat');
-    const lat = urlParams.get('lat');
-    const lon = urlParams.get('lon');
+    const periodicity = urlParams.get('periodicity');
+    const statistic = urlParams.get('statistic');
+    const latitude = urlParams.get('latitude');
+    const longitude = urlParams.get('longitude');
     const zoom = urlParams.get('zoom');
     console.log('width: ', width);
     console.log('zoom: ', zoom);
@@ -64,17 +64,17 @@
         subDataset: 'chirps_gefs',
         region: 'global',
         periodicity: '1-day',
-        forecastPeriod: fperiod,
+        forecastPeriod: periodicity,
         period: 'latest',
         showDekadControl: true,
         showYearControl: true,
         units: 'mm',
-        statistic: stat,
+        statistic: statistic,
         width: width,
         height: height,
         time: '2021-10-01',
         zoom: zoom,
-        center: [lat, lon],
+        center: [latitude, longitude],
       });
 
     </script>

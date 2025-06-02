@@ -246,14 +246,25 @@
             //var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
             //console.log('snippet_html...', snippet_html);
             //var uri = "data:text/html," + encodeURIComponent(snippet_html);
+            // file:///Users/marty/Projects/Snippets/chc-snippets/configurator/config_viewer.html?height=555&width=666&fperiod=10day&stat=anomaly&lon=30&lat=-22&zoom=4.3
+
+            // file:///Users/marty/Projects/Snippets/chc-snippets/configurator/config_viewer.html?height=333&width=666&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3
+
+            var myWindow = window.open("config_viewer.html?height=555&width=333&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3", "_blank","width=350,height=600");
+
+            //var myWindow = window.open("https://chc.ucsb.edu/configurator/config_viewer.html?height=555&width=666&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3", "");
+
+            //var myWindow = window.open("https://chc.ucsb.edu/configurator/config_viewer.html", "","height=555,width=666,fperiod=10day,stat=anomaly,lon=30,lat=22,zoom=4.3");
 
             //var myWindow = window.open("https://chc.ucsb.edu", "", "width="+width+",height=500");
 
-            // works var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=800");
+            // works
+            //var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=600");
+
             //var myWindow = window.open("", "", "width=800,height=800");
             //myWindow.innerHTML = "<h2>Hello World</h2>";
             //window.open("https://chc.ucsb.edu/tools", "_blank");
-            document.getElementById("snippet_view").innerHTML='https://chc.ucsb.edu';
+            //document.getElementById("snippet_view").innerHTML='https://chc.ucsb.edu';
             //var newWindow = window.open();
             //var htxt="ohaio";
             //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
