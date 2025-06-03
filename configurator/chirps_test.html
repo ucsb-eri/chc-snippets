@@ -273,8 +273,8 @@
         }
 
         function getOptions() {
-            element = document.querySelector('#periodicity');
-            periodicity = element.value;
+            element = document.querySelector('#forecastPeriod');
+            forecastPeriod = element.value;
 
             element = document.querySelector('#statistic');
             statistic = element.value;
@@ -305,9 +305,9 @@
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: 'none', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
