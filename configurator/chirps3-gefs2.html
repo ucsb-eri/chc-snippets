@@ -4,77 +4,81 @@
 <head>
 
 
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
+  <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
 
-    <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
+  </style>
+  </style>
 
-    </style>
 
+  <div>
 
-    <div>
+    <table style="border:0px solid white; width: 100%; background-color:#F1F2F2;">
+      <tr>
+        <td>
+          <a><img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png" alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+          </a>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="http://www.ucsb.edu">University of California, <br>Santa Barbara</a>
+        </td>
+    </tr>
 
-        <table style="border:0px solid black; width: 100%; background-color:#F1F2F2;">
-            <tr>
-                <td>
-                    <a><img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png" alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
-                    </a>
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="http://www.ucsb.edu">University of California, <br>Santa Barbara</a>
-                </td>
-            </tr>
+    <tr>
+      <td></td>
+      <td>
+          <a href="https://chc.ucsb.edu/about" style="color:#06B4D3;">About</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/people" style="color:#06B4D3;">People</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/research" style="color:#06B4D3;">Publications</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/tools" style="color:#06B4D3;">Tools</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/data" style="color:#06B4D3;">Data Sets</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/monitoring" style="color:#06B4D3;">Monitoring and Forecasting</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/news" style="color:#06B4D3;">News</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/activities" style="color:#06B4D3;">Activities</a>
+      </td>
+      <td>
+          <a href="https://blog.chc.ucsb.edu/" style="color:#06B4D3;">CHC Blog</a>
+      </td>
+      <td>
+          <a href="https://chc.ucsb.edu/search" style="color:#06B4D3;">Search</a>
+      </td>
+      <td></td>
+    </tr>
 
-            <tr>
-                <td></td>
-                <td>
-                    <a href="https://chc.ucsb.edu/about" style="color:#06B4D3;">About</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/people" style="color:#06B4D3;">People</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/research" style="color:#06B4D3;">Publications</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/tools" style="color:#06B4D3;">Tools</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/data" style="color:#06B4D3;">Data Sets</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/monitoring" style="color:#06B4D3;">Monitoring and Forecasting</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/news" style="color:#06B4D3;">News</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/activities" style="color:#06B4D3;">Activities</a>
-                </td>
-                <td>
-                    <a href="https://blog.chc.ucsb.edu/" style="color:#06B4D3;">CHC Blog</a>
-                </td>
-                <td>
-                    <a href="https://chc.ucsb.edu/search" style="color:#06B4D3;">Search</a>
-                </td>
-                <td></td>
-            </tr>
+    </table>
+  </div>
 
-        </table>
-    </div>
-
+  <style>
+    .table1, .td1 {
+      border:2px solid black;
+      border-collapse: collapse;
+    }
+  </style>
 </head>     <!--  Header End --------------------- -->
-
-
 
 <body>
 
@@ -109,69 +113,106 @@
     <div class="clear-float"></div>
     <hr />
 
-    <form onSubmit={event.preventDefault()}>
-        <label for="width">Snippet ID:</label>
+
+    <table class="table1" style="width:50%;">
+    <!-- table class="table1" style="width:50%;" align="center" -->
+
+  <tr>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+        <label form="width"><b>Snippet ID:</b></label>
+        <br>
         <input type="text" id="snippetId" name="snippetId" value="mySnippet"><br>
-    </form>
-
-    <p> Select Forecast Period:
+      </form>
+    </td>
+    <td class="td1">
+      <p><b> Select Forecast Period:</b>
+        <br>
         <select id="forecastPeriod">
-            <option value="05day">5 Day</option>
-            <option value="10day">10 Day</option>
-            <option value="15day">15 Day</option>
+          <option value="05day">5 Day</option>
+          <option value="10day">10 Day</option>
+          <option value="15day">15 Day</option>
         </select>
-    </p>
+      </p>
+    </td>
+  </tr>
 
-    <p> Select Statistic:
-        <select id="statistic">
-            <option value="data">Data</option>
-            <option value="anomaly">Anomaly</option> // anom for CHIRPS
-            <option value="zscore">Z-score</option>
-        </select>
-    </p>
+  <tr>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+        <label for="width"><b>Width:</b></label>
+        <br>
+        <input type="text" id="width" name="width" value="600">
+        <br>
+      </form>
+    </td>
+    <td class="td1">
+      <p><b> Select Statistic:</b>
+        <br>
+          <select id="statistic">
+              <option value="data"><b>Data<b></option>
+              <option value="anomaly">Anomaly</option> // anom for CHIRPS
+              <option value="zscore">Z-score</option>
+          </select>
+      </p>
+    </td>
+  </tr>
 
-    <form onSubmit={event.preventDefault()}>
-        <label for="width">Width:</label>
-        <input type="text" id="width" name="width" value="600"><br>
-    </form>
-    <br>
-
-    <form onSubmit={event.preventDefault()}>
-        <label for="height">Height:</label>
-        <input type="text" id="height" name="height" value="600">
-    </form>
-    <br>
-
-    <form onSubmit={event.preventDefault()}>
-        <label for="zoom">zoom:</label>
-        <input type="text" id="zoom" name="zoom" value="3.3">
-    </form>
-    <br>
-
-    <form onSubmit={event.preventDefault()}>
-        <label for="longitude">Center longitude:</label>
-        <input type="text" id="longitude" name="longitude" value="19.15">
-    </form>
-    <br>
-
-    <form onSubmit={event.preventDefault()}>
-        <label for="latitude">Center latitude:</label>
-        <input type="text" id="latitude" name="latitude" value="2.5">
-    </form>
-
-    <p> Show Periodicity Control:
+  <tr>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+          <label for="height"><b>Height:</b></label>
+          <br>
+          <input type="text" id="height" name="height" value="600">
+      </form>
+    </td>
+    <td class="td1">
+      <p><b> Show Periodicity Control:</b>
+        <br>
         <select id="periodControl">
-            <option value="true">True</option>
-            <option value="false">False</option>
+          <option value="true">True</option>
+          <option value="false">False</option>
         </select>
-    </p>
+      </p>
+    </td>
+  </tr>
 
-    <p> Show Year Control:
+  <tr>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+        <label for="zoom"><b>Zoom:</b></label>
+        <br>
+        <input type="text" id="zoom" name="zoom" value="3.3">
+      </form>
+    </td>
+    <td class="td1">
+      <p><b> Show Year Control:</b>
+        <br>
         <select id="yearControl">
             <option value="true">True</option>
             <option value="false">False</option>
         </select>
-    </p>
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+          <label for="latitude"><b>Center latitude:</b></label><br>
+          <input type="text" id="latitude" name="latitude" value="2.5">
+      </form>
+    </td>
+    <td class="td1">
+      <form onSubmit={event.preventDefault()}>
+          <label for="longitude"><b>Center longitude:</b></label><br>
+          <input type="text" id="longitude" name="longitude" value="19.15">
+      </form>
+      <br>
+    </td>
+  </tr>
+</table>
+
 
     <br>
     <br>
@@ -267,7 +308,8 @@
           element = document.querySelector('#yearControl');
           yearControl = element.value;
 
-          let txt = '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
+          let txt = '=========================================='+ "<br><br><br>";
+          txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
           txt += '&nbsp;&nbsp;or'  + "<br>";
           txt += '&nbsp;&nbsp;&ltscript src="https://snippets.chc.ucsb.edu/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
           txt += "<br>";
