@@ -266,13 +266,11 @@
 
           console.log("config_str: ", config_str)
 
-          let buffer = 30;
+          let buffer = 10;
           let windowWidth = Number(width) + buffer;
           let windowHeight = Number(height) + buffer;
           console.log("width="+windowWidth+",height="+windowHeight);
           var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
-
-          //var myWindow = window.open("config_viewer.html?height=555&width=333&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3", "_blank","width=350,height=600");
 
           console.log('leaving displaySnippet... chirps3-gefs.html');
       }
