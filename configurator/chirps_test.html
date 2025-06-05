@@ -294,6 +294,12 @@
             element = document.querySelector('#longitude');
             longitude = element.value;
 
+            element = document.querySelector('#periodControl');
+            periodControl = element.value;
+
+            element = document.querySelector('#yearControl');
+            yearControl = element.value;
+
             let txt = '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
             txt += "<br>";
             txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
@@ -308,8 +314,8 @@
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: true, " + "<br>";
-            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: true, " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: '" + periodControl + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: '" + yearControl + "', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: '" + statistic + "', " + "<br>";
             txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: " + width + ", " + "<br>";

@@ -182,7 +182,7 @@
       <form onSubmit={event.preventDefault()}>
         <label for="zoom"><b>Zoom:</b></label>
         <br>
-        <input type="text" id="zoom" name="zoom" value="3.3">
+        <input type="text" id="zoom" name="zoom" value="3">
       </form>
     </td>
     <td class="td1">
@@ -200,13 +200,13 @@
     <td class="td1">
       <form onSubmit={event.preventDefault()}>
           <label for="latitude"><b>Center latitude:</b></label><br>
-          <input type="text" id="latitude" name="latitude" value="2.5">
+          <input type="text" id="latitude" name="latitude" value="0.0">
       </form>
     </td>
     <td class="td1">
       <form onSubmit={event.preventDefault()}>
           <label for="longitude"><b>Center longitude:</b></label><br>
-          <input type="text" id="longitude" name="longitude" value="19.15">
+          <input type="text" id="longitude" name="longitude" value="19.5">
       </form>
       <br>
     </td>
@@ -318,8 +318,8 @@
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: '" + snippetId + "', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPSGEFS', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps_gefs', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
