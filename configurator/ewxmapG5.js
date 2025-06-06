@@ -96,7 +96,7 @@ var EwxMapG5 = function(configuration) {
       }
 
       if (window.L === undefined) {
-        console.log('in window.L === undefined... loading leaflet 1.7.1');
+        console.log('in window.L === undefined... loading leaflet 1.7.1 ');
         $.getScript("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js").done(function() {
           if (done) done.call(_this, _this.loadEwxConfig);
         });
