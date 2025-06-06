@@ -130,7 +130,7 @@
           <form onSubmit={event.preventDefault()}>
             <label for="width"><b>Width:</b></label>
             <br>
-            <input type="text" id="width" name="width" value="2000">
+            <input type="text" id="width" name="width" value="1000">
             <br>
           </form>
         </td>
@@ -255,8 +255,9 @@
           let buffer = 10;
           let windowWidth = Number(width) + buffer;
           let windowHeight = Number(height) + buffer;
-          console.log("width="+windowWidth+",height="+windowHeight);
-          var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
+          //console.log("width="+windowWidth+",height="+windowHeight);
+          //var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
+          var myWindow = window.open(config_str, "_blank","width="+width+",height="+height);
 
           console.log('leaving displaySnippet... chirps-gefs_test.html');
       }
