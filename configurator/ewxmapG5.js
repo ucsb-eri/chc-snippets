@@ -932,7 +932,7 @@ var EwxMapG5 = function(configuration) {
       'FORMAT=image/png&LAYER=fews_chirps_global_pentad_data:chirps_global_pentad_data&SCALE=40483992.68881473&' +
       'STYLE=fews_chirps_pentad_data_raster_ngviewer_legend&WIDTH=20&HEIGHT=17&LEGEND_OPTIONS=fontStyle:normal;' +
       'fontColor:000000;fontSize:13;absoluteMargins:true;labelMargin:5;dx:10;dy:0.2;mx:0.2;my:0.2;'
-    console.log('url_eros: ', url_eros);
+    console.log('xxx url_eros: ', url_eros);
 
 /**
     var url_G4 = geoengineUrl + "/geoserver/wms" + _this.config.dataset + "/region/" + _this.config.region + "/periodicity/" +
@@ -941,7 +941,7 @@ var EwxMapG5 = function(configuration) {
 */
 
     $.ajax({
-      url: url_eros,
+      url: url_G5,
       crossDomain: true,
       jsonp: "callback",
       dataType: "image/png"
@@ -970,7 +970,7 @@ var EwxMapG5 = function(configuration) {
         }
       });
     }).fail(function(err) {
-      console.log("Error: " + url_eros);
+      console.log("Error: " + url_G5);
     });
     console.log('exit createLegend...');
   };
