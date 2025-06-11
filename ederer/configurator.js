@@ -1,5 +1,6 @@
 function EwxMapSnippetConfigurator(geoEngineUrl) {
-  console.log(in EwxMapSnippetConfigurator...);
+  
+  console.log("in EwxMapSnippetConfigurator...");
 
   this.datasetSelect = $('#dataset-select');
   this.regionSelect = $('#region-select');
@@ -205,7 +206,7 @@ function EwxMapSnippetConfigurator(geoEngineUrl) {
     _this.generateCode();
     _this.setUpMapEvents();
   });
-  
+
   this.mapReady = function() {
     $('#map-form-controls').css('display', 'block');
   };
