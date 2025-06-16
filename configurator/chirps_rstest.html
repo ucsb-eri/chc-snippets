@@ -115,12 +115,14 @@
         </td>
         <td class="td1">
           <p>
-            <b> Select Forecast Period:</b>
+            <b> Select Periodicity:</b>
             <br>
-            <select id="forecastPeriod">
-              <option value="05day">5 Day</option>
-              <option value="10day">10 Day</option>
-              <option value="15day">15 Day</option>
+            <select id="periodicity">
+              <option value="1-pentad">Pentadal</option>
+	      <option value="dekad">Dekadal</option>
+              <option value="1-month">Monthly</option>
+	      <option value="2-month">2-Monthly</option>
+	      <option value="3-month">3-Monthly</option>
             </select>
           </p>
         </td>
@@ -140,8 +142,7 @@
             <br>
             <select id="statistic">
               <option value="data"><b>Data<b></option>
-              <option value="anomaly">Anomaly</option>
-              // anom for CHIRPS
+              <option value="anom">Anomaly</option>
               <option value="zscore">Z-score</option>
             </select>
           </p>
@@ -219,7 +220,7 @@
     <script type="text/javascript">
       console.log('');
       console.log('---------------------');
-      console.log('in startup... chirps-gefs_test.html');
+      console.log('in startup... chirps_rstest.html');
       console.log('URL: ', window.location.href);
       console.log('document.URL: ', document.URL);
       console.log('---------------------');
@@ -227,7 +228,7 @@
       function displaySnippet() {
 
           snippetId = document.querySelector('#snippetId').value;
-          forecastPeriod = document.querySelector('#forecastPeriod').value;
+          periodicity = document.querySelector('#periodicity').value;
           width = document.querySelector('#width').value;
           height = document.querySelector('#height').value;
           zoom = document.querySelector('#zoom').value;
@@ -237,11 +238,11 @@
           periodControl = document.querySelector('#periodControl').value;
           yearControl = document.querySelector('#yearControl').value;
 
-          var config_str="chirps-gefs_snippet.html?"+
+          var config_str="chirps_snippet.html?"+
             "snippetId="+snippetId+
             "&height="+height+
             "&width="+width+
-            "&forecastPeriod="+forecastPeriod+
+            "&periodicity="+periodicity+
             "&statistic="+statistic+
             "&latitude="+latitude+
             "&longitude="+longitude+
@@ -257,14 +258,14 @@
           console.log("width="+windowWidth+",height="+windowHeight);
           var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
 
-          console.log('leaving displaySnippet... chirps-gefs_test.html');
+          console.log('leaving displaySnippet... chirps_rstest.html');
       }
 
       function getOptions() {
           element = document.querySelector('#snippetId');
           snippetId = element.value;
 
-          element = document.querySelector('#forecastPeriod');
+          element = document.querySelector('#periodicity');
           forecastPeriod = element.value;
 
           element = document.querySelector('#statistic');
@@ -302,10 +303,10 @@
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: '" + snippetId + "', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPSGEFS', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps_gefs', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: " + periodControl + ", " + "<br>";
