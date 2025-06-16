@@ -117,10 +117,12 @@
           <p>
             <b> Select Forecast Period:</b>
             <br>
-            <select id="forecastPeriod">
-              <option value="05day">5 Day</option>
-              <option value="10day">10 Day</option>
-              <option value="15day">15 Day</option>
+            <select id="periodicity">
+              <option value="1-pentad">Pentadal</option>
+              <option value="dekad">Dekadal</option>
+              <option value="1-month">1-Monthly</option>
+	      <option value="2-month">2-Monthly</option>
+	      <option value="3-month">3-Monthly</option>
             </select>
           </p>
         </td>
@@ -140,7 +142,7 @@
             <br>
             <select id="statistic">
               <option value="data"><b>Data<b></option>
-              <option value="anomaly">Anomaly</option>
+              <option value="anom">Anomaly</option>
               // anom for CHIRPS
               <option value="zscore">Z-score</option>
             </select>
@@ -230,7 +232,7 @@
       function displaySnippet() {
 
           snippetId = document.querySelector('#snippetId').value;
-          forecastPeriod = document.querySelector('#forecastPeriod').value;
+          periodicity = document.querySelector('#periodicity').value;
           width = document.querySelector('#width').value;
           height = document.querySelector('#height').value;
           zoom = document.querySelector('#zoom').value;
@@ -244,7 +246,7 @@
             "snippetId="+snippetId+
             "&height="+height+
             "&width="+width+
-            "&forecastPeriod="+forecastPeriod+
+            "&periodicity="+periodicity+
             "&statistic="+statistic+
             "&latitude="+latitude+
             "&longitude="+longitude+
