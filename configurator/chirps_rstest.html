@@ -115,14 +115,12 @@
         </td>
         <td class="td1">
           <p>
-            <b> Select Periodicity:</b>
+            <b> Select Forecast Period:</b>
             <br>
-            <select id="periodicity">
-              <option value="1-pentad">Pentadal</option>
-	      <option value="dekad">Dekadal</option>
-              <option value="1-month">Monthly</option>
-	      <option value="2-month">2-Monthly</option>
-	      <option value="3-month">3-Monthly</option>
+            <select id="forecastPeriod">
+              <option value="05day">5 Day</option>
+              <option value="10day">10 Day</option>
+              <option value="15day">15 Day</option>
             </select>
           </p>
         </td>
@@ -142,7 +140,8 @@
             <br>
             <select id="statistic">
               <option value="data"><b>Data<b></option>
-              <option value="anom">Anomaly</option>
+              <option value="anomaly">Anomaly</option>
+              // anom for CHIRPS
               <option value="zscore">Z-score</option>
             </select>
           </p>
@@ -206,7 +205,10 @@
 
     <br>
     <br>
-    <button onclick="displaySnippet()">Preview Snippet</button>
+    <div id="snippet_div" style="width:500"></div>
+    <br>
+    <br>
+    <button onclick="displaySnippet()">Preview Snippetx</button>
     <br>
     <br>
     <br>
@@ -228,7 +230,7 @@
       function displaySnippet() {
 
           snippetId = document.querySelector('#snippetId').value;
-          periodicity = document.querySelector('#periodicity').value;
+          forecastPeriod = document.querySelector('#forecastPeriod').value;
           width = document.querySelector('#width').value;
           height = document.querySelector('#height').value;
           zoom = document.querySelector('#zoom').value;
@@ -242,7 +244,7 @@
             "snippetId="+snippetId+
             "&height="+height+
             "&width="+width+
-            "&periodicity="+periodicity+
+            "&forecastPeriod="+forecastPeriod+
             "&statistic="+statistic+
             "&latitude="+latitude+
             "&longitude="+longitude+
@@ -255,7 +257,12 @@
           let buffer = 10;
           let windowWidth = Number(width) + buffer;
           let windowHeight = Number(height) + buffer;
-          console.log("width="+windowWidth+",height="+windowHeight);
+          console.log("width="+windowWidth+"px,height="+windowHeight+"px");
+
+          //document.getElementById('snippet_div').style.width="500px";
+          //document.getElementById('snippet_div').setAttribute("style","width:500px");
+          //document.getElementById("snippet_div").innerHTML='<object type="text/html" data="config_tester.html"></object>';
+
           var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
 
           console.log('leaving displaySnippet... chirps_rstest.html');
@@ -265,8 +272,8 @@
           element = document.querySelector('#snippetId');
           snippetId = element.value;
 
-          element = document.querySelector('#periodicity');
-          periodicity = element.value;
+          element = document.querySelector('#forecastPeriod');
+          forecastPeriod = element.value;
 
           element = document.querySelector('#statistic');
           statistic = element.value;
@@ -303,11 +310,12 @@
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: '" + snippetId + "', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRP', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-month', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: " + periodControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: " + yearControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
