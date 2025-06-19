@@ -11,7 +11,9 @@
 
   <script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
 
+
   <div id='mySnippet'></div>
+
 
   <script type="text/javascript">
     new EwxMapG5({
@@ -20,16 +22,16 @@
       dataset: 'CHIRPS',
       subDataset: 'chirps',
       region: 'global',
-      periodicity: '1-month',
+      periodicity: '1-pentad',
       period: 'latest',
       showDekadControl: true,
-      showYearControl: false,
+      showYearControl: true,
       units: 'mm',
       statistic: 'data',
       width: 600,
-      height: 600,
-      zoom: 3.3,
-      center: [2.5, 19.15],
+      height: 700,
+      zoom: 2,
+      center: [1.0, 29.5],
     });
   </script>
 
