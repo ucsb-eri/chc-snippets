@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+More actions
   <!--  Header  ---------- -->
 
   <head>
@@ -119,10 +119,11 @@
             <br>
             <select id="periodicity">
               <option value="1-pentad">Pentadal</option>
-              <option value="dekad">Dekadal</option>
+	      <option value="dekad">Dekadal</option>
               <option value="1-month">Monthly</option>
-              <option value="2-month">2-Monthly</option>
-              <option value="3-month">3-Monthly</option>
+	      <option value="2-month">2-Monthly</option>
+	      <option value="3-monthly">3-Monthly</option>
+	      <option value="3-Monthly">3-Monthly</option>
             </select>
           </p>
         </td>
@@ -143,7 +144,6 @@
             <select id="statistic">
               <option value="data"><b>Data<b></option>
               <option value="anom">Anomaly</option>
-              // anom for CHIRPS
               <option value="zscore">Z-score</option>
             </select>
           </p>
@@ -207,9 +207,6 @@
 
     <br>
     <br>
-    <div id="snippet_div" style="width:500"></div>
-    <br>
-    <br>
     <button onclick="displaySnippet()">Preview Snippet</button>
     <br>
     <br>
@@ -259,12 +256,7 @@
           let buffer = 10;
           let windowWidth = Number(width) + buffer;
           let windowHeight = Number(height) + buffer;
-          console.log("width="+windowWidth+"px,height="+windowHeight+"px");
-
-          //document.getElementById('snippet_div').style.width="500px";
-          //document.getElementById('snippet_div').setAttribute("style","width:500px");
-          //document.getElementById("snippet_div").innerHTML='<object type="text/html" data="config_tester.html"></object>';
-
+          console.log("width="+windowWidth+",height="+windowHeight);
           var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
 
           console.log('leaving displaySnippet... chirps_rstest.html');
@@ -315,7 +307,7 @@
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '"+ periodicity +"', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: " + periodControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: " + yearControl + ", " + "<br>";
