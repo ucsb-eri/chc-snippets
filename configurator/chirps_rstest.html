@@ -117,7 +117,7 @@ More actions
           <p>
             <b> Select Periodicity:</b>
             <br>
-            <select id="periodicity1">
+            <select id="periodicity">
               <option value="1-pentad">Pentadal</option>
 	      <option value="dekad">Dekadal</option>
               <option value="1-month">Monthly</option>
@@ -228,7 +228,6 @@ More actions
       function displaySnippet() {
 
           snippetId     = document.querySelector('#snippetId').value;
-          periodicity1   = document.querySelector('#periodicity1').value;
           width         = document.querySelector('#width').value;
           height        = document.querySelector('#height').value;
           zoom          = document.querySelector('#zoom').value;
@@ -242,7 +241,6 @@ More actions
             "snippetId="+snippetId+
             "&height="+height+
             "&width="+width+
-            "&periodicity1="+periodicity1+
             "&statistic="+statistic+
             "&latitude="+latitude+
             "&longitude="+longitude+
@@ -265,8 +263,8 @@ More actions
           element = document.querySelector('#snippetId');
           snippetId = element.value;
 
-          element = document.querySelector('#periodicity1');
-          periodicity1 = element.value;
+          element = document.querySelector('#periodicity');
+          periodicity = element.value;
 
           element = document.querySelector('#statistic');
           statistic = element.value;
@@ -306,7 +304,7 @@ More actions
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity1 + "', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: " + periodControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: " + yearControl + ", " + "<br>";
