@@ -122,8 +122,7 @@ More actions
 	      <option value="dekad">Dekadal</option>
               <option value="1-month">Monthly</option>
 	      <option value="2-month">2-Monthly</option>
-	      <option value="3-monthly">3-Monthly</option>
-	      <option value="3-Monthly">3-Monthly</option>
+	      <option value="3-month">3-Monthly</option>
             </select>
           </p>
         </td>
@@ -228,16 +227,16 @@ More actions
 
       function displaySnippet() {
 
-          snippetId = document.querySelector('#snippetId').value;
-          periodicity = document.querySelector('#periodicity').value;
-          width = document.querySelector('#width').value;
-          height = document.querySelector('#height').value;
-          zoom = document.querySelector('#zoom').value;
-          latitude = document.querySelector('#latitude').value;
-          longitude = document.querySelector('#longitude').value;
-          statistic = document.querySelector('#statistic').value;
+          snippetId     = document.querySelector('#snippetId').value;
+          periodicity   = document.querySelector('#periodicity').value;
+          width         = document.querySelector('#width').value;
+          height        = document.querySelector('#height').value;
+          zoom          = document.querySelector('#zoom').value;
+          latitude      = document.querySelector('#latitude').value;
+          longitude     = document.querySelector('#longitude').value;
+          statistic     = document.querySelector('#statistic').value;
           periodControl = document.querySelector('#periodControl').value;
-          yearControl = document.querySelector('#yearControl').value;
+          yearControl   = document.querySelector('#yearControl').value;
 
           var config_str="chirps_snippet.html?"+
             "snippetId="+snippetId+
