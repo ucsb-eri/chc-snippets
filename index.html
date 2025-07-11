@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <!--  Header  ---------- -->
 
   <head>
@@ -77,11 +76,11 @@
 
 
   <body>
-    <h1>CHIRPS-GEFS Snippet Configurator</h1>
+    <h1>CHIRPS Snippet Configurator</h1>
     <br>
     <h3>Configure Snippet code</h3>
     <p>
-      To configure your CHIRPS-GEFS EWX Map Snippet, enter a unique Snippet ID and select the desired Periodicity and Statistic of coverage, below.
+      To configure your CHIRPS EWX Map Snippet, enter a unique Snippet ID and select the desired Periodicity and Statistic of coverage, below.
       Enter the Width and Height of your Snippet, the Center Latitude and Longitude and the Zoom level of the map. You can
       also choose to enable or disable the time navigation controls of periodicities and years for the Snippet.
       Then click the Preview Snippet button to view the Snippet as it would appear in your web page. Close the preview page
@@ -115,12 +114,14 @@
         </td>
         <td class="td1">
           <p>
-            <b> Select Forecast Period:</b>
+            <b> Select Periodicity:</b>
             <br>
-            <select id="forecastPeriod">
-              <option value="05day">5 Day</option>
-              <option value="10day">10 Day</option>
-              <option value="15day">15 Day</option>
+            <select id="periodicity">
+              <option value="1-pentad">Pentadal</option>
+	      <option value="dekad">Dekadal</option>
+              <option value="1-month">Monthly</option>
+	      <option value="2-month">2-Monthly</option>
+	      <option value="3-month">3-Monthly</option>
             </select>
           </p>
         </td>
@@ -130,7 +131,7 @@
           <form onSubmit={event.preventDefault()}>
             <label for="width"><b>Width:</b></label>
             <br>
-            <input type="text" id="width" name="width" value="1000">
+            <input type="text" id="width" name="width" value="600">
             <br>
           </form>
         </td>
@@ -140,8 +141,7 @@
             <br>
             <select id="statistic">
               <option value="data"><b>Data<b></option>
-              <option value="anomaly">Anomaly</option>
-              // anom for CHIRPS
+              <option value="anom">Anomaly</option>
               <option value="zscore">Z-score</option>
             </select>
           </p>
@@ -171,7 +171,7 @@
           <form onSubmit={event.preventDefault()}>
             <label for="zoom"><b>Zoom:</b></label>
             <br>
-            <input type="text" id="zoom" name="zoom" value="3.33">
+            <input type="text" id="zoom" name="zoom" value="3">
           </form>
         </td>
         <td class="td1">
@@ -214,35 +214,34 @@
     <p id="js_code_view"></p>
     <br>
 
-    <script type="text/javascript" src="file:///Users/marty/Projects/Snippets/chc-snippets/configurator/ewxmapG5.js"></script>
-    <!-- script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script -->
+    <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
 
     <script type="text/javascript">
       console.log('');
       console.log('---------------------');
-      console.log('in startup... chirps-gefs_test.html');
+      console.log('in startup... chirps_config.html');
       console.log('URL: ', window.location.href);
       console.log('document.URL: ', document.URL);
       console.log('---------------------');
 
       function displaySnippet() {
 
-          snippetId = document.querySelector('#snippetId').value;
-          forecastPeriod = document.querySelector('#forecastPeriod').value;
-          width = document.querySelector('#width').value;
-          height = document.querySelector('#height').value;
-          zoom = document.querySelector('#zoom').value;
-          latitude = document.querySelector('#latitude').value;
-          longitude = document.querySelector('#longitude').value;
-          statistic = document.querySelector('#statistic').value;
+          snippetId     = document.querySelector('#snippetId').value;
+          width         = document.querySelector('#width').value;
+          height        = document.querySelector('#height').value;
+          periodicity   = document.querySelector('#periodicity').value;
+          zoom          = document.querySelector('#zoom').value;
+          latitude      = document.querySelector('#latitude').value;
+          longitude     = document.querySelector('#longitude').value;
+          statistic     = document.querySelector('#statistic').value;
           periodControl = document.querySelector('#periodControl').value;
-          yearControl = document.querySelector('#yearControl').value;
+          yearControl   = document.querySelector('#yearControl').value;
 
-          var config_str="chirps-gefs_snippet.html?"+
+          var config_str="chirps_snippet.html?"+
             "snippetId="+snippetId+
             "&height="+height+
             "&width="+width+
-            "&forecastPeriod="+forecastPeriod+
+            "&periodicity="+periodicity+
             "&statistic="+statistic+
             "&latitude="+latitude+
             "&longitude="+longitude+
@@ -255,19 +254,18 @@
           let buffer = 10;
           let windowWidth = Number(width) + buffer;
           let windowHeight = Number(height) + buffer;
-          //console.log("width="+windowWidth+",height="+windowHeight);
-          //var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
-          var myWindow = window.open(config_str, "_blank","width="+width+",height="+height);
+          console.log("width="+windowWidth+",height="+windowHeight);
+          var myWindow = window.open(config_str, "_blank","width="+windowWidth+",height="+windowHeight);
 
-          console.log('leaving displaySnippet... chirps-gefs_test.html');
+          console.log('leaving displaySnippet... chirps_config.html');
       }
 
       function getOptions() {
           element = document.querySelector('#snippetId');
           snippetId = element.value;
 
-          element = document.querySelector('#forecastPeriod');
-          forecastPeriod = element.value;
+          element = document.querySelector('#periodicity');
+          periodicity = element.value;
 
           element = document.querySelector('#statistic');
           statistic = element.value;
@@ -304,12 +302,11 @@
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: '" + snippetId + "', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPSGEFS', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps_gefs', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
+          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '" + periodicity + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
-          txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: " + periodControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: " + yearControl + ", " + "<br>";
           txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
@@ -386,7 +383,7 @@
             <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
           </td>
           <td>
-            <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff;">Webmaster</a>
+            <a href="mailto:jwayhenthorne@ucsb.edu" style="color:#ffffff;">Webmaster</a>
           </td>
           <td></td>
         </tr>
@@ -402,3 +399,4 @@
     </div>
   </body>
 </html>
+
