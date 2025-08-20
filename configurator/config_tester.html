@@ -9,23 +9,24 @@
 
 <body>
 
-  <script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
 
-  <div id="snippet-m08f05L58"></div>
+    <script src="/ewxmapG5.js"></script>
+
+    <div id="snippet-m08f05L58"></div>
 
     <script type="text/javascript">
       new EwxMapG5({
         ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
         id: 'snippet-m08f05L58',
-        dataset: 'CHIRPS',
-        subDataset: 'chirps',
+        dataset: 'CHIRTSERA5',
+        subDataset: 'chirts-era5tmax',
         region: 'global',
         periodicity: '1-month',
         period: 'latest',
         forecastPeriod: 'none',
         showDekadControl: true,
         showYearControl: true,
-        units: 'mm',
+        units: 'C',
         statistic: 'data',
         width: 500,
         height: 500,
@@ -33,6 +34,8 @@
         center: [-19.0, 29.15],
     });
     </script>
+
+
 
 </body>
 
