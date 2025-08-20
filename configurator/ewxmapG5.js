@@ -376,6 +376,16 @@ var EwxMapG5 = function(configuration) {
     g20081Layer.addTo(map);
     this.g20081Layer = g20081Layer;
 
+    var g20082Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
+      layers: "EWX_g2008_2:g2008_2",
+      format: 'image/png',
+      transparent: true,
+      version: '1.1.0'
+    });
+    g20082Layer.addTo(map);
+    this.g20082Layer = g20082Layer;
+
+
     var _this = this;
 
     map.on('click', function(evt) {  //---------- MAP ON CLICK ---------//
