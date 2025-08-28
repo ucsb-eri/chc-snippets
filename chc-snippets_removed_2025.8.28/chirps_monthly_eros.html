@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Zimbabwe CHIRPS</title>
+  </head>
+
+<body>
+
+  <script src="/ewxmapG5_eros.js"></script>
+  <div id="snippet-m08f05L58"></div>
+
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://dmsdata.cr.usgs.gov',
+      id: 'snippet-m08f05L58',
+      dataset: 'CHIRPS',
+      subDataset: 'chirps',
+      region: 'global',
+      periodicity: 'month',
+      period: 'latest',
+      forecastPeriod: 'null',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'anomaly',
+      width: 800,
+      height: 800,
+      zoom: 7.0,
+      center: [-19.0, 29.0],
+  });
+  </script>
+
+
+</body>
+</html>

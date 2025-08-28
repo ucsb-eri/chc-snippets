@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Snippets Page</title>
+  </head>
+  <body>
+    <div id="ewx-map-4b42nl2le9"></div>
+    <div id="ewx-map-i269qto2n1"></div>
+    <div id="ewx-map-huirw9mwnw"></div>
+
+    <script src="http://ewx.chg.ucsb.edu/ewx-snippets/ewxmap/ewxmap.js"></script>
+    <script>
+    new EwxMap({
+      ewxUrl: 'http://ewx.chg.ucsb.edu:8080/EWX',
+      id: 'ewx-map-4b42nl2le9',
+      dataset: 'chirps',
+      region: 'asia',
+      periodicity: '1-dekad',
+      period: { year: 2016, month: 2, dekad: 3 },
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 961,
+      height: 590,
+      zoom: 4,
+      center: [20.67, 78.44],
+    });
+    </script>
+
+    <script>
+    new EwxMap({
+      ewxUrl: 'http://ewx.chg.ucsb.edu:8080/EWX',
+      id: 'ewx-map-i269qto2n1',
+      dataset: 'chirpsclim',
+      region: 'africa',
+      periodicity: '3-month',
+      period: { year: 2000, month: 6 },
+      showMonthControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 531,
+      height: 515,
+      zoom: 3,
+      center: [-0.18, 17.49],
+    });
+    </script>
+
+    <script>
+    new EwxMap({
+      ewxUrl: 'http://ewx.chg.ucsb.edu:8080/EWX',
+      id: 'ewx-map-huirw9mwnw',
+      dataset: 'chirps',
+      region: 'usa',
+      periodicity: '1-month',
+      period: { year: 2000, month: 6 },
+      showMonthControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 531,
+      height: 515,
+      zoom: 3,
+      center: [37.71, -96.50],
+    });
+    </script>
+  </body>
+</html>

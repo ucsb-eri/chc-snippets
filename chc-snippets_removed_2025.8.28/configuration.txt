@@ -1,0 +1,132 @@
+Snippets Configuration:
+
+Snippets are cofigured by adding the following lines to an HTML file.
+
+<!-- ========================= -->
+
+<script type="text/javascript" src="/ewxmapG5.js"></script>
+
+or if you want to display Kenya wards:
+
+<script type="text/javascript" src="/ewxmapG5_ken_wards.js"></script>
+
+  <div id="ewx-map-h4vbt36xss"></div>
+
+
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'ewx-map-h4vbt36xss',
+      dataset: 'CHIRPS-GEFS',
+      subDataset: 'chirps_gefs',
+      region: 'global',
+      periodicity: '1-day',
+      forecastPeriod: '15day',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 756,
+      height: 790,
+      time: '2021-10-01',
+      zoom: 7,
+      center: [-19.0, 29.0],
+    });
+  </script>
+
+  <center> <img
+     src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+     alt="Legend Not Found" />
+  </center>
+
+<!-- ========================= -->
+
+The following is a line by line description of the Snippet HTML code.
+
+<script type="text/javascript" src="/ewxmapG5.js"></script>
+
+  This calls the Javascript code that builds the map. We usually use this script
+  but we also have an ewxmapG5_ken_wards.js that also displays Kenyan ward boundaries
+
+
+<div id="ewx-map-h4vbt36xss"></div>
+  This line defines the division that the Snippet will be displayed in. The "id"
+  must match the "id" in the EwxMapG5 definition, below.
+
+
+<script type="text/javascript">
+  new EwxMapG5({
+
+  This defines the name of the EwxMap being used.
+
+
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      The is the URL to the EWX installation to use.
+
+
+    id: 'ewx-map-h4vbt36xss',
+      The idl of the Ewxmap.
+
+    dataset: 'CHIRPS-GEFS',
+      The name of the dataset as defined in the rest service config.
+      (i.e. https://chc-ewx3.chc.ucsb.edu/api/rest/version/5.0/config)
+
+
+    subDataset: 'chirps_gefs',
+      The name of the dataset as defined in the GeoServer. Only used for CHIRPS-GEFS
+
+
+    region: 'global',
+      The region the dataset is defined in the EwxMap. Global, Africa or
+      Central America and Caribbean.
+
+
+    periodicity: '1-day',
+      The periodicity of the dataset. 1-month, 2-month, 3-month 1-dekad, 1-day or 1-pentad
+
+
+    forecastPeriod: '15day',
+      The forecast period to display. Only used for CHIRPS-GEFS forecasts.
+
+
+    period: 'latest',
+      Always the latest since the historical single date has not been implemented.
+
+
+    showDekadControl: true,
+    showYearControl: true,
+      The above are user choices for time navigation button to be displayed on the Snippet.
+
+    units: 'mm',
+      Data units to use in the title bar.
+
+    statistic: 'data',
+      The statistic of the dataset... data, anomaly or zscore.
+
+
+    width: 756,
+    height: 790,
+      Size of the Snippet display window.
+
+
+    time: '2021-10-01',
+      Not used since the historical single date has not been implemented.
+
+
+    zoom: 7,
+      The zoom level of the initial map.
+
+
+    center: [-19.0, 29.0],
+      Location of the initial center of the map.
+  });
+</script>
+
+<center> <img
+   src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+   alt="Legend Not Found" />
+</center>
+
+  The URL to the legend image to be displayed under the Snippet. i.e. 
+

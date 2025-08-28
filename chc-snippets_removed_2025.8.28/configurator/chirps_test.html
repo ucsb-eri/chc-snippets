@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8" />
+
+    <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
+
+    </style>
+
+
+    <div>
+
+        <table style="border:0px solid black; width: 100%; background-color:#F1F2F2;">
+            <tr>
+                <td>
+                    <a><img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png" alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+                    </a>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="http://www.ucsb.edu">University of California, <br>Santa Barbara</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <a href="https://chc.ucsb.edu/about" style="color:#06B4D3;">About</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/people" style="color:#06B4D3;">People</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/research" style="color:#06B4D3;">Publications</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/tools" style="color:#06B4D3;">Tools</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/data" style="color:#06B4D3;">Data Sets</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/monitoring" style="color:#06B4D3;">Monitoring and Forecasting</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/news" style="color:#06B4D3;">News</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/activities" style="color:#06B4D3;">Activities</a>
+                </td>
+                <td>
+                    <a href="https://blog.chc.ucsb.edu/" style="color:#06B4D3;">CHC Blog</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/search" style="color:#06B4D3;">Search</a>
+                </td>
+                <td></td>
+            </tr>
+
+        </table>
+    </div>
+
+</head>
+
+
+
+<body>
+
+
+    <h1>CHIRPS Snippet Configurator</h1>
+
+    <br>
+    <p>
+        To configure your CHIRTS ERA5 EWX Map Snippet, select the desired Periodicity and Statistic of coverage, below.
+        Enter the Width and Height of your Snippet, the Center Latitude and Longitude and the Zoom level of the map.
+        Then click the Create Configuration button to generate the HTML code for the Snippet.
+    </p>
+    <p>
+        Copy and paste the first line of code and paste it above the intended location of the first EWX map in your web page.
+        Make sure this line appears only once in your page. Place the second line at the location you want the
+        Snippet to appear.
+    </p>
+    <p>
+        Copy the remainder of the code into your web page to view the Snippet.
+        You can make any adjustments
+        to the parameters, back in the configurator, to get the Snippet exactly how you want it to appear in your web page.
+        Copy the new cofiguration into your web page to view the new results.
+    </p>
+    <br>
+
+
+    <div class="clear-float"></div>
+    <hr />
+
+    <p> Select Periodicity:
+        <select id="periodicity">
+            <option value="1-month">Monthly</option>
+            <option value="1-pentad">Pentadal</option>
+            <option value="dekad">Dekadal</option>
+            <option value="2-month">2-Monthly</option>
+            <option value="3-month">3-Monthly</option>
+        </select>
+    </p>
+
+    <p> Select Statistic:
+        <select id="statistic">
+            <option value="data">Data</option>
+            <option value="anom">Anomaly</option>
+            <option value="zscore">Z-score</option>
+        </select>
+    </p>
+
+    <form>
+        <label for="width">Width:</label><br>
+        <input type="text" id="width" name="width" value="500"><br>
+    </form>
+    <br>
+
+    <form>
+        <label for="height">Height:</label><br>
+        <input type="text" id="height" name="height" value="500">
+    </form>
+    <br>
+
+    <form>
+        <label for="zoom">zoom:</label><br>
+        <input type="text" id="zoom" name="zoom" value="6.0">
+    </form>
+    <br>
+
+    <form>
+        <label for="longitude">Center longitude:</label><br>
+        <input type="text" id="longitude" name="longitude" value="29.15">
+    </form>
+    <br>
+
+    <form>
+        <label for="latitude">Center latitude:</label><br>
+        <input type="text" id="latitude" name="latitude" value="-19.0">
+    </form>
+
+    <br>
+    <br>
+    <button onclick="getOptions()"> Create Configuration </button>
+    <br><br><br>
+
+    <button onclick="displaySnippet()">Refresh Snippet</button>
+
+    <p id="snippetsxxx_view"></p>
+    <p id="demo"></p>
+
+    <br>
+
+    <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+
+    <div id="snippet_view2" href='https://chc.ucsb.edu'>zipppy</div>
+    <div id="snippet_view"></div>
+
+    <script type="text/javascript">
+
+    console.log('');
+    console.log('---------------------');
+    console.log('in startup... chirps_test.html');
+    console.log('URL: ', window.location.href);
+    console.log('document.URL: ', document.URL);
+    console.log('search: ', window.location.search);
+    console.log('---------------------');
+
+
+    let urlString = document.URL;
+    let paramString = urlString.split('?')[1];
+    let params_arr = paramString.split('&');
+    for(let i = 0; i < params_arr.length; i++) {
+        let pair = params_arr[i].split('=');
+        console.log("Key is:" + pair[0]);
+        console.log("Value is:" + pair[1]);
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const width = urlParams.get('width');
+    console.log('width: ', width);
+
+    console.log('---------------------');
+
+      new EwxMapG5({
+        ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+        id: 'snippet_view',
+        dataset: 'CHIRPSGEFS',
+        subDataset: 'chirps_gefs',
+        region: 'global',
+        periodicity: '1-day',
+        forecastPeriod: '15day',
+        period: 'latest',
+        showDekadControl: true,
+        showYearControl: true,
+        units: 'mm',
+        statistic: 'data',
+        width: width,
+        height: 400,
+        time: '2021-10-01',
+        zoom: 2.5,
+        center: [6.0, 17.0],
+      });
+
+        function displaySnippet() {
+
+            new EwxMapG5({
+              ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+              id: 'snippet_view',
+              dataset: 'CHIRPSGEFS',
+              subDataset: 'chirps_gefs',
+              region: 'global',
+              periodicity: '1-day',
+              forecastPeriod: '15day',
+              period: 'latest',
+              showDekadControl: true,
+              showYearControl: true,
+              units: 'mm',
+              statistic: 'data',
+              width: 756,
+              height: 790,
+              height: 790,
+              time: '2021-10-01',
+              zoom: 3.5,
+              center: [6.0, 17.0],
+            });
+
+            //document.getElementById("html_demo").innerHTML='<b>booya</b>';
+            //document.getElementById("html_demo").SetHTML = "<b>booya</b>";
+
+
+
+            //var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
+            //console.log('snippet_html...', snippet_html);
+            //var uri = "data:text/html," + encodeURIComponent(snippet_html);
+            // file:///Users/marty/Projects/Snippets/chc-snippets/configurator/config_viewer.html?height=555&width=666&fperiod=10day&stat=anomaly&lon=30&lat=-22&zoom=4.3
+
+            // file:///Users/marty/Projects/Snippets/chc-snippets/configurator/config_viewer.html?height=333&width=666&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3
+
+            var myWindow = window.open("config_viewer.html?height=555&width=333&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3", "_blank","width=350,height=600");
+
+            //var myWindow = window.open("https://chc.ucsb.edu/configurator/config_viewer.html?height=555&width=666&fperiod=10day&stat=anomaly&lon=30&lat=22&zoom=4.3", "");
+
+            //var myWindow = window.open("https://chc.ucsb.edu/configurator/config_viewer.html", "","height=555,width=666,fperiod=10day,stat=anomaly,lon=30,lat=22,zoom=4.3");
+
+            //var myWindow = window.open("https://chc.ucsb.edu", "", "width="+width+",height=500");
+
+            // works
+            //var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=600");
+
+            //var myWindow = window.open("", "", "width=800,height=800");
+            //myWindow.innerHTML = "<h2>Hello World</h2>";
+            //window.open("https://chc.ucsb.edu/tools", "_blank");
+            //document.getElementById("snippet_view").innerHTML='https://chc.ucsb.edu';
+            //var newWindow = window.open();
+            //var htxt="ohaio";
+            //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
+
+            console.log('leaving displaySnippet... chirps_test.html');
+        }
+
+        function getOptions() {
+            element = document.querySelector('#forecastPeriod');
+            forecastPeriod = element.value;
+
+            element = document.querySelector('#statistic');
+            statistic = element.value;
+
+            element = document.querySelector('#width');
+            width = element.value;
+
+            element = document.querySelector('#height');
+            height = element.value;
+
+            element = document.querySelector('#zoom');
+            zoom = element.value;
+
+            element = document.querySelector('#latitude');
+            latitude = element.value;
+
+            element = document.querySelector('#longitude');
+            longitude = element.value;
+
+            element = document.querySelector('#periodControl');
+            periodControl = element.value;
+
+            element = document.querySelector('#yearControl');
+            yearControl = element.value;
+
+            let txt = '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
+            txt += "<br>";
+            txt += '&nbsp;&nbsp;&ltdiv id="snippet-m08f05L58"&gt&lt/div&gt' + "<br>";
+            txt += "<br>";
+            txt += '&nbsp;&nbsp;&ltscript type="text/javascript"&gt' + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;new EwxMapG5({" + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 'snippet-m08f05L58', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataset: 'CHIRPS', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subDataset: 'chirps', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region: 'global', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecastPeriod: '" + forecastPeriod + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;periodicity: '1-day', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;period: 'latest', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showDekadControl: '" + periodControl + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showYearControl: '" + yearControl + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units: 'mm', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistic: '" + statistic + "', " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: " + width + ", " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: " + height + ", " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: " + zoom + ", " + "<br>";
+            txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: [" + latitude + ", " + longitude + "]," + "<br>";
+            txt += "&nbsp;&nbsp;});" + "<br>";
+            txt += "&nbsp;&nbsp;&lt/script&gt" + "<br>";
+            txt += "<br>";
+
+            console.log('getOptions txt: ', txt);
+
+
+            document.getElementById("demo").innerHTML = txt;
+
+        }
+
+
+        function displaySnippetxxx() {
+            console.log('in displaySnippet... snippet_html');
+            var snippet_html = '<html><head></head><body>Snip this MoJo</body></html>';
+            console.log('snippet_html...', snippet_html);
+            var uri = "data:text/html," + encodeURIComponent(snippet_html);
+
+            //var myWindow = window.open("", "", "width=500,height=500");
+            var myWindow = window.open("https://snippets.chc.ucsb.edu/", "", "width=800,height=800");
+
+            //window.open("https://chc.ucsb.edu/tools", "_blank");
+            //document.getElementById("html_demo").innerHTML = txt;
+            //var newWindow = window.open();
+            //var htxt="ohaio";
+            //newWindow.document.write('<html><head><title>Test3</title></head><body>asdfl<br>&nbsp;&nbspsdfdd</body></html>');
+
+        }
+    </script>
+
+    <!--  FOOTER --------------------- -->
+    <div>
+
+
+        <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
+            <tr>
+                <td>
+                    <p style="color:#ffffff;">Climate Hazards Center<br />
+                        UC Santa Barbara<br />
+                        Santa Barbara, CA 93106
+                    </p>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                    <a href="https://x.com/climatehazards" target="_blank">
+                        <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png" style="width: 33px; height: 33px;">
+                        <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
+                        </a>
+                        <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png" style="width: 33px; height: 33px;">
+                    </a>
+                    <br />
+                    <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
+                        <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png" style="width: 33px; height: 33px;">
+                    </a>
+                    <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
+                        <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png" style="width: 33px; height: 33px;">
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <a href="http://www.college.ucsb.edu" style="color:#ffffff;">College of Lettersand Science</a>
+                </td>
+                <td>
+                    <a href="http://www.ucsb.edu" style="color:#ffffff;">UC Santa Barbara</a>
+                </td>
+                <td>
+                    <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff;">Accessibility</a>
+                </td>
+                <td>
+                    <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff;">Appropriate Use</a>
+                </td>
+                <td>
+                    <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
+                </td>
+                <td>
+                    <a href="mailto:jwayhenthorne@ucsb.edu" style="color:#ffffff;">Webmaster</a>
+                </td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td colspan=5 style="color:#ffffff; text-align:center;">
+                    &copy;2022 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </div>
+
+
+
+
+</body>
+
+</html>
