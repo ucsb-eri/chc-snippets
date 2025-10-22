@@ -136,17 +136,17 @@
     <div class="heat-cells">
       <!-- Heat Index Cell -->
       <div class="heat-cell">
-        <h4>Heat Index</h4>
+        <h4>Temperature Maximum</h4>
         <div class="links-vertical">
           <a href="#">5-day</a>
           <a href="#">10-day</a>
-          <a href="#">Monthly</a>
+          <a href="snippets.chc.ucsb.edu/climateservices/earlywarning/kakumarefugeecamp/chirts_era5_monthly.html">Monthly</a>
         </div>
       </div>
 
       <!-- Heat Index Anomaly Cell -->
       <div class="heat-cell">
-        <h4>Heat Index Anomaly</h4>
+        <h4>Temperature Maximum Anomaly</h4>
         <div class="links-vertical">
           <a href="#">5-day</a>
           <a href="#">10-day</a>
@@ -156,7 +156,7 @@
 
       <!-- Heat Index Z-Scores Cell -->
       <div class="heat-cell">
-        <h4>Heat Index Z-Scores</h4>
+        <h4>Temperature Maximum Z-Scores</h4>
         <div class="links-vertical">
           <a href="#">5-day</a>
           <a href="#">10-day</a>
