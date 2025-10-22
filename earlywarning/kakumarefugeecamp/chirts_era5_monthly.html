@@ -1,34 +1,140 @@
+<!DOCTYPE html>
 <html lang="en">
 
+<head>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+  <style>
+    /* --- General Styling --- */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #059AB5;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    a {
+      text-decoration: none;
+      color: #059AB5;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Header --- */
+    .header {
+      background-color: #059AB5;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .header table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #059AB5;
+    }
+
+    .header a {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* --- Map container --- */
+    .map-container {
+      width: 600px;
+      margin: 30px auto; /* centers the map */
+    }
+
+    footer {
+      background-color: #059AB5;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
 <body>
-<p> This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions. </p>
 
+  <!-- ====== Header ====== -->
+  <div class="header">
+    <table>
+      <tr>
+        <td style="padding-left: 15px;">
+          <a href="https://chc.ucsb.edu">
+            <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+          </a>
+        </td>
+        <td style="text-align: right; padding-right: 20px;">
+          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <a href="https://chc.ucsb.edu/about">About</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/people">People</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/research">Publications</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/tools">Tools</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/data">Data Sets</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/news">News</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/activities">Activities</a>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-    <script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+  <!-- Page Title and Description -->
+  <h1>Kakuma Refugee Camp Heat Tracker</h1>
+  <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
 
+  <!-- Centered Map -->
+  <div class="map-container">
     <div id="snippet-m08f05L58"></div>
+  </div>
 
-    <script type="text/javascript">
-      new EwxMapG5({
-        ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-        id: 'snippet-m08f05L58',
-        dataset: 'CHIRTSERA5',
-        subDataset: 'chirts-era5tmax',
-        region: 'global',
-        periodicity: '1-month',
-        period: 'latest',
-        forecastPeriod: 'none',
-        showDekadControl: true,
-        showYearControl: true,
-        units: 'C',
-        statistic: 'data',
-        width: 600,
-        height: 350,
-        zoom: 8,
-        center: [3.7, 35.4],
+  <!-- Map Script -->
+  <script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'snippet-m08f05L58',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
+      region: 'global',
+      periodicity: '1-month',
+      period: 'latest',
+      forecastPeriod: 'none',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'C',
+      statistic: 'data',
+      width: 600,
+      height: 350,
+      zoom: 8,
+      center: [3.7, 35.4],
     });
-    </script>
-	
+  </script>
 
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Climate Hazards Center | University of California, Santa Barbara
+  </footer>
 
-
+</body>
+</html>
