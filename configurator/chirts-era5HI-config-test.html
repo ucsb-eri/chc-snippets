@@ -1,0 +1,52 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>EWX Snippets: Display an Auto-updated Map of Our Data on Your Website | Climate Hazards Center - UC Santa Barbara</title>
+</head>
+
+
+<body>
+
+
+     <script src="/ewxmapG5.js"></script>
+
+  <div id="snippet-m08f05L58"></div>
+
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'snippet-m08f05L58',
+      dataset: 'chirts-era5hi',
+      subDataset: 'chirtsera5hi',
+      region: 'global',
+      periodicity: 'pentad',
+      period: 'latest',
+      forecastPeriod: 'none',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'C',
+      statistic: 'data',
+      width: 500,
+      height: 850,
+      zoom: 6.0,
+      center: [-19.0, 29.15],
+  });
+  </script>
+
+
+
+                <center>
+                  <img
+                    width=350, height=85
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_dekad_anom_raster.png"
+                    alt="Legend Not Found"
+                  />
+                </center>
+
+
+
+</body>
+
+</html>

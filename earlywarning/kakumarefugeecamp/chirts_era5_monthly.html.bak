@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+  <style>
+    /* --- General Styling --- */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #059AB5;
+    }
+
+    a {
+      text-decoration: none;
+      color: #059AB5;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Header --- */
+    .header {
+      background-color: #059AB5;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .header table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #059AB5;
+    }
+
+    .header a {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* --- Page Container --- */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* --- Section Cards --- */
+    .section {
+      background-color: white;
+      border-left: 6px solid #059AB5;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      padding: 25px 30px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #02788a;
+    }
+
+    .section p {
+      line-height: 1.6;
+    }
+
+    .section a {
+      color: #02788a;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #059AB5;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Climate Hazards Center - UC Santa Barbara</h2>
+  </div>
+
+  <h1>Kakuma Refugee Camp Heat Tracker</h1>
+  <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
+
+  <!-- Centered Map -->
+  <div class="map-container">
+    <div id="snippet-m08f05L58"></div>
+  </div>
+
+  <!-- Map Script -->
+  <script src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
+  <script type="text/javascript">
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'snippet-m08f05L58',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
+      region: 'global',
+      periodicity: '1-month',
+      period: 'latest',
+      forecastPeriod: 'none',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'C',
+      statistic: 'data',
+      width: 600,
+      height: 350,
+      zoom: 8,
+      center: [3.7, 35.4],
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Climate Hazards Center | University of California, Santa Barbara
+  </footer>
+
+</body>
+</html>
+
+	
+
+
+
