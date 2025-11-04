@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <title>Kakuma Refugee Camp Heat Tracker | Climate Hazards Center</title>
   <style>
+    /* ===== Global Styling ===== */
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
       margin: 0;
@@ -26,6 +26,7 @@
       text-decoration: underline;
     }
 
+    /* ===== Header ===== */
     .header {
       background-color: #059AB5;
       color: white;
@@ -43,29 +44,17 @@
       font-weight: 500;
     }
 
+    /* ===== Container ===== */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
-    }
-
-    .section {
       background-color: white;
-      border-left: 6px solid #059AB5;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-      padding: 25px 30px;
     }
 
-    .project-sections {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
+    /* ===== Project Sections ===== */
     .project-section {
-      flex: 1 1 48%; /* Two sections side by side */
+      margin-bottom: 40px;
       background-color: #ffffff;
       border: 2px solid #059AB5;
       border-radius: 8px;
@@ -78,28 +67,123 @@
       margin-top: 0;
     }
 
-    footer {
-      background-color: #059AB5;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
+    /* ===== Heat Cells Styling ===== */
+    .heat-cells {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
 
+    .heat-cell {
+      flex: 1;
+      min-width: 200px;
+      background-color: #f8f9fa;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .heat-cell:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .heat-cell h4 {
+      color: #02788a;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+
+    .links-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .links-vertical a {
+      color: #02788a;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .links-vertical a:hover {
+      text-decoration: underline;
+      color: #059AB5;
+    }
+
+    /* ===== Footer ===== */
+    #page-footer {
+      width: 100%;
+      margin: 0;
+      padding: 15px 0;
+      background-color: #059AB5;
+      color: white;
+      clear: both;
+    }
+
+    #page-footer p, #page-footer a {
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+      color: white;
+    }
+
+    #page-footer a:hover {
+      text-decoration: underline;
+    }
+
+    #page-footer .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #page-footer .footer-social img {
+      width: 33px;
+      height: 33px;
+    }
+
+    #page-footer .footer-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    #page-footer .footer-copy {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .project-sections {
+      .heat-cells {
         flex-direction: column;
       }
-
-      .project-section {
-        flex: 1 1 100%;
+      #page-footer .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      #page-footer .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
-
 <body>
-   <!-- ====== Header ====== -->
+
+  <!-- ====== Header ====== -->
   <div class="header">
     <table>
       <tr>
@@ -128,219 +212,142 @@
     </table>
   </div>
 
- <!-- ====== Main Page Content ====== -->
-<div class="container">
-  <h1>Kakuma Refugee Camp Heat Tracker</h1>
-  <p>
-    The Heat Tracker monitors extreme heat events in the Kakuma refugee camp and provides actionable information 
-    to reduce heat-related health risks.
+  <!-- ====== Under Construction Notice ====== -->
+  <p style="color: red; font-style: italic; text-align: center; margin: 10px 0;">
+      This page is currently under construction. 
   </p>
 
-  <!-- ===== LEFT SECTION: Heat Exposure ===== -->
-  <div class="project-section heat-exposure">
-    <h3>Heat Exposure</h3>
+  <!-- ====== Main Page Content ====== -->
+  <div class="container">
+    <h1>Kakuma Refugee Camp Heat Tracker</h1>
     <p>
-      This section provides maps of recent temperature extremes within the Kakuma Refugee Camp. 
+      The Heat Tracker monitors extreme heat events in the Kakuma refugee camp and provides actionable information 
+      to reduce heat-related health risks.
     </p>
 
-    <!-- ===== ROW 1: Temperature Maximum ===== -->
-    <div class="heat-cells">
-      <div class="heat-cell">
-        <h4>Temperature Maximum</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly.html">Monthly</a>
+    <!-- ===== Heat Monitor Section ===== -->
+    <div class="project-section heat-exposure">
+      <h3>Heat Monitor</h3>
+      <p>This section provides maps of recent temperature extremes within the Kakuma Refugee Camp.</p>
+
+      <!-- Row 1: Temperature Maximum -->
+      <div class="heat-cells">
+        <div class="heat-cell">
+          <h4>Temperature Maximum</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly.html">Monthly</a>
+          </div>
+        </div>
+        <div class="heat-cell">
+          <h4>Temperature Maximum Anomaly</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_anomaly.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_anomaly.html">Monthly</a>
+          </div>
+        </div>
+        <div class="heat-cell">
+          <h4>Temperature Maximum Z-Scores</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_zscore.html">Monthly</a>
+          </div>
         </div>
       </div>
 
-      <div class="heat-cell">
-        <h4>Temperature Maximum Anomaly</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_anomaly.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_anomaly.html">Monthly</a>
+      <!-- Row 2: Heat Index -->
+      <div class="heat-cells">
+        <div class="heat-cell">
+          <h4>Heat Index</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-kakuma.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly-kakuma.html">Monthly</a>
+          </div>
         </div>
-      </div>
-
-      <div class="heat-cell">
-        <h4>Temperature Maximum Z-Scores</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_zscore.html">Monthly</a>
+        <div class="heat-cell">
+          <h4>Heat Index Anomaly</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anom-kakuma.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-anom-kakuma.html">Monthly</a>
+          </div>
+        </div>
+        <div class="heat-cell">
+          <h4>Heat Index Z-Scores</h4>
+          <div class="links-vertical">
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-zscore-kakuma.html">Monthly</a>
+          </div>
         </div>
       </div>
     </div>
+    <!-- END Heat Monitor Section -->
 
-    <!-- ===== ROW 2: Heat Index ===== -->
-    <div class="heat-cells">
-      <div class="heat-cell">
-        <h4>Heat Index</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-kakuma.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly-kakuma.html">Monthly</a>
+    <!-- ===== Heat Forecast Section ===== -->
+    <div class="project-section heat-forecast">
+      <h3>Heat Forecast</h3>
+      <p>This section provides short-term forecasts of temperature and heat index in the Kakuma Refugee Camp.</p>
+
+      <div class="heat-cells">
+        <div class="heat-cell">
+          <h4>Temperature Forecast</h4>
+          <div class="links-vertical">
+            <a href="#">3-day Forecast</a>
+            <a href="#">7-day Forecast</a>
+          </div>
         </div>
-      </div>
-
-      <div class="heat-cell">
-        <h4>Heat Index Anomaly</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anom-kakuma.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-anom-kakuma.html">Monthly</a>
-        </div>
-      </div>
-
-      <div class="heat-cell">
-        <h4>Heat Index Z-Scores</h4>
-        <div class="links-vertical">
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
-          <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-zscore-kakuma.html">Monthly</a>
+        <div class="heat-cell">
+          <h4>Heat Index Forecast</h4>
+          <div class="links-vertical">
+            <a href="#">3-day Forecast</a>
+            <a href="#">7-day Forecast</a>
+          </div>
         </div>
       </div>
     </div>
+    <!-- END Heat Forecast Section -->
+
   </div>
-  <!-- END OF HEAT EXPOSURE SECTION -->
+  <!-- END Container -->
 
-<!-- ====== CSS Styling ====== -->
-<style>
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
+  <!-- ===== Footer ===== -->
+  <footer id="page-footer">
+    <div class="footer-inner">
+      <div class="footer-address">
+        <p>Climate Hazards Center<br>
+           UC Santa Barbara<br>
+           Santa Barbara, CA 93106
+        </p>
+      </div>
 
-/* Spacing for each section */
-.project-section {
-  margin-bottom: 40px;
-}
+      <div class="footer-social">
+        <a href="https://x.com/climatehazards" target="_blank">
+          <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png">
+        </a>
+        <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
+          <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png">
+        </a>
+        <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
+          <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png">
+        </a>
+        <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
+          <img alt="LinkedIn" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png">
+        </a>
+      </div>
 
-/* Cards for heat data */
-.heat-cells {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.heat-cell {
-  flex: 1;
-  background-color: #f8f9fa;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.heat-cell:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.heat-cell h4 {
-  color: #02788a;
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.1em;
-}
-
-/* Vertical link layout */
-.links-vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* Link styling */
-.links-vertical a {
-  color: #02788a;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.links-vertical a:hover {
-  text-decoration: underline;
-  color: #059AB5;
-}
-
-/* Heat Safety section */
-.heat-safety {
-  background-color: #f8f9fa;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-</style>
-
-<!--  FOOTER --------------------- -->
-    <div>
-      <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
-        <tr>
-          <td>
-            <p style="color:#ffffff;">Climate Hazards Center<br />
-              UC Santa Barbara<br />
-              Santa Barbara, CA 93106
-            </p>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-            <a href="https://x.com/climatehazards" target="_blank">
-            <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png" style="width: 33px; height: 33px;">
-            <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
-            </a>
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png" style="width: 33px; height: 33px;">
-            </a>
-            <br />
-            <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-            <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png" style="width: 33px; height: 33px;">
-            </a>
-            <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png" style="width: 33px; height: 33px;">
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <a href="http://www.college.ucsb.edu" style="color:#ffffff;">College of Lettersand Science</a>
-          </td>
-          <td>
-            <a href="http://www.ucsb.edu" style="color:#ffffff;">UC Santa Barbara</a>
-          </td>
-          <td>
-            <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff;">Accessibility</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff;">Appropriate Use</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
-          </td>
-          <td>
-            <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff;">Webmaster</a>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan=5 style="color:#ffffff; text-align:center;">
-            &copy;2025 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
-          </td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+      <div class="footer-links">
+        <a href="http://www.college.ucsb.edu">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu">Webmaster</a>
+      </div>
     </div>
-  </body>
+
+    <div class="footer-copy">
+      &copy;2025 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
+    </div>
+  </footer>
+
+</body>
 </html>
