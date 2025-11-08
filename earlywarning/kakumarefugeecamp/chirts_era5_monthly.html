@@ -108,28 +108,32 @@
     <div id="snippet-m08f05L58"></div>
   </div>
 
-  <!-- Map Script -->
-   <script src="/ewxmapG5.js"></script>
-  <script type="text/javascript">
-    new EwxMapG5({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'snippet-m08f05L58',
-      dataset: 'CHIRTSERA5',
-      subDataset: 'chirts-era5tmax',
-      region: 'global',
-      periodicity: '1-month',
-      period: 'latest',
-      forecastPeriod: 'none',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'C',
-      statistic: 'data',
-      width: 600,
-      height: 350,
-      zoom: 8,
-      center: [3.7, 35.4],
-    });
-  </script>
+ <!-- Map Script -->
+<script src="/ewxmapG5.js"></script>
+
+<div id="mySnippet"></div>
+
+<script type="text/javascript">
+  new EwxMapG5({
+    ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
+    id: "mySnippet",
+    dataset: 'CHIRTSERA5',
+    subDataset: 'chirts-era5tmax',
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    forecastPeriod: 'none',
+    showDekadControl: true,
+    showYearControl: true,
+    units: '°C',
+    statistic: 'data',
+    width: 600,
+    height: 350,
+    zoom: 3,
+    center: [0, 20],
+  });
+</script>
+
 
   <!--  FOOTER --------------------- -->
     <div>
