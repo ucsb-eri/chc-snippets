@@ -48,7 +48,7 @@
     .container {
       max-width: 1200px;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 20px;
       background-color: white;
     }
 
@@ -115,6 +115,33 @@
       color: #059AB5;
     }
 
+    /* ===== Forecast horizontal links & centered title ===== */
+    .center-title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .links-horizontal {
+      display: flex;
+      justify-content: center;
+      gap: 100px; /* spacing between the links */
+      margin-top: 8px;
+    }
+
+    .links-horizontal a {
+      text-decoration: none;
+      color: #02788a; 
+	  font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(0, 122, 204, 0.07);
+    }
+
+    .links-horizontal a:hover {
+      text-decoration: underline;
+      background: rgba(0, 122, 204, 0.12);
+    }
+
     /* ===== Footer ===== */
     #page-footer {
       width: 100%;
@@ -146,15 +173,15 @@
       gap: 10px;
     }
 
+    /* push address left, links center, social right on wide screens */
+    #page-footer .footer-address { flex: 1 1 240px; }
+    #page-footer .footer-links { flex: 2 1 520px; display:flex; justify-content:center; gap:15px; }
+    #page-footer .footer-social { flex: 0 1 240px; display:flex; justify-content:flex-end; gap:10px; }
+
     #page-footer .footer-social img {
       width: 33px;
       height: 33px;
-    }
-
-    #page-footer .footer-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+      display: inline-block;
     }
 
     #page-footer .footer-copy {
@@ -178,6 +205,7 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      #page-footer .footer-social { justify-content:flex-start; }
     }
   </style>
 </head>
@@ -214,14 +242,14 @@
 
   <!-- ====== Under Construction Notice ====== -->
   <p style="color: red; font-style: italic; text-align: center; margin: 10px 0;">
-      This page is currently under construction. 
+      This page is currently under construction.
   </p>
 
   <!-- ====== Main Page Content ====== -->
   <div class="container">
     <h1>Kakuma Refugee Camp Heat Tracker</h1>
     <p>
-      The Heat Tracker monitors extreme heat events in the Kakuma refugee camp and provides actionable information 
+      The Heat Tracker monitors extreme heat events in the Kakuma refugee camp and provides actionable information
       to reduce heat-related health risks.
     </p>
 
@@ -285,17 +313,18 @@
     <!-- ===== Heat Forecast Section ===== -->
     <div class="project-section heat-forecast">
       <h3>Heat Forecast</h3>
-      <p>This section provides short-term forecasts of temperature and heat index in the Kakuma Refugee Camp.</p>
+      <p>This section provides short-term forecasts of temperature in the Kakuma Refugee Camp.</p>
 
       <div class="heat-cells">
-        <div class="heat-cell">
-          <h4>Temperature Forecast</h4>
-          <div class="links-vertical">
+        <div class="heat-cell" style="width:100%;">
+          <h4 class="center-title">Temperature Forecast</h4>
+
+          <div class="links-horizontal">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-forecasts-kakuma.html">5-day Forecast</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-forecasts-kakuma.html">10-day Forecast</a>
-			<a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_15day-forecasts-kakuma">15-day Forecast</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_15day-forecasts-kakuma">15-day Forecast</a>
           </div>
-        </div>
+
         </div>
       </div>
     </div>
@@ -314,6 +343,15 @@
         </p>
       </div>
 
+      <div class="footer-links">
+        <a href="http://www.college.ucsb.edu">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu">Webmaster</a>
+      </div>
+
       <div class="footer-social">
         <a href="https://x.com/climatehazards" target="_blank">
           <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png">
@@ -327,15 +365,6 @@
         <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
           <img alt="LinkedIn" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png">
         </a>
-      </div>
-
-      <div class="footer-links">
-        <a href="http://www.college.ucsb.edu">College of Letters and Science</a>
-        <a href="http://www.ucsb.edu">UC Santa Barbara</a>
-        <a href="https://chc.ucsb.edu/accessibility">Accessibility</a>
-        <a href="http://www.policy.ucsb.edu/terms_of_use/">Appropriate Use</a>
-        <a href="http://www.policy.ucsb.edu/privacy-notification/">Privacy</a>
-        <a href="mailto:dcalaso@ucsb.edu">Webmaster</a>
       </div>
     </div>
 
