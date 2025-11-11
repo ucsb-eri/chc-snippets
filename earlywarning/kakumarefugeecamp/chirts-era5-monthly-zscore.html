@@ -101,7 +101,7 @@
 
   <!-- Page Title and Description -->
   <h1>Kakuma Refugee Camp Heat Tracker</h1>
-  <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
+  <p>This map shows standardized temperature anomalies for the past five days. Positive z-scores indicate above-average temperatures, while negative z-score values indicate below-average temperatures.</p>
 
   <!-- Centered Map -->
   <div class="map-container">
@@ -110,18 +110,17 @@
 
   <!-- Map Script -->
  <script src="/ewxmapG5.js"></script>
-
   <div id='mySnippet'></div>
-
   <script type="text/javascript">
     new EwxMapG5({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'mySnippet',
-      dataset: 'chirtsera5hi',
-      subDataset: 'chirts-era5hi',
+      id: 'snippet-m08f05L58',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
       region: 'global',
       periodicity: '1-month',
       period: 'latest',
+      forecastPeriod: 'none',
       showDekadControl: true,
       showYearControl: true,
       units: 'C',
@@ -133,7 +132,7 @@
     });
   </script>
 
- <!--  FOOTER --------------------- -->
+  <!--  FOOTER --------------------- -->
     <div>
       <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
         <tr>
