@@ -8,7 +8,7 @@
 
 <body>
 
-    <script type="text/javascript" src="/ewxmapG5.js"></script>
+    <script type="text/javascript" src="https://snippets.chc.ucsb.edu/ewxmapG5.js"></script>
 
     <div id="snippet_view"></div>
 
@@ -45,7 +45,7 @@
         new EwxMapG5({
         ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
         id: 'snippet_view',
-        dataset: 'CHIRTSGEFS',
+        dataset: 'chirtsgefs',
         subDataset: 'chirtsgefs',
         region: 'global',
         periodicity: periodicity,
