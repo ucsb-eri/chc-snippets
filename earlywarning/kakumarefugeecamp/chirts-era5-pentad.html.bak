@@ -133,6 +133,29 @@
     center: [3.7, 35.4],
   });
 </script>
+ // Add red triangle marker at 3.7N, 34.8E
+  setTimeout(() => {
+    const map = mapWidget.map;
+    const redTriangle = L.polygon([
+      [3.7 + 0.05, 34.8],
+      [3.7 - 0.05, 34.8 - 0.05],
+      [3.7 - 0.05, 34.8 + 0.05]
+    ], {
+      color: 'red',
+      fillColor: 'red',
+      fillOpacity: 0.8
+    }).addTo(map);
+  }, 1000);
+</script>
+
+<!-- Legend (goes below the map) -->
+<center>
+  <img 
+    width="350" height="auto"
+    src="chirtsera5-data-legend.png" 
+    alt="CHIRTS-ERA5 Tmax Legend"
+/>
+</center>
   </script>
                 <center>
                   <img 
