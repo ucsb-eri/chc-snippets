@@ -108,13 +108,12 @@
     <div id="snippet-m08f05L58"></div>
   </div>
 
- <!-- Map Script -->
+<!-- Map Script -->
 <script src="/ewxmapG5.js"></script>
 
-<div id="mySnippet"></div>
-
 <script type="text/javascript">
-  new EwxMapG5({
+  // Create the map widget and store it in a variable
+  const mapWidget = new EwxMapG5({
     ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
     id: "mySnippet",
     dataset: 'CHIRTSERA5',
@@ -132,10 +131,10 @@
     zoom: 8,
     center: [3.7, 35.4],
   });
-</script>
- // Add red triangle marker at 3.7N, 34.8E
-  setTimeout(() => {
-    const map = mapWidget.map;
+
+    setTimeout(() => {
+    const map = mapWidget.map; // get Leaflet map from widget
+
     const redTriangle = L.polygon([
       [3.7 + 0.05, 34.8],
       [3.7 - 0.05, 34.8 - 0.05],
@@ -148,7 +147,6 @@
   }, 1000);
 </script>
 
-<!-- Legend (goes below the map) -->
 <center>
   <img 
     width="350" height="auto"
@@ -156,14 +154,7 @@
     alt="CHIRTS-ERA5 Tmax Legend"
 />
 </center>
-  </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
+
 
   <!--  FOOTER --------------------- -->
     <div>
