@@ -112,16 +112,17 @@
  <script src="/ewxmapG5.js"></script>
   <div id='mySnippet'></div>
 
+
   <script type="text/javascript">
     new EwxMapG5({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
       id: 'mySnippet',
-      dataset: 'CHIRTSGEFS',
-      subDataset: 'chirtsgefs',
+      dataset: 'chirts-gefs',
+      subDataset: 'chirts-gefs',
       region: 'global',
       periodicity: '1-day',
       period: 'latest',
-	  forecastPeriod: '10day',
+	  forecastPeriod: '05day',
       showDekadControl: true,
       showYearControl: true,
       units: 'C',
