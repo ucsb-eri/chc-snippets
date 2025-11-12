@@ -132,86 +132,11 @@
       center: [3.7, 35.4],
     });
   </script>
-    </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
 
-  <!--  FOOTER --------------------- -->
-    <div>
-      <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
-        <tr>
-          <td>
-            <p style="color:#ffffff;">Climate Hazards Center<br />
-              UC Santa Barbara<br />
-              Santa Barbara, CA 93106
-            </p>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-            <a href="https://x.com/climatehazards" target="_blank">
-            <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png" style="width: 33px; height: 33px;">
-            <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
-            </a>
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png" style="width: 33px; height: 33px;">
-            </a>
-            <br />
-            <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-            <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png" style="width: 33px; height: 33px;">
-            </a>
-            <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png" style="width: 33px; height: 33px;">
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <a href="http://www.college.ucsb.edu" style="color:#ffffff;">College of Lettersand Science</a>
-          </td>
-          <td>
-            <a href="http://www.ucsb.edu" style="color:#ffffff;">UC Santa Barbara</a>
-          </td>
-          <td>
-            <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff;">Accessibility</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff;">Appropriate Use</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
-          </td>
-          <td>
-            <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff;">Webmaster</a>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan=5 style="color:#ffffff; text-align:center;">
-            &copy;2025 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
-          </td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-  </body>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Climate Hazards Center | University of California, Santa Barbara
+  </footer>
+
+</body>
 </html>
-

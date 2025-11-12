@@ -110,9 +110,7 @@
 
   <!-- Map Script -->
  <script src="/ewxmapG5.js"></script>
-  
   <div id='mySnippet'></div>
-
   <script type="text/javascript">
     new EwxMapG5({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
@@ -132,14 +130,6 @@
       center: [3.7, 35.4],
     });
   </script>
-    </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
 
   <!--  FOOTER --------------------- -->
     <div>

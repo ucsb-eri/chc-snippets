@@ -110,7 +110,7 @@
 
   <!-- Map Script -->
  <script src="/ewxmapG5.js"></script>
-  
+ 
   <div id='mySnippet'></div>
 
   <script type="text/javascript">
@@ -120,7 +120,7 @@
       dataset: 'chirtsera5hi',
       subDataset: 'chirts-era5hi',
       region: 'global',
-      periodicity: '1-month',
+      periodicity: '1-pentad',
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
@@ -132,16 +132,8 @@
       center: [3.7, 35.4],
     });
   </script>
-    </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
 
-  <!--  FOOTER --------------------- -->
+ <!--  FOOTER --------------------- -->
     <div>
       <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
         <tr>

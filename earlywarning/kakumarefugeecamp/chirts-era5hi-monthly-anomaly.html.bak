@@ -110,7 +110,7 @@
 
   <!-- Map Script -->
  <script src="/ewxmapG5.js"></script>
-  
+
   <div id='mySnippet'></div>
 
   <script type="text/javascript">
@@ -125,21 +125,13 @@
       showDekadControl: true,
       showYearControl: true,
       units: 'C',
-      statistic: 'data',
+      statistic: 'anom',
       width: 600,
       height: 350,
       zoom: 8,
       center: [3.7, 35.4],
     });
   </script>
-    </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
 
   <!--  FOOTER --------------------- -->
     <div>
@@ -214,4 +206,3 @@
     </div>
   </body>
 </html>
-
