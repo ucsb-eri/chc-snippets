@@ -103,16 +103,13 @@
   <h1>Kakuma Refugee Camp Heat Tracker</h1>
   <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
 
-  <!-- Centered Map -->
-  <div class="map-container">
-    <div id="snippet-m08f05L58"></div>
-  </div>
+ <!-- Map Script -->
+ <script src="/ewxmapG5.js"></script>
+  <div id='mySnippet'></div>
 
-<!-- Map Script -->
-<script src="/ewxmapG5.js"></script>
-
+  <script type="text/javascript">
 <script type="text/javascript">
-  // Create the map widget and store it in a variable
+  // 1) create the widget and store it
   const mapWidget = new EwxMapG5({
     ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
     id: "mySnippet",
@@ -132,28 +129,47 @@
     center: [3.7, 35.4],
   });
 
-    setTimeout(() => {
-    const map = mapWidget.map; // get Leaflet map from widget
+  // 2) safe wait-and-add function (polls until map and Leaflet are ready)
+  (function waitForMapAndAddTriangle(retries = 0) {
+    const maxRetries = 30; // ~30 * 200ms = 6s max wait
+    try {
+      const map = mapWidget && mapWidget.map;
+      if (!map || typeof L === 'undefined') {
+        if (retries < maxRetries) {
+          return setTimeout(() => waitForMapAndAddTriangle(retries + 1), 200);
+        } else {
+          console.error('Map or Leaflet (L) did not become available in time.');
+          return;
+        }
+      }
 
-    const redTriangle = L.polygon([
-      [3.7 + 0.05, 34.8],
-      [3.7 - 0.05, 34.8 - 0.05],
-      [3.7 - 0.05, 34.8 + 0.05]
-    ], {
-      color: 'red',
-      fillColor: 'red',
-      fillOpacity: 0.8
-    }).addTo(map);
-  }, 1000);
+      // 3) add the triangle polygon at lat=3.7, lon=34.8
+      //    adjust `sizeDeg` if you want a larger/smaller triangle
+      const lat = 3.7;
+      const lon = 34.8;
+      const sizeDeg = 0.03; // ~3km-ish; decrease for smaller triangle
+
+      const triangle = L.polygon([
+        [lat + sizeDeg, lon],                // top
+        [lat - sizeDeg, lon - sizeDeg],     // bottom-left
+        [lat - sizeDeg, lon + sizeDeg]      // bottom-right
+      ], {
+        color: 'red',
+        weight: 1,
+        fillColor: 'red',
+        fillOpacity: 0.85,
+        interactive: true
+      }).addTo(map);
+
+      // optional: add a popup or tooltip
+      triangle.bindTooltip('Kakuma (3.7N, 34.8E)', {permanent: false, direction: 'top'});
+
+    } catch (err) {
+      console.error('Error adding triangle:', err);
+    }
+  })();
 </script>
 
-<center>
-  <img 
-    width="350" height="auto"
-    src="chirtsera5-data-legend.png" 
-    alt="CHIRTS-ERA5 Tmax Legend"
-/>
-</center>
 
 
   <!--  FOOTER --------------------- -->
