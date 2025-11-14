@@ -67,21 +67,23 @@
       margin-top: 0;
     }
 
-    /* ===== Heat Cells Styling ===== */
-    .heat-cells {
+    /* ===== ROWS OF CELLS ===== */
+    .cell-row {
       display: flex;
       gap: 20px;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
+    /* ===== Individual Cells ===== */
     .heat-cell {
       flex: 1;
-      min-width: 200px;
+      min-width: 220px;
       background-color: #f8f9fa;
       padding: 15px 20px;
       border-radius: 8px;
+      border: 2px solid #059AB5;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -97,6 +99,7 @@
       margin-bottom: 8px;
     }
 
+    /* ===== Vertical Links ===== */
     .links-vertical {
       display: flex;
       flex-direction: column;
@@ -106,8 +109,6 @@
     .links-vertical a {
       color: #02788a;
       font-weight: bold;
-      text-decoration: none;
-      transition: color 0.2s;
     }
 
     .links-vertical a:hover {
@@ -115,31 +116,41 @@
       color: #059AB5;
     }
 
-    /* ===== Forecast horizontal links & centered title ===== */
+    /* ===== Forecast Blocks ===== */
+    .forecast-block {
+      width: 100%;
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #059AB5;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
     .center-title {
       text-align: center;
       margin-bottom: 10px;
+      color: #02788a;
     }
 
     .links-horizontal {
       display: flex;
       justify-content: center;
-      gap: 100px; /* spacing between the links */
-      margin-top: 8px;
+      gap: 80px;
+      margin-top: 10px;
     }
 
     .links-horizontal a {
-      text-decoration: none;
-      color: #02788a; 
-	  font-weight: bold;
+      color: #02788a;
+      font-weight: bold;
       padding: 8px 12px;
       border-radius: 6px;
       background: rgba(0, 122, 204, 0.07);
     }
 
     .links-horizontal a:hover {
-      text-decoration: underline;
       background: rgba(0, 122, 204, 0.12);
+      text-decoration: underline;
     }
 
     /* ===== Footer ===== */
@@ -159,10 +170,6 @@
       color: white;
     }
 
-    #page-footer a:hover {
-      text-decoration: underline;
-    }
-
     #page-footer .footer-inner {
       max-width: 1200px;
       margin: auto;
@@ -173,7 +180,6 @@
       gap: 10px;
     }
 
-    /* push address left, links center, social right on wide screens */
     #page-footer .footer-address { flex: 1 1 240px; }
     #page-footer .footer-links { flex: 2 1 520px; display:flex; justify-content:center; gap:15px; }
     #page-footer .footer-social { flex: 0 1 240px; display:flex; justify-content:flex-end; gap:10px; }
@@ -181,37 +187,34 @@
     #page-footer .footer-social img {
       width: 33px;
       height: 33px;
-      display: inline-block;
     }
 
-    #page-footer .footer-copy {
+    .footer-copy {
       text-align: center;
       margin-top: 10px;
       font-size: 13px;
-      line-height: 1.2;
     }
 
-    /* ===== Responsive ===== */
+    /* Responsive */
     @media (max-width: 768px) {
-      .heat-cells {
+      .cell-row {
         flex-direction: column;
+      }
+      .links-horizontal {
+        flex-direction: column;
+        gap: 15px;
       }
       #page-footer .footer-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
       }
-      #page-footer .footer-links {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      #page-footer .footer-social { justify-content:flex-start; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ====== Header ====== -->
+  <!-- ====== HEADER (unchanged) ====== -->
   <div class="header">
     <table>
       <tr>
@@ -242,11 +245,12 @@
 
   <!-- ====== Under Construction Notice ====== -->
   <p style="color: red; font-style: italic; text-align: center; margin: 10px 0;">
-      This page is currently under construction.
+    This page is currently under construction.
   </p>
 
-  <!-- ====== Main Page Content ====== -->
+  <!-- ====== MAIN CONTENT (redesigned) ====== -->
   <div class="container">
+
     <h1>Kakuma Refugee Camp Heat Tracker</h1>
     <p>
       The Heat Tracker monitors extreme heat events in the Kakuma refugee camp and provides actionable information
@@ -254,80 +258,77 @@
     </p>
 
     <!-- ===== Rainfall Monitor Section ===== -->
-    <div class="project-section heat-exposure">
+    <div class="project-section">
       <h3>Rainfall Monitor</h3>
       <p>This section provides maps of recent temperature extremes within the Kakuma Refugee Camp.</p>
 
-      <!-- Row 1: Rainfall -->
-      <div class="heat-cells">
+      <div class="cell-row">
         <div class="heat-cell">
           <h4>CHIRPS</h4>
           <div class="links-vertical">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-pentad.html">5-day</a>
-			<a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad.html">10-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad.html">10-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-monthly.html">Monthly</a>
           </div>
         </div>
+
         <div class="heat-cell">
           <h4>CHIRPS Anomaly</h4>
           <div class="links-vertical">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-pentad-anomaly.html">5-day</a>
-			<a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad-anomaly.html">10-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad-anomaly.html">10-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-monthly-anomaly.html">Monthly</a>
           </div>
         </div>
+
         <div class="heat-cell">
           <h4>CHIRPS Z-Scores</h4>
           <div class="links-vertical">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-pentad-zscores.html">5-day</a>
-			<a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad-zscores.html">10-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-dekad-zscores.html">10-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps-monthly-zscores.html">Monthly</a>
           </div>
         </div>
       </div>
-    <!-- END Rainfall Monitor Section -->
+    </div>
 
     <!-- ===== Rainfall Forecast Section ===== -->
-    <div class="project-section heat-forecast">
+    <div class="project-section">
       <h3>Rainfall Forecast</h3>
-      <p>This section provides short-term forecasts of temperature and heat index in the Kakuma Refugee Camp.</p>
+      <p>This section provides short-term forecasts of rainfall conditions in the Kakuma Refugee Camp.</p>
 
-      <div class="heat-cells">
-        <div class="heat-cell" style="width:100%;">
-          <h4 class="center-title">CHIRPS3-GEFS</h4>
-
-          <div class="links-horizontal">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-forecasts.html">5-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-forecasts.html">10-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-forecasts.html">15-day Forecast</a>
-          </div>
-		  <div class="heat-cell" style="width:100%;">
-          <h4 class="center-title">CHIRPS3-GEFS Rainfall Category</h4>
-
-          <div class="links-horizontal">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-category.html">5-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-category.html">10-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-category.html">15-day Forecast</a>
-          </div>
-		   </div>
-		  <div class="heat-cell" style="width:100%;">
-          <h4 class="center-title">CHIRPS3-GEFS Z-Scores</h4>
-
-          <div class="links-horizontal">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-zscores.html">5-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-zscores.html">10-day Forecast</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-zscores.html">15-day Forecast</a>
-          </div>
-
+      <div class="forecast-block">
+        <h4 class="center-title">CHIRPS3-GEFS</h4>
+        <div class="links-horizontal">
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-forecasts.html">5-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-forecasts.html">10-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-forecasts.html">15-day Forecast</a>
         </div>
       </div>
-    </div>
-    <!-- END Heat Forecast Section -->
 
-  </div>
-  <!-- END Container -->
+      <div class="forecast-block">
+        <h4 class="center-title">CHIRPS3-GEFS Rainfall Category</h4>
+        <div class="links-horizontal">
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-category.html">5-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-category.html">10-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-category.html">15-day Forecast</a>
+        </div>
+      </div>
 
-  <!-- ===== Footer ===== -->
+      <div class="forecast-block">
+        <h4 class="center-title">CHIRPS3-GEFS Z-Scores</h4>
+        <div class="links-horizontal">
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_5day-zscores.html">5-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_10day-zscores.html">10-day Forecast</a>
+          <a href="https://climateservices.chc.ucsb.edu/earlywarning/somalia/chirps3-gefs_15day-zscores.html">15-day Forecast</a>
+        </div>
+      </div>
+
+    </div> <!-- end forecast section -->
+
+  </div> <!-- end container -->
+
+  <!-- ====== FOOTER (unchanged) ====== -->
   <footer id="page-footer">
     <div class="footer-inner">
       <div class="footer-address">
