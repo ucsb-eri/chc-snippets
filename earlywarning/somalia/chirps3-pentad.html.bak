@@ -115,7 +115,7 @@
       dataset: 'CHIRPSv3',
       subDataset: 'chirpsv3',
       region: 'global',
-      periodicity: '1-pentad',
+      periodicity: '1-month',
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
