@@ -100,7 +100,7 @@
   </div>
 
   <!-- Page Title and Description -->
-  <h1>Somalia Drought Early Warning</h1>
+  <h1>Somalia Recent Rainfall</h1>
   <p>This map shows the average rainfall for the past 5 days, providing an overview of recent rainfall conditions.</p>
 
  <!-- Map Script -->
@@ -109,24 +109,26 @@
   <div id='mySnippet'></div>
 
   <script type="text/javascript">
-    new EwxMapG5({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'mySnippet',
-      dataset: 'CHIRPSv3',
-      subDataset: 'chirpsv3',
-      region: 'global',
-      periodicity: '1-pentad',
-      period: 'latest',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'C',
-      statistic: 'data',
-      width: 600,
-      height: 350,
-      zoom: 8,
-      center: [3.7, 35.4],
-    });
-  </script>
+  const mapWidget = new EwxMapG5({
+    ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
+    id: "mySnippet",
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    region: 'global',
+    periodicity: '1-pentad',
+    period: 'latest',
+    forecastPeriod: 'none',
+    showDekadControl: true,
+    showYearControl: true,
+    units: 'mm',
+    statistic: 'data',
+    width: 850,   
+    height: 500,  
+    zoom: 6,
+    center: [6.3, 44.6],
+  });
+</script>
+
 
   <!--  FOOTER --------------------- -->
     <div>
