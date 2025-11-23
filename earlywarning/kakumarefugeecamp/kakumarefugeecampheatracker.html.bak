@@ -256,29 +256,29 @@
     <!-- ===== Heat Monitor Section ===== -->
     <div class="project-section heat-exposure">
       <h3>Heat Monitor</h3>
-      <p>This section provides maps of recent temperature extremes within the Kakuma Refugee Camp.</p>
+      <p>This section provides maps of recent temperature conditions within the Kakuma Refugee Camp.</p>
 
       <!-- Row 1: Temperature Maximum -->
       <div class="heat-cells">
         <div class="heat-cell">
-          <h4>Temperature Maximum</h4>
+          <h4>CHIRTS-ERA5 Temperature Maximum</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly.html">Monthly</a>
           </div>
         </div>
         <div class="heat-cell">
-          <h4>Temperature Maximum Anomaly</h4>
+          <h4>CHIRTS-ERA5 Temperature Maximum Anomaly</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_anomaly.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_anomaly.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad-anomaly.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-anomaly.html">Monthly</a>
           </div>
         </div>
         <div class="heat-cell">
-          <h4>Temperature Maximum Z-Scores</h4>
+          <h4>CHIRTS-ERA5 Temperature Maximum Z-Scores</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_monthly_zscore.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad-zscore.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-zscore.html">Monthly</a>
           </div>
         </div>
       </div>
@@ -286,24 +286,24 @@
       <!-- Row 2: Heat Index -->
       <div class="heat-cells">
         <div class="heat-cell">
-          <h4>Heat Index</h4>
+          <h4>CHIRTS-ERA5 Heat Index</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-kakuma.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly-kakuma.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly.html">Monthly</a>
           </div>
         </div>
         <div class="heat-cell">
-          <h4>Heat Index Anomaly</h4>
+          <h4>CHIRTS-ERA5 Heat Index Anomaly</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anom-kakuma.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-anom-kakuma.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anomaly.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-anomaly.html">Monthly</a>
           </div>
         </div>
         <div class="heat-cell">
-          <h4>Heat Index Z-Scores</h4>
+          <h4>CHIRTS-ERA5 Heat Index Z-Scores</h4>
           <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts_era5_pentadal_zscore.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-zscore-kakuma.html">Monthly</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-zscore.html">5-day</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-zscore.html">Monthly</a>
           </div>
         </div>
       </div>
@@ -313,19 +313,36 @@
     <!-- ===== Heat Forecast Section ===== -->
     <div class="project-section heat-forecast">
       <h3>Heat Forecast</h3>
-      <p>This section provides short-term forecasts of temperature and heat index in the Kakuma Refugee Camp.</p>
+      <p>This section provides short-term forecasts of temperature.</p>
 
       <div class="heat-cells">
         <div class="heat-cell" style="width:100%;">
-          <h4 class="center-title">Temperature Forecast</h4>
+          <h4 class="center-title">CHIRTS-GEFS Temperature Forecast</h4>
 
           <div class="links-horizontal">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-forecasts.html">5-day Forecast</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-forecasts.html">10-day Forecast</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_15day-forecasts.html">15-day Forecast</a>
           </div>
-
         </div>
+		<div class="heat-cell">
+          <h4>CHIRTS-GEFS Anomaly</h4>
+          <div class="links-vertical">
+             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-forecasts.html">5-day Forecast</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-forecasts.html">10-day Forecast</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_15day-forecasts.html">15-day Forecast</a>
+          </div>
+        </div>
+        <div class="heat-cell">
+          <h4>CHIRTS-GEFS Z-Scores</h4>
+          <div class="links-vertical">
+             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-forecasts.html">5-day Forecast</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-forecasts.html">10-day Forecast</a>
+            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_15day-forecasts.html">15-day Forecast</a>
+          </div>
+        </div>
+      </div>
+    </div>
       </div>
     </div>
     <!-- END Heat Forecast Section -->
