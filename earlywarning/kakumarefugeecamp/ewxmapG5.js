@@ -87,7 +87,7 @@ var EwxMapG5 = function(configuration) {
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "https://climateservices.chc.ucsb.edu/styles.css"
+          href: "https://snippets.chc.ucsb.edu/styles.css"
           // xhref: "file:///Users/marty/Projects/EWX/snippets/Snippets/styles.css"
           // href: "styles.css" mfl
         }).appendTo("head");
@@ -271,7 +271,6 @@ var EwxMapG5 = function(configuration) {
           _this.config.period.temporal1 = _this.config.period.day;
         } else if (_this.config.periodicity === '1-pentad') {
           wmstTime = _ewx_config[dataItemName].end.granule_start;
-		  wmstTime = '2025-12-21';
           console.log('in loadEwxConfig, wmstTime: ', wmstTime);
           _this.config.temporal1 = _this.config.period.period;
           _this.config.period.temporal1 = _this.config.period.pentad;
