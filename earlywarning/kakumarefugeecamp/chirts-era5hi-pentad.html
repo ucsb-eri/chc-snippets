@@ -103,13 +103,16 @@
   <h1>Kakuma Refugee Camp Heat Tracker</h1>
   <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
 
-<!-- Map container -->
+   <!-- Centered Map -->
+  <div class="map-container">
+    <div id="snippet-m08f05L58"></div>
+  </div>
+
+ <!-- Map Script -->
+<script src="/ewxmapG5.js"></script>
+
 <div id="mySnippet"></div>
 
-<!-- Load the map library ONCE -->
-<script src="./ewxmapG5_ken_wards.js"></script>
-
-<!-- Initialize the map -->
 <script type="text/javascript">
   new EwxMapG5({
     ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
