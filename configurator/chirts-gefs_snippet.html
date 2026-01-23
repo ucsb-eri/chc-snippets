@@ -8,14 +8,14 @@
 
 <body>
 
-    <script type="text/javascript" src="/ewxmapG5.js"></script>
+    <script type="text/javascript" src="https://climateservices.chc.ucsb.edu/ewxmapG5.js"></script>
 
     <div id="snippet_view"></div>
 
     <script type="text/javascript">
 
       console.log(''); //for debugging
-      console.log('in chirtsera5hi_snippet.html...');
+      console.log('in chirts-gefs.html...');
       console.log('=====================');
 
       let urlString = document.URL;
@@ -45,14 +45,14 @@
         new EwxMapG5({
         ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
         id: 'snippet_view',
-        dataset: 'CHIRTSGEFS',
+        dataset: 'CHIRTS-GEFS',
         subDataset: 'chirtsgefs',
         region: 'global',
         periodicity: periodicity,
         period: 'latest',
         showDekadControl: periodControl,
         showYearControl: yearControl,
-        units: 'C',
+        units: 'mm',
         statistic: statistic,
         width: width,
         height: height,
