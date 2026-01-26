@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Kakuma Refugee Camp Heat Tracker | Climate Hazards Center</title>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
   <style>
-    /* ===== Global Styling ===== */
+    /* --- General Styling --- */
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
       margin: 0;
@@ -13,9 +14,9 @@
       color: #333;
     }
 
-    h1, h2 {
-      color: #003660;
-    }
+    h1, h2, h3 {
+      color: #000000;
+	}
 
     a {
       text-decoration: none;
@@ -26,11 +27,11 @@
       text-decoration: underline;
     }
 
-    /* ===== Header ===== */
+    /* --- Header --- */
     .header {
       background-color: #003660;
       color: white;
-      padding: 10px 0;
+      padding: 0;
     }
 
     .header table {
@@ -63,7 +64,7 @@
     }
 
     .project-section h3 {
-      color: #02788a;
+      color: #003660;
       margin-top: 0;
     }
 
@@ -140,71 +141,6 @@
       background: rgba(0, 122, 204, 0.12);
     }
 
-    /* ===== Footer ===== */
-    #page-footer {
-      width: 100%;
-      margin: 0;
-      padding: 15px 0;
-      background-color: #003660;
-      color: white;
-      clear: both;
-    }
-
-    #page-footer p, #page-footer a {
-      margin: 0;
-      padding: 0;
-      line-height: 1.2;
-      color: white;
-    }
-
-    #page-footer a:hover {
-      text-decoration: underline;
-    }
-
-    #page-footer .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* push address left, links center, social right on wide screens */
-    #page-footer .footer-address { flex: 1 1 240px; }
-    #page-footer .footer-links { flex: 2 1 520px; display:flex; justify-content:center; gap:15px; }
-    #page-footer .footer-social { flex: 0 1 240px; display:flex; justify-content:flex-end; gap:10px; }
-
-    #page-footer .footer-social img {
-      width: 33px;
-      height: 33px;
-      display: inline-block;
-    }
-
-    #page-footer .footer-copy {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 13px;
-      line-height: 1.2;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      .heat-cells {
-        flex-direction: column;
-      }
-      #page-footer .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      #page-footer .footer-links {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      #page-footer .footer-social { justify-content:flex-start; }
-    }
   </style>
 </head>
 <body>
@@ -215,8 +151,8 @@
       <tr>
         <td style="padding-left: 15px;">
           <a href="https://chc.ucsb.edu">
-            <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png"
-              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 110px;" />
           </a>
         </td>
         <td style="text-align: right; padding-right: 20px;">
@@ -237,13 +173,12 @@
       </tr>
     </table>
   </div>
-
   <!-- ====== Under Construction Notice ====== -->
   <p style="color: red; font-style: italic; text-align: center; margin: 10px 0;">
       This page is currently under construction.
   </p>
 
-  <!-- ====== Main Page Content ====== -->
+ <!-- ====== Main Page Content ====== -->
   <div class="container">
     <h1>Kakuma Refugee Camp Heat Tracker</h1>
     <p>
@@ -251,71 +186,57 @@
 	  <a href="https://chc.ucsb.edu/data/chirts-era5">CHIRTS-ERA5</a> temperature dataset and <a href="https://chc.ucsb.edu/data/chirps-gefs">CHIRTS-GEFS</a> temperature forecasts. 
 	  Below are graphics of the CHIRTS-ERA5 5-day and monthly Maximum Temperature (Tmax) and Heat Index (HI) as well as the CHIRTS-GEFS 5-, 10-, and 15-day temperature forecasts.
 	 </p>
-
-    <!-- ===== Heat Monitor Section ===== -->
-    <div class="project-section heat-exposure">
-      <h3>Heat Monitor</h3>
-     
-      <!-- Row 1: Temperature Maximum -->
-      <div class="heat-cells">
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 Tmax</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly.html">Monthly</a>
-          </div>
-        </div>
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 Tmax Anomaly</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad-anomaly.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-anomaly.html">Monthly</a>
-          </div>
-        </div>
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 Tmax Z-Scores</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad-zscore.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-monthly-zscore.html">Monthly</a>
-          </div>
-        </div>
+    <h2>CHIRTS-ERA5 Heat Monitor</h2>
+    <!-- ===== Project Section 1: Temperature Maximum ===== -->
+<div class="project-section">
+  <h3>Temperature Maximum</h3>
+  <div class="heat-cells">
+    <div class="heat-cell">
+     <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad.html">
+  <h4>Pentad</h4>
+</a>
       </div>
-
-      <!-- Row 2: Heat Index -->
-      <div class="heat-cells">
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 HI</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly.html">Monthly</a>
-          </div>
-        </div>
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 HI Anomaly</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anomaly.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-anomaly.html">Monthly</a>
-          </div>
-        </div>
-        <div class="heat-cell">
-          <h4>CHIRTS-ERA5 HI Z-Scores</h4>
-          <div class="links-vertical">
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-zscore.html">5-day</a>
-            <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-zscore.html">Monthly</a>
-          </div>
-        </div>
+    <div class="heat-cell">
+           <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5-pentad.html">
+  <h4>Monthly</h4>
+</a>  </div>
+    </div>
+ 
+<!-- ===== Project Section 2: Heat Index ===== -->
+<div class="project-section">
+  <h3>Heat Index</h3>
+  <div class="heat-cells">
+    <div class="heat-cell">
+      <h3>Data</h3>
+      <div class="links-vertical">
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad.html">5-day</a>
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirtsera5hi-monthly.html">Monthly</a>
       </div>
     </div>
-    <!-- END Heat Monitor Section -->
+    <div class="heat-cell">
+      <h3>Anomaly</h3>
+      <div class="links-vertical">
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-anomaly.html">5-day</a>
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-anomaly.html">Monthly</a>
+      </div>
+    </div>
+    <div class="heat-cell">
+      <h3>Z-Scores</h3>
+      <div class="links-vertical">
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-pentad-zscore.html">5-day</a>
+        <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-era5hi-monthly-zscore.html">Monthly</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- ===== Heat Forecast Section ===== -->
+   <h2>CHIRTS-GEFS Temperature Forecasts</h2>
+   <!-- ===== Heat Forecast Section ===== -->
     <div class="project-section heat-forecast">
-      <h3>CHIRTS-GEFS Temperature Forecasts</h3>
-    
+          
       <div class="heat-cells">
         <div class="heat-cell" style="width:100%;">
-          <h4>Dataset</h4>
-
+          <h3>Data</h3>
           <div class="links-vertical">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-forecasts.html">5-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-forecasts.html">10-day</a>
@@ -323,7 +244,7 @@
           </div>
         </div>
 		<div class="heat-cell">
-          <h4>Anomaly</h4>
+          <h3>Anomaly</h3>
           <div class="links-vertical">
              <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-anomaly.html">5-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-anomaly.html">10-day</a>
@@ -331,7 +252,7 @@
           </div>
         </div>
         <div class="heat-cell">
-          <h4>Z-Scores</h4>
+          <h3>Z-Scores</h3>
           <div class="links-vertical">
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_5day-zscores.html">5-day</a>
             <a href="https://climateservices.chc.ucsb.edu/earlywarning/kakumarefugeecamp/chirts-gefs_10day-zscores.html">10-day</a>
@@ -347,45 +268,60 @@
   </div>
   <!-- END Container -->
 
-  <!-- ===== Footer ===== -->
-  <footer id="page-footer">
-    <div class="footer-inner">
-      <div class="footer-address">
-        <p>Climate Hazards Center<br>
-           UC Santa Barbara<br>
-           Santa Barbara, CA 93106
+  <!-- FOOTER -->
+<div>
+  <table style="width:100%; background-color:#003660; border-collapse:collapse;">
+    
+    <!-- TOP ROW -->
+    <tr>
+      <!-- Left: CHC text -->
+      <td style="padding:15px; color:#ffffff; vertical-align:middle;">
+        <p style="margin:0;">
+          <strong>Climate Hazards Center</strong><br>
+          UC Santa Barbara<br>
+          Santa Barbara, CA 93106
         </p>
-      </div>
+      </td>
 
-      <div class="footer-links">
-        <a href="http://www.college.ucsb.edu">College of Letters and Science</a>
-        <a href="http://www.ucsb.edu">UC Santa Barbara</a>
-        <a href="https://chc.ucsb.edu/accessibility">Accessibility</a>
-        <a href="http://www.policy.ucsb.edu/terms_of_use/">Appropriate Use</a>
-        <a href="http://www.policy.ucsb.edu/privacy-notification/">Privacy</a>
-        <a href="mailto:dcalaso@ucsb.edu">Webmaster</a>
-      </div>
-
-      <div class="footer-social">
+      <!-- Right: Social icons -->
+      <td style="padding:15px; text-align:right; vertical-align:middle;">
         <a href="https://x.com/climatehazards" target="_blank">
-          <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
+               alt="X" style="width:33px; height:33px; margin-left:6px;">
         </a>
-        <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
-          <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png">
+        <a href="https://www.facebook.com/climatehazardscenter/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
+               alt="Facebook" style="width:33px; height:33px; margin-left:6px;">
         </a>
         <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-          <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
+               alt="Instagram" style="width:33px; height:33px; margin-left:6px;">
         </a>
-        <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
-          <img alt="LinkedIn" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png">
+        <a href="https://www.linkedin.com/company/climate-hazards-center/about/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
+               alt="LinkedIn" style="width:33px; height:33px; margin-left:6px;">
         </a>
-      </div>
-    </div>
+      </td>
+    </tr>
 
-    <div class="footer-copy">
-      &copy;2026 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
-    </div>
-  </footer>
+    <!-- BOTTOM ROW: LINKS -->
+    <tr>
+      <td colspan="2" style="padding:10px; text-align:center;">
+        <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu" style="color:#ffffff; margin:0 10px;">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff; margin:0 10px;">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff; margin:0 10px;">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff; margin:0 10px;">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff; margin:0 10px;">Webmaster</a>
+      </td>
+    </tr>
 
-</body>
-</html>
+    <!-- COPYRIGHT -->
+    <tr>
+      <td colspan="2" style="color:#ffffff; text-align:center; padding:8px; font-size:13px;">
+        &copy;2026 The Regents of the University of California. All Rights Reserved.
+      </td>
+    </tr>
+
+  </table>
+</div>
