@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+
   <style>
     /* --- General Styling --- */
     body {
@@ -22,6 +22,8 @@
     p {
       text-align: center;
       font-size: 1.1em;
+      max-width: 900px;
+      margin: 0 auto 20px auto;
     }
 
     a {
@@ -35,7 +37,7 @@
 
     /* --- Header --- */
     .header {
-      background-color: #059AB5;
+      background-color: #003660;
       color: white;
       padding: 10px 0;
     }
@@ -43,7 +45,6 @@
     .header table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #059AB5;
     }
 
     .header a {
@@ -51,20 +52,26 @@
       font-weight: 500;
     }
 
-    /* --- Map container --- */
-    .map-container {
-      width: 600px;
-      margin: 30px auto; /* centers the map */
+    /* --- Map Layout --- */
+    .map-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px auto;
+      flex-wrap: wrap;
     }
 
-    footer {
-      background-color: #059AB5;
-      color: white;
+    .map-panel {
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
     }
+
+    .map-title {
+      font-size: 0.95em;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+ 
   </style>
 </head>
 
@@ -76,8 +83,8 @@
       <tr>
         <td style="padding-left: 15px;">
           <a href="https://chc.ucsb.edu">
-            <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png"
-              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 110px;" />
           </a>
         </td>
         <td style="text-align: right; padding-right: 20px;">
@@ -99,121 +106,168 @@
     </table>
   </div>
 
-  <!-- Page Title and Description -->
-  <h1>Kakuma Refugee Camp Heat Tracker</h1>
-  <p>This map shows the average maximum air temperature for the past month, providing an overview of recent temperature conditions.</p>
+<!-- ===== Page Content ===== -->
+<h1>Kakuma Refugee Camp Heat Tracker</h1>
 
-  <!-- Centered Map -->
-  <div class="map-container">
-    <div id="snippet-m08f05L58"></div>
+<p>
+  These maps show recent maximum air temperature conditions at Kakuma Refugee Camp
+  using CHIRTS-ERA5 pentad data, including absolute values, anomalies, and standardized
+  Z-scores.
+</p>
+
+<!-- Map Script -->
+<script src="./ewxmapG5.js"></script>
+
+<div class="map-row">
+
+  <!-- ===== DATA ===== -->
+  <div class="map-block">
+    <div id="map-data"></div>
+
+    <script type="text/javascript">
+      new EwxMapG5({
+        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
+        id: "map-data",
+        dataset: "CHIRTSERA5",
+        subDataset: "chirts-era5tmax",
+        region: "global",
+        periodicity: "1-month",
+        period: "latest",
+        forecastPeriod: "none",
+        showDekadControl: true,
+        showYearControl: true,
+        units: "°C",
+        statistic: "data",
+        width: 500,
+        height: 375,
+        zoom: 8,
+        center: [3.7, 35.4],
+      });
+    </script>
+
+    <img
+      width="500"
+      src="chirtsera5-data-legend.png"
+      alt="CHIRTS-ERA5 Tmax Legend"
+    />
   </div>
 
- <!-- Map Script -->
-<script src="/ewxmapG5.js"></script>
+  <!-- ===== ANOMALY ===== -->
+  <div class="map-block">
+    <div id="map-anom"></div>
 
-<div id="mySnippet"></div>
+    <script type="text/javascript">
+      new EwxMapG5({
+        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
+        id: "map-anom",
+        dataset: "CHIRTSERA5",
+        subDataset: "chirts-era5tmax",
+        region: "global",
+        periodicity: "1-month",
+        period: "latest",
+        forecastPeriod: "none",
+        showDekadControl: true,
+        showYearControl: true,
+        units: "°C",
+        statistic: "anom",
+        width: 500,
+        height: 375,
+        zoom: 8,
+        center: [3.7, 35.4],
+      });
+    </script>
 
-<script type="text/javascript">
-  new EwxMapG5({
-    ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
-    id: "mySnippet",
-    dataset: 'CHIRTSERA5',
-    subDataset: 'chirts-era5tmax',
-    region: 'global',
-    periodicity: '1-month',
-    period: 'latest',
-    forecastPeriod: 'none',
-    showDekadControl: true,
-    showYearControl: true,
-    units: '°C',
-    statistic: 'data',
-    width: 600,
-    height: 350,
-    zoom: 8,
-    center: [3.7, 35.4],
-  });
-</script>
-</script>
-  </script>
-                <center>
-                  <img 
-  width="350" height="auto"
-  src="chirtsera5-data-legend.png" 
-  alt="CHIRTS-ERA5 Tmax Legend"
-/>
-                </center>
+    <img
+      width="500"
+      src="chirtsera5-anomaly-legend.png"
+      alt="CHIRTS-ERA5 Tmax Anomaly Legend"
+    />
+  </div>
 
-  <!--  FOOTER --------------------- -->
-    <div>
-      <table style="border:1px solid black; width: 100%; background-color:#059AB5;">
-        <tr>
-          <td>
-            <p style="color:#ffffff;">Climate Hazards Center<br />
-              UC Santa Barbara<br />
-              Santa Barbara, CA 93106
-            </p>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-            <a href="https://x.com/climatehazards" target="_blank">
-            <img alt="X" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png" style="width: 33px; height: 33px;">
-            <a href="https://www.facebook.com/climatehazardscenter/?modal=admin_todo_tour" target="_blank">
-            </a>
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png" style="width: 33px; height: 33px;">
-            </a>
-            <br />
-            <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-            <img alt="Instagram" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png" style="width: 33px; height: 33px;">
-            </a>
-            <a href="https://www.linkedin.com/company/climate-hazards-center/about/?viewAsMember=true" target="_blank">
-            <img alt="Facebook" src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png" style="width: 33px; height: 33px;">
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <a href="http://www.college.ucsb.edu" style="color:#ffffff;">College of Lettersand Science</a>
-          </td>
-          <td>
-            <a href="http://www.ucsb.edu" style="color:#ffffff;">UC Santa Barbara</a>
-          </td>
-          <td>
-            <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff;">Accessibility</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff;">Appropriate Use</a>
-          </td>
-          <td>
-            <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff;">Privacy</a>
-          </td>
-          <td>
-            <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff;">Webmaster</a>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan=5 style="color:#ffffff; text-align:center;">
-            &copy;2025 The Regents of the University of California. All Rights Reserved. UC Santa Barbara, Santa Barbara, CA 93106
-          </td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-  </body>
-</html>
+  <!-- ===== Z-SCORE ===== -->
+  <div class="map-block">
+    <div id="map-zscore"></div>
 
+    <script type="text/javascript">
+      new EwxMapG5({
+        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
+        id: "map-zscore",
+        dataset: "CHIRTSERA5",
+        subDataset: "chirts-era5tmax",
+        region: "global",
+        periodicity: "1-month",
+        period: "latest",
+        forecastPeriod: "none",
+        showDekadControl: true,
+        showYearControl: true,
+        units: "°C",
+        statistic: "zscore",
+        width: 500,
+        height: 375,
+        zoom: 8,
+        center: [3.7, 35.4],
+      });
+    </script>
+
+    <img
+      width="500"
+      src="chirtsera5-zscore-legend.png"
+      alt="CHIRTS-ERA5 Tmax Z-Score Legend"
+    />
+  </div>
+  <!-- FOOTER -->
+<div>
+  <table style="width:100%; background-color:#003660; border-collapse:collapse;">
+    
+    <!-- TOP ROW -->
+    <tr>
+      <!-- Left: CHC text -->
+      <td style="padding:15px; color:#ffffff; vertical-align:left;">
+        <p style="margin:0;">
+          <strong>Climate Hazards Center</strong><br>
+          UC Santa Barbara<br>
+          Santa Barbara, CA 93106
+        </p>
+      </td>
+
+      <!-- Right: Social icons -->
+      <td style="padding:15px; text-align:right; vertical-align:middle;">
+        <a href="https://x.com/climatehazards" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
+               alt="X" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.facebook.com/climatehazardscenter/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
+               alt="Facebook" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
+               alt="Instagram" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.linkedin.com/company/climate-hazards-center/about/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
+               alt="LinkedIn" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+      </td>
+    </tr>
+    <!-- BOTTOM ROW: LINKS -->
+    <tr>
+      <td colspan="2" style="padding:10px; text-align:center;">
+        <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu" style="color:#ffffff; margin:0 10px;">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff; margin:0 10px;">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff; margin:0 10px;">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff; margin:0 10px;">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff; margin:0 10px;">Webmaster</a>
+      </td>
+    </tr>
+
+    <!-- COPYRIGHT -->
+    <tr>
+      <td colspan="2" style="color:#ffffff; text-align:center; padding:8px; font-size:13px;">
+        &copy;2026 The Regents of the University of California. All Rights Reserved.
+      </td>
+    </tr>
+
+  </table>
+</div>
