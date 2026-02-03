@@ -20,7 +20,6 @@
     }
 
     p {
-      text-align: center;
       font-size: 1.1em;
       max-width: 900px;
       margin: 0 auto 20px auto;
@@ -63,6 +62,9 @@
 
     .map-panel {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .map-title {
@@ -116,105 +118,115 @@
 </p>
 
 <!-- Map Script -->
-<script src="./ewxmapG5.js"></script>
+<script type="text/javascript" src="./snippet.js"></script>
 
-<div class="map-row">
+  <!-- ===== ALL THREE MAPS IN ONE ROW ===== -->
+  <div class="map-row">
+    
+    <!-- DATA MAP -->
+    <div class="map-panel">
+      <div id="map-data"></div>
+      <img
+        width="500"
+        src="chirtsera5-data-legend-resized.png"
+        alt="CHIRTS-ERA5 Tmax Legend"
+      />
+    </div>
 
-  <!-- ===== DATA ===== -->
-  <div class="map-block">
-    <div id="map-data"></div>
+    <!-- ANOMALY MAP -->
+    <div class="map-panel">
+      <div id="map-anom"></div>
+      <img
+        width="500"
+        src="chirtsera5-anomaly-legend-resized.png"
+        alt="CHIRTS-ERA5 Tmax Anomaly Legend"
+      />
+    </div>
 
-    <script type="text/javascript">
-      new EwxMapG5({
-        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
-        id: "map-data",
-        dataset: "CHIRTSERA5",
-        subDataset: "chirts-era5tmax",
-        region: "global",
-        periodicity: "1-month",
-        period: "latest",
-        forecastPeriod: "none",
-        showDekadControl: true,
-        showYearControl: true,
-        units: "°C",
-        statistic: "data",
-        width: 500,
-        height: 375,
-        zoom: 8,
-        center: [3.7, 35.4],
-      });
-    </script>
+    <!-- Z-SCORE MAP -->
+    <div class="map-panel">
+      <div id="map-zscore"></div>
+      <img
+        width="500"
+        src="chirtsera5-zscore-legend-resized.png"
+        alt="CHIRTS-ERA5 Tmax Z-Score Legend"
+      />
+    </div>
 
-    <img
-      width="500"
-      src="chirtsera5-data-legend.png"
-      alt="CHIRTS-ERA5 Tmax Legend"
-    />
   </div>
 
-  <!-- ===== ANOMALY ===== -->
-  <div class="map-block">
-    <div id="map-anom"></div>
+  <!-- JavaScript to initialize maps -->
+  <script type="text/javascript">
+    // Data Map
+    new Snippet({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'map-data',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
+      showGaul20080: true,
+      showGaul20081: true,
+      showGaul20082: false,
+      showKenyaWards: true,
+      region: 'global',
+      periodicity: '1-month',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 500,
+      height: 375,
+      zoom: 8,
+      center: [3.7, 35.4],
+    });
 
-    <script type="text/javascript">
-      new EwxMapG5({
-        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
-        id: "map-anom",
-        dataset: "CHIRTSERA5",
-        subDataset: "chirts-era5tmax",
-        region: "global",
-        periodicity: "1-month",
-        period: "latest",
-        forecastPeriod: "none",
-        showDekadControl: true,
-        showYearControl: true,
-        units: "°C",
-        statistic: "anom",
-        width: 500,
-        height: 375,
-        zoom: 8,
-        center: [3.7, 35.4],
-      });
-    </script>
+    // Anomaly Map
+    new Snippet({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'map-anom',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
+      showGaul20080: true,
+      showGaul20081: true,
+      showGaul20082: false,
+      showKenyaWards: true,
+      region: 'global',
+      periodicity: '1-month',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'anom',
+      width: 500,
+      height: 375,
+      zoom: 8,
+      center: [3.7, 35.4],
+    });
 
-    <img
-      width="500"
-      src="chirtsera5-anomaly-legend.png"
-      alt="CHIRTS-ERA5 Tmax Anomaly Legend"
-    />
-  </div>
+    // Z-Score Map
+    new Snippet({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'map-zscore',
+      dataset: 'CHIRTSERA5',
+      subDataset: 'chirts-era5tmax',
+      showGaul20080: true,
+      showGaul20081: true,
+      showGaul20082: false,
+      showKenyaWards: true,
+      region: 'global',
+      periodicity: '1-month',
+      period: 'latest',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'zscore',
+      width: 500,
+      height: 375,
+      zoom: 8,
+      center: [3.7, 35.4],
+    });
+  </script>
 
-  <!-- ===== Z-SCORE ===== -->
-  <div class="map-block">
-    <div id="map-zscore"></div>
-
-    <script type="text/javascript">
-      new EwxMapG5({
-        ewxUrl: "https://ewx3.chc.ucsb.edu/ewx",
-        id: "map-zscore",
-        dataset: "CHIRTSERA5",
-        subDataset: "chirts-era5tmax",
-        region: "global",
-        periodicity: "1-month",
-        period: "latest",
-        forecastPeriod: "none",
-        showDekadControl: true,
-        showYearControl: true,
-        units: "°C",
-        statistic: "zscore",
-        width: 500,
-        height: 375,
-        zoom: 8,
-        center: [3.7, 35.4],
-      });
-    </script>
-
-    <img
-      width="500"
-      src="chirtsera5-zscore-legend.png"
-      alt="CHIRTS-ERA5 Tmax Z-Score Legend"
-    />
-  </div>
   <!-- FOOTER -->
 <div>
   <table style="width:100%; background-color:#003660; border-collapse:collapse;">
@@ -250,7 +262,7 @@
         </a>
       </td>
     </tr>
-    <!-- BOTTOM ROW: LINKS -->
+   <!-- BOTTOM ROW: LINKS -->
     <tr>
       <td colspan="2" style="padding:10px; text-align:center;">
         <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>

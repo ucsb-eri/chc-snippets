@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <!--
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  -->
+
+</head>
+
+<body>
+
+
+    <h1 id="page-title">
+      EWX Snippets: Display a Dur Ka Durrr!!!
+    </h1>
+
+
+		<script type="text/javascript" src="./snippet.js"></script>
+
+    <div id="ewx-map-h4vbt36xss"></div>
+
+    <br>
+    <br>
+
+    <script type="text/javascript">
+      new Snippet({
+        ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+        id: 'ewx-map-h4vbt36xss',
+        dataset: 'CHIRPS',
+        subDataset: 'chirps',
+        showGaul20080: true,
+        showGaul20081: true,
+        showGaul20082: false,
+        showKenyaWards: true,
+        region: 'global',
+        periodicity: '1-month',
+        period: 'latest',
+        showDekadControl: true,
+        showYearControl: true,
+        units: 'mm',
+        statistic: 'data',
+        width: 850,
+        height: 790,
+        zoom: 6.5,
+        center: [0.1, 38.0],
+      });
+      // boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2', 'kenya_wards'],
+    </script>
+
+</body>
+
+</html>
