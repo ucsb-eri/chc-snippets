@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:black;">
+
+<h2>Santa Ynez Mt  <a id="Banner"></a> </h2>
+
+<img 	id="SYM_webcam"
+		src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg"
+    width="100%" border="1"
+/>
+
+
+<button onclick="stopTimer()">Pause refresh</button>
+
+<script>
+  let one_hr = 3600000;
+  let one_minute = 60000;
+
+	let interval = one_minute;
+  let intervalId = setInterval(myTimer, interval);
+  let timeout = setTimeout(stopTimer, one_hr*2);
+  let counter = 0;
+
+	console.log('interval: ', interval);
+	const d = new Date();
+	console.log(d.toLocaleTimeString(), ', count: ', counter);
+
+
+  function myTimer() {
+
+    const d = new Date();
+    document.getElementById("Banner").innerHTML=d.toLocaleTimeString();
+
+		/* Sky Oaks east
+	  document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/sojr-e-mobo-c.jpg?c='+counter;
+		*/
+	  /* Santa Ynez peak */
+		// doesn't work
+		console.log("https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg"+ "?noCache=" + d.getTime());
+		document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg'+ "?noCache=" + new Date().getTime();;
+
+		//document.getElementById("SYM_webcam").src='https://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
+
+		counter++;
+
+		console.log(d.toLocaleTimeString(), ', count: ', counter);
+		//console.log(d.toLocaleTimeString(), ', ', d.getMilliseconds());
+
+  }
+
+  function stopTimer() {
+    clearInterval(intervalId);
+  }
+
+</script>
+
+</body>
+</html>
