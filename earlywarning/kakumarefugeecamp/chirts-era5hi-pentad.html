@@ -112,9 +112,7 @@
 <h1>Kakuma Refugee Camp Heat Tracker</h1>
 
 <p>
-  These maps show recent maximum air temperature conditions at Kakuma Refugee Camp
-  using CHIRTS-ERA5 pentad data, including absolute values, anomalies, and standardized
- 
+ These maps show recent humid heat conditions at the Kakuma Refugee Camp using CHIRTS-ERA5 Heat Index pentadal data, including absolute values, anomalies, and standardized anomalies (z-scores). Temperatures are shown as the latest 5-day means. Selecting a previous period (e.g., 2026-01-21) using the time navigation button displays the mean heat index values for the preceding five-day period.
 </p>
 
 <!-- Map Script -->
@@ -128,7 +126,7 @@
       <div id="map-data"></div>
       <img
         width="500"
-        src="chirtsera5-zscore-legend-resized.png"
+        src="chirtsera5-data-legend-resized.png"
         alt="CHIRTS-ERA5 Tmax Legend"
       />
     </div>
@@ -172,10 +170,10 @@
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
-      units: 'C',
+      units: '°C',
       statistic: 'data',
-      width: 600,
-      height: 350,
+      width: 500,
+      height: 375,
       zoom: 8,
       center: [3.7, 35.4],
     });
@@ -183,7 +181,7 @@
     // Anomaly Map
     new Snippet({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'map-data',
+      id: 'map-anom',
       dataset: 'chirtsera5hi',
       subDataset: 'chirts-era5hi',
       showGaul20080: true,
@@ -195,10 +193,10 @@
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
-      units: 'C',
+      units: '°C',
       statistic: 'anom',
-      width: 600,
-      height: 350,
+      width: 500,
+      height: 375,
       zoom: 8,
       center: [3.7, 35.4],
     });
@@ -206,7 +204,7 @@
     // Z-Score Map
     new Snippet({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'map-data',
+      id: 'map-zscore',
       dataset: 'chirtsera5hi',
       subDataset: 'chirts-era5hi',
       showGaul20080: true,
@@ -220,8 +218,8 @@
       showYearControl: true,
       units: '',
       statistic: 'zscore',
-      width: 600,
-      height: 350,
+      width: 500,
+      height: 375,
       zoom: 8,
       center: [3.7, 35.4],
     });
