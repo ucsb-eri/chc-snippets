@@ -112,9 +112,7 @@
 <h1>Kakuma Refugee Camp Heat Tracker</h1>
 
 <p>
-  These maps show recent maximum air temperature conditions at Kakuma Refugee Camp
-  using CHIRTS-ERA5 pentad data, including absolute values, anomalies, 
- 
+  The maps show 5-day average temperatures. These maps depict recent maximum air temperature conditions at Kakuma Refugee Camp using CHIRTS-ERA5 pentad data, including absolute values, anomalies, and standardized anomalies (z-scores). Temperatures are shown as 5-day means. For example, selecting a previous period (e.g., 2026-01-21) displays the mean maximum temperature for the preceding five-day period.
 </p>
 
 <!-- Map Script -->
