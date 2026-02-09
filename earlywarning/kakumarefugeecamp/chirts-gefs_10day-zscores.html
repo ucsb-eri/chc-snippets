@@ -108,31 +108,26 @@
     <div id="snippet-m08f05L58"></div>
   </div>
 
-  <!-- Map Script -->
- <script src="/ewxmapG5.js"></script>
-  <div id='mySnippet'></div>
-
-  <script type="text/javascript">
-    new EwxMapG5({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'mySnippet',
-      dataset: 'CHIRTSGEFS',
-      subDataset: 'chirts_gefs',
-      region: 'global',
-      periodicity: '1-day',
-      period: 'latest',
-	  forecastPeriod: '10day',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'C',
-      statistic: 'zscore',
-      width: 600,
-      height: 350,
-      zoom: 8,
-      center: [3.7, 35.4],
-    });
-  </script>
-  </script>
+ <script type="text/javascript">
+                  new EwxMapG5({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'ewx-map-h4vbt36xss',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+                    periodicity: '1-month',
+                    period: 'latest',
+					forecastPeriod: '10day',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'data',
+                    width: 850,
+                    height: 790,
+                    zoom: 6.5,
+                    center: [0.1, 38.0],
+                  });
+                </script>
                 <center>
                   <img 
   width="350" height="auto"
