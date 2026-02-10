@@ -1,0 +1,143 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.map {
+    background-color: #FFFFFF;
+}
+
+.map-container {
+    /*border: 1px solid lightgray;*/
+    /*border-top-left-radius: 10px;*/
+    /*border-top-right-radius: 10px;*/
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    box-sizing: border-box;
+}
+
+.ewx-map-titlebar {
+    text-align: center;
+    height: 22px;
+    /*border-bottom: 1px solid lightgray;*/
+    background-color: #333;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.leaflet-container {
+    background-color: #ffffff;
+}
+
+.ewx-map-legend-lower-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.ewx-map-legend-lower-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.ewx-map-legend-upper-right {
+    top: 10px;
+    right: 10px;
+}
+
+.ewx-map-legend-upper-left {
+    top: 10px;
+    left: 10px;
+}
+
+.ewx-map-legend-lower-right,
+.ewx-map-legend-lower-left,
+.ewx-map-legend-upper-right,
+.ewx-map-legend-upper-left {
+    position: absolute;
+    display: inline-block;
+    background-color: rgb(238, 238, 238);
+    min-width: 50px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.ewx-map-legend-entry {
+    height: 15px;
+    font-size: 10px;
+}
+
+.ewx-map-legend-color {
+    width: 20px;
+    height: 15px;
+    float: left;
+}
+
+.ewx-map-value {
+    float: left;
+    white-space: nowrap;
+}
+
+.time-nav-bar {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 4px;
+    width: 52px;
+    height: 26px;
+    display: none;
+    font: bold 18px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.time-nav-bar a,
+.time-nav-bar a:hover {
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    z-index: 1000;
+}
+
+.time-nav-bar a {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.time-nav-bar a:hover {
+    background-color: #f4f4f4;
+}
+
+.time-nav-bar a:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.time-nav-bar a:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom: none;
+}
+
+.time-nav-bar a.time-nav-disabled {
+    cursor: default;
+    background-color: #f4f4f4;
+    color: #bbb;
+}
+
+.previous-year-button,
+.next-year-button,
+.previous-temporal1-button,
+.next-temporal1-button {
+    display: none;
+}
