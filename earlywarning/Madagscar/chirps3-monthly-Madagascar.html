@@ -113,93 +113,13 @@
 
 <body>
 
-<h1>Rainfall Monitor</h1>
-
-<p>
-  These maps show recent rainfall conditions. 
-</p>
-
-<!-- Load Snippet library -->
-<script type="text/javascript" src="./snippet.js"></script>
-
-<!-- ===== Maps Row ===== -->
-<div class="map-row">
-
-  <!-- ===== Map 1: Rainfall Total ===== -->
-  <div class="map-panel">
-    <div class="map-title">Monthly Rainfall (mm)</div>
-    <div id="map-data"></div>
-
-    <img
-      class="legend"
-      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
-      alt="Monthly Rainfall Legend"
-    />
-  </div>
-
-  <!-- ===== Map 2: Rainfall Anomaly ===== -->
-  <div class="map-panel">
-    <div class="map-title">Monthly Rainfall Anomaly</div>
-    <div id="map-anom"></div>
-
-    <img
-      class="legend"
-      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
-      alt="Monthly Rainfall Anomaly Legend"
-    />
-  </div>
-
-</div>
-
-<!-- ===== Snippet Scripts ===== -->
-<script type="text/javascript">
-  new Snippet({
-    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-    id: 'map-data',
-    dataset: 'CHIRPSv3',
-    subDataset: 'chirpsv3',
-    showGaul20080: true,
-    showGaul20081: true,
-    showGaul20082: false,
-    showKenyaWards: true,
-    region: 'global',
-    periodicity: '1-month',
-    period: 'latest',
-    units: 'mm',
-    statistic: 'data',
-    width: 600,
-    height: 650,
-    zoom: 6.0,
-    center: [-19.0, 47.4]
-  });
-
-  new Snippet({
-    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-    id: 'map-anom',
-    dataset: 'CHIRPSv3',
-    subDataset: 'chirpsv3',
-    showGaul20080: true,
-    showGaul20081: true,
-    showGaul20082: false,
-    showKenyaWards: true,
-    region: 'global',
-    periodicity: '1-month',
-    period: 'latest',
-    units: 'mm',
-    statistic: 'anom',
-    width: 600,
-    height: 650,
-    zoom: 6.0,
-    center: [-19.0, 47.4]
-  });
-</script>
 
 </body>
 <h1>Rainfall Forecast</h1>
 <p>
-  These maps show the 5-day CHIRPS-GEFS rainfall forecast. 
+  These maps show the 5-day CHIRPS-GEFS rainfall forecast (left) and CHIRPS-GEFS rainfall anomalies (right). CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (GEFS) version 12 precipitation forecasts. 
+  The GEFS data is adjusted to match the historical distribution of the CHIRPS dataset using quantile matching. The resulting 5-day to 15-day precipitation forecasts support users producing timely impact assessments of forecast rainfall amounts and anomalies, as well as potential changes to agro-climatological or hydrological situations that are being monitored with CHIRPS data. 
 </p>
-
 
 <!-- ===== Maps Row ===== -->
 <div class="map-row">
@@ -293,8 +213,88 @@
                 </script>
                
 
-</html>
 
+<h1>Rainfall Monitor</h1>
+
+<p>
+  These maps show recent rainfall conditions. The map on the left shows CHIRPSv3 monthly rainfall accumulation, and the map on the right shows anomalies, indicating areas that received above- or below-average rainfall.
+</p>
+
+<!-- Load Snippet library -->
+<script type="text/javascript" src="./snippet.js"></script>
+
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 1: Rainfall Total ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall (mm)</div>
+    <div id="map-data"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
+  </div>
+
+  <!-- ===== Map 2: Rainfall Anomaly ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall Anomaly</div>
+    <div id="map-anom"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript">
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-data',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: true,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'data',
+    width: 600,
+    height: 650,
+    zoom: 6.0,
+    center: [-19.0, 47.4]
+  });
+
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-anom',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: true,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'anom',
+    width: 600,
+    height: 650,
+    zoom: 6.0,
+    center: [-19.0, 47.4]
+  });
+</script>
+</html>
                 <!-- FOOTER -->
 <div>
   <table style="width:100%; background-color:#003660; border-collapse:collapse;">
