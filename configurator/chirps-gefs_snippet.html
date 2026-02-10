@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>CHIRPS-GEFS Snippet Preview</title>
+</head>
+
+<body>
+
+  <script src="./ewxmapG5.js"></script>
+
+  <div id="snippet_view"></div>
+
+  <script>
+    console.log('in chirps-gefs_snippet.html');
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const width = Number(urlParams.get('width')) || 600;
+    const height = Number(urlParams.get('height')) || 600;
+    const statistic = urlParams.get('statistic') || 'data';
+    const latitude = parseFloat(urlParams.get('latitude')) || 0.0;
+    const longitude = parseFloat(urlParams.get('longitude')) || 19.5;
+    const zoom = Number(urlParams.get('zoom')) || 3;
+    const periodControl = urlParams.get('periodControl') === 'true';
+    const yearControl = urlParams.get('yearControl') === 'true';
+    const forecastPeriod = urlParams.get('forecastPeriod') || '05day';
+
+    new EwxMapG5({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'snippet_view',
+      dataset: 'CHIRPS3GEFS',
+      subDataset: 'chirps3_gefs',
+      region: 'global',
+      periodicity: '1-day',
+      period: 'latest',
+      forecastPeriod: forecastPeriod,
+      showDekadControl: periodControl,
+      showYearControl: yearControl,
+      units: 'mm',
+      statistic: statistic,
+      width: width,
+      height: height,
+      zoom: zoom,
+      center: [latitude, longitude]
+    });
+  </script>
+
+</body>
+</html>

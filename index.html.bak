@@ -15,12 +15,12 @@
     }
 
     h1, h2 {
-      color: #059AB5;
+      color: #003660;
     }
 
     a {
       text-decoration: none;
-      color: #059AB5;
+      color: #003660;
     }
 
     a:hover {
@@ -29,15 +29,15 @@
 
     /* --- Header --- */
     .header {
-      background-color: #059AB5;
+      background-color: #003660;
       color: white;
-      padding: 10px 0;
+      padding: 0;
     }
 
     .header table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #059AB5;
+      background-color: #003660;
     }
 
     .header a {
@@ -77,7 +77,7 @@
     }
 
     footer {
-      background-color: #059AB5;
+      background-color: #003660;
       color: white;
       text-align: center;
       padding: 15px;
@@ -87,14 +87,14 @@
 </head>
 
 <body>
-  <!-- ====== Header ====== -->
+ <!-- ====== Header ====== -->
   <div class="header">
     <table>
       <tr>
         <td style="padding-left: 15px;">
           <a href="https://chc.ucsb.edu">
-            <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/CHC_alt_UCSB_logo_color.png"
-              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 63px;" />
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 105px;" />
           </a>
         </td>
         <td style="text-align: right; padding-right: 20px;">
@@ -116,6 +116,10 @@
     </table>
   </div>
 
+  <!-- ====== Under Construction Notice ====== -->
+    <p style="color: red; font-style: italic; text-align: center; margin: 10px 0;">
+        This page is currently under construction. 
+    </p>
   <!-- ====== Main Page Content ====== -->
   <div class="container">
     <h1>Climate Services Dashboard</h1>
@@ -127,7 +131,7 @@
     <!-- Section 1: Early Warning -->
 <div class="section">
   <h2>
-    <a href="https://snippets.chc.ucsb.edu/climateservices/earlywarning.html">Early Warning</a>
+    <a href="https://climateservices.chc.ucsb.edu/earlywarning.html">Early Warning</a>
   </h2>
   <p>
     The CHC advances early warning systems for droughts, floods, and heat hazards by integrating satellite data, 
@@ -135,29 +139,71 @@
     extreme climate events.
   </p>
 </div>
-
-  <!-- Section 2: Capacity Building -->
+ <!-- Section 3: Snippets -->
   <div class="section">
-    <h2>Capacity Building</h2>
+    <h2>
+	<a href="https://climateservices.chc.ucsb.edu/earlywarning/chc-snippets.html">Snippets</a>
+	</h2>
     <p>
-      CHC works with global and regional partners through training programs and collaborative workshops to strengthen 
-      climate monitoring and forecasting capabilities. These initiatives help National Meteorological and Hydrological Centers 
-      improve their ability to interpret, communicate, and act on climate information.
+	Snippets are a free, publicly accessible tool to display maps from the Climate Hazards Center <a href="https://chc.ucsb.edu/tools/ewx">Early Warning eXplorer (EWX)</a> online application on your own webpage. The CHC maintains extensive data stores that are regularly updated. Snippets allow users embed near real-time climate maps from the EWX directly onto their own websites. These tools allow National Meteorological and Hydrological Services and humanitarian partners to display CHC’s climate visualizations locally, improving access to actionable early warning information. Below are examples of the <a href="https://climateservices.chc.ucsb.edu/configurator/chirps_config.html"> CHIRPS </a> and the CHIRPS-GEFS <a href="https://climateservices.chc.ucsb.edu/configurator/chirps-config.html"> snippet configurators.
     </p>
      </div>
+</div>
+ <html>
+ <!-- FOOTER -->
+<div>
+  <table style="width:100%; background-color:#003660; border-collapse:collapse;">
+    
+    <!-- TOP ROW -->
+    <tr>
+      <!-- Left: CHC text -->
+      <td style="padding:15px; color:#ffffff; vertical-align:left;">
+        <p style="margin:0;">
+          <strong>Climate Hazards Center</strong><br>
+          UC Santa Barbara<br>
+          Santa Barbara, CA 93106
+        </p>
+      </td>
 
-  <!-- Section 3: Snippets -->
-  <div class="section">
-    <h2>Snippets</h2>
-    <p>
-      Snippets are interactive web tools that let users embed near real-time climate maps from the
-      <a href="https://chc.ucsb.edu/tools/ewx">Early Warning eXplorer (EWX)</a> directly into their own websites. 
-      These tools allow National Meteorological and Hydrological Services and humanitarian partners 
-      to display CHC’s climate visualizations locally, improving access to actionable early warning information.
-    </p>
-    <p>
-      Learn more: <a href="https://chc.ucsb.edu/data/snippets">Visit the CHC Snippets Page</a>
-    </p>
-  </div>
+      <!-- Right: Social icons -->
+      <td style="padding:15px; text-align:right; vertical-align:middle;">
+        <a href="https://x.com/climatehazards" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
+               alt="X" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.facebook.com/climatehazardscenter/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
+               alt="Facebook" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
+               alt="Instagram" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.linkedin.com/company/climate-hazards-center/about/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
+               alt="LinkedIn" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+      </td>
+    </tr>
 
+    <!-- BOTTOM ROW: LINKS -->
+    <tr>
+      <td colspan="2" style="padding:10px; text-align:center;">
+        <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu" style="color:#ffffff; margin:0 10px;">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff; margin:0 10px;">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff; margin:0 10px;">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff; margin:0 10px;">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff; margin:0 10px;">Webmaster</a>
+      </td>
+    </tr>
+
+    <!-- COPYRIGHT -->
+    <tr>
+      <td colspan="2" style="color:#ffffff; text-align:center; padding:8px; font-size:13px;">
+        &copy;2026 The Regents of the University of California. All Rights Reserved.
+      </td>
+    </tr>
+
+  </table>
 </div>
