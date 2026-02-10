@@ -55,26 +55,28 @@
     .map-row {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin: 30px auto;
+      gap: 40px;
+      margin-bottom: 40px;
       flex-wrap: wrap;
     }
 
     .map-panel {
-      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     .map-title {
-      font-size: 0.95em;
-      margin-bottom: 8px;
-      color: #333;
+      font-size: 1em;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
- 
+    .legend {
+      margin-top: 10px;
+    }
   </style>
+    
 </head>
 
 <body>
@@ -107,50 +109,94 @@
       </tr>
     </table>
   </div>
+</head>
 
-<!-- ===== Page Content ===== -->
+<body>
+
 <h1>Rainfall Monitor</h1>
 
 <p>
- These map shows recent rainfall conditions.
+  These maps show recent rainfall conditions.
 </p>
-<!-- Map Script -->
+
+<!-- Load Snippet library -->
 <script type="text/javascript" src="./snippet.js"></script>
-<!-- Centered Map -->
-  <div class="map-container">
+
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 1: Rainfall Total ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall (mm)</div>
     <div id="map-data"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
   </div>
 
- <script type="text/javascript">
-    // Data Map
-    new Snippet({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-	  id: 'map-data',
-      dataset: 'CHIRPS',
-      subDataset: 'chirps',
-	  showGaul20080: true,
-      showGaul20081: true,
-      showGaul20082: false,
-      showKenyaWards: true,
-      region: 'global',
-      periodicity: '1-month',
-      period: 'latest',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'mm',
-      statistic: 'data',
-      width: 600,
-      height: 650,
-      zoom: 6.0,
-      center: [-19.0, 47.4],
-    });
-   </script>
-    
-                <center>
-                   <img
-                      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
-                      alt="Legend Not Found"
-                   />
+  <!-- ===== Map 2: Rainfall Anomaly ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall Anomaly</div>
+    <div id="map-anom"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript">
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-data',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: true,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'data',
+    width: 600,
+    height: 650,
+    zoom: 6.0,
+    center: [-19.0, 47.4]
+  });
+
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-anom',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: true,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'anom',
+    width: 600,
+    height: 650,
+    zoom: 6.0,
+    center: [-19.0, 47.4]
+  });
+</script>
+
+</body>
+</html>
+
                 <!-- FOOTER -->
 <div>
   <table style="width:100%; background-color:#003660; border-collapse:collapse;">

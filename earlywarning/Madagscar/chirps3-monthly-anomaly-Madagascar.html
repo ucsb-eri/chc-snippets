@@ -126,20 +126,19 @@
     new Snippet({
       ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
 	  id: 'map-data',
-      dataset: 'CHIRPS3_GEFS',
-      subDataset: 'chirps3_gefs',
+      dataset: 'CHIRPS',
+      subDataset: 'chirps',
 	  showGaul20080: true,
       showGaul20081: true,
       showGaul20082: false,
       showKenyaWards: true,
       region: 'global',
-      periodicity: '1-day',
-	  forecastPeriod: '5day',
+      periodicity: '1-month',
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
       units: 'mm',
-      statistic: 'data',
+      statistic: 'anom',
       width: 600,
       height: 650,
       zoom: 6.0,
@@ -149,7 +148,7 @@
     
                 <center>
                    <img
-                      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+                      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
                       alt="Legend Not Found"
                    />
                 <!-- FOOTER -->
