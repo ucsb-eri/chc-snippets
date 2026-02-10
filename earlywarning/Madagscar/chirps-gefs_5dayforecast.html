@@ -114,43 +114,43 @@
 <p>
  These maps show recent humid heat conditions at the Kakuma Refugee Camp using CHIRTS-ERA5 Heat Index pentadal data, including absolute values, anomalies, and standardized anomalies (z-scores). Temperatures are shown as the latest 5-day means. Selecting a previous period (e.g., 2026-01-21) using the time navigation button displays the mean heat index values for the preceding five-day period.
 </p>
-<!-- Map Script -->
-<script type="text/javascript" src="./snippet.js"></script>
-<!-- Centered Map -->
-  <div class="map-container">
-    <div id="map-data"></div>
-  </div>
+   <script type="text/javascript" src="./ewxmapG5.js"></script>
 
- <script type="text/javascript">
-    // Data Map
-    new Snippet({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-	  id: 'map-data',
-      dataset: 'CHIRPS',
-      subDataset: 'chirps',
-	  showGaul20080: true,
-      showGaul20081: true,
-      showGaul20082: false,
-      showKenyaWards: true,
-      region: 'global',
-      periodicity: '1-month',
-      period: 'latest',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'mm',
-      statistic: 'data',
-      width: 600,
-      height: 650,
-      zoom: 6.0,
-      center: [-19.0, 47.4],
-    });
-   </script>
-    
+					      <div id="ewx-map-h4vbt36xss"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new EwxMapG5({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'ewx-map-h4vbt36xss',
+                    dataset: 'CHIRPSGEFS',
+                    subDataset: 'chirps_gefs',
+                    region: 'global',
+                    periodicity: '1-day',
+                    forecastPeriod: '05day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'data',
+                    width: 600,
+                    height: 650,
+                    time: '2021-10-01',
+                    zoom: 6.0,
+                    center: [-19.0, 47.5],
+                  });
+                </script>
                 <center>
-                   <img
-                      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
-                      alt="Legend Not Found"
-                   />
+                  <img 
+                    width=350, height=85
+                    src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_dekad_data_raster.png" 
+                    alt="Legend Not Found" 
+                  />
+                </center>
+    
                 <!-- FOOTER -->
 <div>
   <table style="width:100%; background-color:#003660; border-collapse:collapse;">

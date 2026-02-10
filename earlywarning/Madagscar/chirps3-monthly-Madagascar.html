@@ -116,7 +116,7 @@
 <h1>Rainfall Monitor</h1>
 
 <p>
-  These maps show recent rainfall conditions. CHIRPS-GEFS forecast can be found <a href="https://climateservices.chc.ucsb.edu/examples/madagascar/chirps-gefs/05day_data.html"> here </a>
+  These maps show recent rainfall conditions. 
 </p>
 
 <!-- Load Snippet library -->
@@ -195,6 +195,104 @@
 </script>
 
 </body>
+<h1>Rainfall Forecast</h1>
+<p>
+  These maps show the 5-day CHIRPS-GEFS rainfall forecast. 
+</p>
+
+
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 3: Rainfall Forecast ===== -->
+ <div class="map-panel">
+    <div class="map-title">CHIRPS-GEFS Rainfall Forecast</div>
+    <div id="map-forecast-data"></div>
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
+  </div>
+   
+  <!-- ===== Map 4: Rainfall Forecast Anomaly ===== -->
+  <div class="map-panel">
+        <div id="map-forecast-anomaly"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./ewxmapG5.js"></script>
+
+					      <div id="map-forecast-data"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new EwxMapG5({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-forecast-data',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+                    periodicity: '1-day',
+                    forecastPeriod: '05day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'data',
+                    width: 600,
+                    height: 650,
+                    time: '2021-10-01',
+                    zoom: 6.0,
+                    center: [-19.0, 47.5],
+                  });
+                </script>
+                
+
+</html>
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./ewxmapG5.js"></script>
+
+					      <div id="map-forecast-anomaly"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new EwxMapG5({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-forecast-anomaly',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+                    periodicity: '1-day',
+                    forecastPeriod: '05day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'anom',
+                    width: 600,
+                    height: 650,
+                    time: '2021-10-01',
+                    zoom: 6.0,
+                    center: [-19.0, 47.5],
+                  });
+                </script>
+               
+
 </html>
 
                 <!-- FOOTER -->
