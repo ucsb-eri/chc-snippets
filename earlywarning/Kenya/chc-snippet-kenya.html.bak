@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+
+  <style>
+    /* --- General Styling --- */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #059AB5;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1em;
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: #059AB5;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Header --- */
+    .header {
+      background-color: #003660;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .header table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .header a {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* --- Map Layout --- */
+    .map-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .map-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-title {
+      font-size: 1em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .legend {
+      margin-top: 10px;
+    }
+  </style>
+    
+</head>
+
+<body>
+
+  <!-- ====== Header ====== -->
+  <div class="header">
+    <table>
+      <tr>
+        <td style="padding-left: 15px;">
+          <a href="https://chc.ucsb.edu">
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 110px;" />
+          </a>
+        </td>
+        <td style="text-align: right; padding-right: 20px;">
+          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <a href="https://chc.ucsb.edu/about">About</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/people">People</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/research">Publications</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/tools">Tools</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/data">Data Sets</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/news">News</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/activities">Activities</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</head>
+
+<body>
+
+
+</body>
+<h1>Rainfall Forecast</h1>
+<p>
+  These maps show the 5-day CHIRPS-GEFS rainfall forecast (left) and CHIRPS-GEFS rainfall anomalies (right). CHIRPS-GEFS is a bias-corrected and downscaled version of NCEP Global Ensemble Forecast System (GEFS) version 12 precipitation forecasts. 
+  The GEFS data is adjusted to match the historical distribution of the CHIRPS dataset using quantile matching. The resulting 5-day to 15-day precipitation forecasts support users producing timely impact assessments of forecast rainfall amounts and anomalies, as well as potential changes to agro-climatological or hydrological situations that are being monitored with CHIRPS data. 
+</p>
+
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 1: Rainfall Forecast ===== -->
+ <div class="map-panel">
+    <div class="map-title">CHIRPS-GEFS 5-day Rainfall Forecast</div>
+    <div id="map-forecast-data"></div>
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
+  </div>
+   
+  <!-- ===== Map 2: Rainfall Forecast Anomaly ===== -->
+  <div class="map-panel">
+     <div class="map-title">CHIRPS-GEFS 5-day Rainfall Forecast Anomaly</div>
+        <div id="map-forecast-anomaly"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./snippet.js"></script>
+
+					      <div id="map-forecast-data"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new Snippet({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-forecast-data',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+					showGaul20080: true,
+                    showGaul20081: true,
+                    showGaul20082: true,
+                    showKenyaWards: false,
+                    periodicity: '1-day',
+                    forecastPeriod: '05day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'data',
+                    width: 300,
+                    height: 350,
+                    time: '2021-10-01',
+                    zoom: 5.5,
+                    center: [0.3, 37.4],
+                  });
+                </script>
+                
+
+</html>
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./snippet.js"></script>
+
+					      <div id="map-forecast-anomaly"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new Snippet({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-forecast-anomaly',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+					showGaul20080: true,
+                    showGaul20081: true,
+                    showGaul20082: true,
+                    showKenyaWards: false,
+                    periodicity: '1-day',
+                    forecastPeriod: '05day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'anom',
+                    width: 300,
+                    height: 350,
+                    time: '2021-10-01',
+                    zoom: 5.5,
+                    center: [0.3, 37.4],
+                  });
+                </script>
+               
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 3: Rainfall Forecast ===== -->
+ <div class="map-panel">
+    <div class="map-title">CHIRPS-GEFS 10-day Rainfall Forecast</div>
+    <div id="map-10dayforecast-data"></div>
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
+  </div>
+   
+  <!-- ===== Map 4: Rainfall Forecast Anomaly ===== -->
+  <div class="map-panel">
+     <div class="map-title">CHIRPS-GEFS 10-day Rainfall Forecast Anomaly</div>
+        <div id="map-10dayforecast-anomaly"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./snippet.js"></script>
+
+					      <div id="map-10dayforecast-data"></div>
+
+                <script type="text/javascript">
+                  new Snippet({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-10dayforecast-data',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+					showGaul20080: true,
+                    showGaul20081: true,
+                    showGaul20082: true,
+                    showKenyaWards: false,
+                    periodicity: '1-day',
+                    forecastPeriod: '10day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'data',
+                    width: 300,
+                    height: 350,
+                    time: '2021-10-01',
+                    zoom: 5.5,
+                    center: [0.3, 37.4],
+                  });
+                </script>
+                
+
+</html>
+<!-- ===== Snippet Scripts ===== -->
+<script type="text/javascript" src="./snippet.js"></script>
+
+					      <div id="map-10dayforecast-anomaly"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+                  new Snippet({
+                    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+                    id: 'map-10dayforecast-anomaly',
+                    dataset: 'CHIRPS3GEFS',
+                    subDataset: 'chirps3_gefs',
+                    region: 'global',
+					showGaul20080: true,
+                    showGaul20081: true,
+                    showGaul20082: true,
+                    showKenyaWards: false,
+                    periodicity: '1-day',
+                    forecastPeriod: '10day',
+                    period: 'latest',
+                    showDekadControl: true,
+                    showYearControl: true,
+                    units: 'mm',
+                    statistic: 'anom',
+                    width: 300,
+                    height: 350,
+                    time: '2021-10-01',
+                    zoom: 5.5,
+                    center: [0.3, 37.4],
+                  });
+                </script>
+               
+
+<h1>Rainfall Monitor</h1>
+
+<p>
+  These maps show recent rainfall conditions. The map on the left shows CHIRPSv3 monthly rainfall accumulation, and the map on the right shows anomalies, indicating areas that received above- or below-average rainfall.
+</p>
+
+<!-- ===== Maps Row ===== -->
+<div class="map-row">
+
+  <!-- ===== Map 5: Rainfall Total ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall (mm)</div>
+    <div id="map-data"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+      alt="Monthly Rainfall Legend"
+    />
+  </div>
+
+  <!-- ===== Map 6: Rainfall Anomaly ===== -->
+  <div class="map-panel">
+    <div class="map-title">Monthly Rainfall Anomaly</div>
+    <div id="map-anom"></div>
+
+    <img
+      class="legend"
+      src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+      alt="Monthly Rainfall Anomaly Legend"
+    />
+  </div>
+
+</div>
+<!-- Load Snippet library -->
+<script type="text/javascript" src="./snippet.js"></script>
+<div id="map-forecast-anomaly"></div>
+
+                <br>
+                <br>
+
+
+                <script type="text/javascript">
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-data',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: false,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'data',
+    width: 300,
+    height: 350,
+    zoom: 5.5,
+    center: [0.3, 37.4]
+  });
+
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'map-anom',
+    dataset: 'CHIRPSv3',
+    subDataset: 'chirpsv3',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: false,
+    showKenyaWards: false,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    units: 'mm',
+    statistic: 'anom',
+    width: 300,
+    height: 350,
+    zoom: 5.5,
+    center: [0.3, 37.4]
+  });
+</script>
+</html>
+                <!-- FOOTER -->
+<div>
+  <table style="width:100%; background-color:#003660; border-collapse:collapse;">
+    
+    <!-- TOP ROW -->
+    <tr>
+      <!-- Left: CHC text -->
+      <td style="padding:15px; color:#ffffff; vertical-align:left;">
+        <p style="margin:0;">
+          <strong>Climate Hazards Center</strong><br>
+          UC Santa Barbara<br>
+          Santa Barbara, CA 93106
+        </p>
+      </td>
+
+      <!-- Right: Social icons -->
+      <td style="padding:15px; text-align:right; vertical-align:middle;">
+        <a href="https://x.com/climatehazards" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
+               alt="X" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.facebook.com/climatehazardscenter/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
+               alt="Facebook" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
+               alt="Instagram" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+        <a href="https://www.linkedin.com/company/climate-hazards-center/about/" target="_blank">
+          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
+               alt="LinkedIn" style="width:33px; height:33px; margin-left:6px;">
+        </a>
+      </td>
+    </tr>
+   <!-- BOTTOM ROW: LINKS -->
+    <tr>
+      <td colspan="2" style="padding:10px; text-align:center;">
+        <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
+        <a href="http://www.ucsb.edu" style="color:#ffffff; margin:0 10px;">UC Santa Barbara</a>
+        <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff; margin:0 10px;">Accessibility</a>
+        <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff; margin:0 10px;">Appropriate Use</a>
+        <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff; margin:0 10px;">Privacy</a>
+        <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff; margin:0 10px;">Webmaster</a>
+      </td>
+    </tr>
+
+    <!-- COPYRIGHT -->
+    <tr>
+      <td colspan="2" style="color:#ffffff; text-align:center; padding:8px; font-size:13px;">
+        &copy;2026 The Regents of the University of California. All Rights Reserved.
+      </td>
+    </tr>
+
+  </table>
+</div>
