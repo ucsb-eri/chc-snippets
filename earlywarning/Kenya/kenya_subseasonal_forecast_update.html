@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
-
   <style>
     /* --- General Styling --- */
     body {
@@ -15,19 +15,12 @@
     }
 
     h1, h2 {
-      color: #059AB5;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.1em;
-      max-width: 900px;
-      margin: 0 auto 20px auto;
+      color: #003660;
     }
 
     a {
       text-decoration: none;
-      color: #059AB5;
+      color: #003660;
     }
 
     a:hover {
@@ -38,12 +31,13 @@
     .header {
       background-color: #003660;
       color: white;
-      padding: 10px 0;
+      padding: 0;
     }
 
     .header table {
       width: 100%;
       border-collapse: collapse;
+      background-color: #003660;
     }
 
     .header a {
@@ -51,44 +45,56 @@
       font-weight: 500;
     }
 
-    /* --- Map Layout --- */
-    .map-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
+    /* --- Page Container --- */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* --- Section Cards --- */
+    .section {
+      background-color: white;
+      border-left: 6px solid #059AB5;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin-bottom: 40px;
-      flex-wrap: wrap;
+      padding: 25px 30px;
     }
 
-    .map-panel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .section h2 {
+      margin-top: 0;
+      color: #02788a;
     }
 
-    .map-title {
-      font-size: 1em;
-      margin-bottom: 10px;
-      font-weight: 600;
+    .section p {
+      line-height: 1.6;
     }
 
-    .legend {
-      margin-top: 10px;
+    .section a {
+      color: #02788a;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #003660;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
     }
   </style>
-    
 </head>
 
 <body>
-
-  <!-- ====== Header ====== -->
+ <!-- ====== Header ====== -->
   <div class="header">
     <table>
       <tr>
         <td style="padding-left: 15px;">
           <a href="https://chc.ucsb.edu">
             <img src="CHC_logo_white.png"
-              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 110px;" />
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 105px;" />
           </a>
         </td>
         <td style="text-align: right; padding-right: 20px;">
@@ -109,12 +115,12 @@
       </tr>
     </table>
   </div>
-</head>
-
-<body>
-
-
-                                  <!--FOOTER -->
+  </p>
+  <!-- ====== Main Page Content ====== -->
+  <div class="container">
+    <h1>Kenya Subseasonal Forecast Updates</h1>
+    
+ <!-- FOOTER -->
 <div>
   <table style="width:100%; background-color:#003660; border-collapse:collapse;">
     
@@ -149,7 +155,8 @@
         </a>
       </td>
     </tr>
-   <!-- BOTTOM ROW: LINKS -->
+
+    <!-- BOTTOM ROW: LINKS -->
     <tr>
       <td colspan="2" style="padding:10px; text-align:center;">
         <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
