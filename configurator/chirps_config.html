@@ -134,7 +134,7 @@
     <h3>Configure your web page with Snippet code</h3>
     <p>
       Copy and paste the first or second line of code and paste it above the intended location of the first EWX map in your web page.
-      You will need to copy the ewxmapG5.js file to the same directory as your web page to use the first line.
+      You will need to copy the snippet.js file to the same directory as your web page to use the first line.
       Make sure this line appears only once in your page. Place the &ltdiv&gt line at the location you want the
       Snippet to appear. Note that the Snippet ID must be unique for each Snippet on the web page.
     </p>
@@ -258,7 +258,7 @@
     <p id="js_code_view"></p>
     <br>
 
-    <script type="text/javascript" src="https://snippets.chc.ucsb.edu/snippet.js"></script>
+    <script type="text/javascript" src="https://climateservices.chc.ucsb.edu/snippet.js"></script>
 
     <script type="text/javascript">
       console.log('');
@@ -336,9 +336,9 @@
           yearControl = element.value;
 
           let txt = "<table style='border:1px solid black; background-color:#e5f5e0;'><tr><td><br>";
-          txt += '&nbsp;&nbsp;&ltscript src="/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
+          txt += '&nbsp;&nbsp;&ltscript src="/snippet.js"&gt&lt/script&gt' + "<br>";
           txt += '&nbsp;&nbsp;or'  + "<br>";
-          txt += '&nbsp;&nbsp;&ltscript src="https://snippets.chc.ucsb.edu/ewxmapG5.js"&gt&lt/script&gt' + "<br>";
+          txt += '&nbsp;&nbsp;&ltscript src="https://climateservices.chc.ucsb.edu/snippet.js"&gt&lt/script&gt' + "<br>";
           txt += "<br><br>";
           txt += "&nbsp;&nbsp;&ltdiv id='" + snippetId + "'&gt&lt/div&gt" + "<br>";
           txt += "<br><br>";
