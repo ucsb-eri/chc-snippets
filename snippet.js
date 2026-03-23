@@ -58,7 +58,8 @@ var Snippet = function(configuration) {
     if (window.jQuery === undefined) {
       console.log('in window undefined...');
       _this.loadScript('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', _this.loadAssets, _this.loadEwxConfig);
-    } else {
+    if (window.jQuery === undefined) {console.log('in window undefined...');}
+	} else {
       console.log('in window defined...');
       _this.loadAssets(_this.loadEwxConfig);
       //_this.loadAssets();
