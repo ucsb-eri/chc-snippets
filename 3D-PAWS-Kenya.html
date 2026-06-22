@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+  <style>
+    /* --- Reset & General Styling --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #003660;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      color: #003660;
+      margin: 0 0 10px 0;
+    }
+
+    /* --- Header --- */
+    .header {
+      background-color: #003660;
+      color: white;
+      padding: 0;
+    }
+
+    .header table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .header a {
+      color: white;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .header img {
+      display: block;
+    }
+
+    /* --- Main Content --- */
+    .container {
+      flex: 1; /* expands to fill remaining space */
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Section cards */
+    .section {
+      background-color: white;
+      border-left: 6px solid #02788a;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      padding: 25px 30px;
+    }
+
+    .section h2 a {
+      color: #02788a;
+      font-weight: bold;
+    }
+
+    .section p {
+      line-height: 1.6;
+    }
+
+    /* Under construction notice */
+    .notice {
+      color: red;
+      font-style: italic;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background-color: #003660;
+      color: white;
+      padding: 0;
+    }
+
+    .footer table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .footer td {
+      vertical-align: middle;
+    }
+
+    .footer a {
+      color: white;
+      margin: 0 8px;
+      font-weight: 500;
+    }
+
+    .footer img {
+      display: inline-block;
+      width: 33px;
+      height: 33px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ====== Header ====== -->
+  <div class="header">
+    <table>
+      <!-- Top row: Logo left, UCSB text right -->
+      <tr>
+        <td style="padding:5px 15px;">
+          <a href="https://chc.ucsb.edu">
+            <img src="CHC_logo_white.png" alt="Climate Hazards Center - UC Santa Barbara" style="width:175px; height:auto;">
+          </a>
+        </td>
+        <td style="padding:5px 20px; text-align:right;">
+          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
+        </td>
+      </tr>
+
+      <!-- Navigation row -->
+      <tr>
+        <td colspan="2" style="text-align:center; padding:5px 0;">
+          <a href="https://chc.ucsb.edu/about">About</a> |
+          <a href="https://chc.ucsb.edu/people">People</a> |
+          <a href="https://chc.ucsb.edu/research">Publications</a> |
+          <a href="https://chc.ucsb.edu/tools">Tools</a> |
+          <a href="https://chc.ucsb.edu/data">Data Sets</a> |
+          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> |
+          <a href="https://chc.ucsb.edu/news">News</a> |
+          <a href="https://chc.ucsb.edu/activities">Activities</a>
+        </td>
+      </tr>
+    </table>
+  </div>
