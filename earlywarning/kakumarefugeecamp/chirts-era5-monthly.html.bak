@@ -112,8 +112,7 @@
 <h1>Kakuma Refugee Camp Heat Tracker</h1>
 
 <p>
-  These maps show recent maximum air temperature conditions at Kakuma Refugee Camp
-  using CHIRTS-ERA5 pentad data, including absolute values, anomalies, and 
+  These maps show recent maximum air temperature conditions at Kakuma Refugee Camp using CHIRTS-ERA5 monthly data, including absolute values, anomalies, and standardized anomalies (z-scores). Temperatures are shown as the latest monthly means. Selecting a previous period (e.g., 2025-12-01) using the time navigation button displays the mean maximum temperature for the preceding month.
 </p>
 
 <!-- Map Script -->
@@ -126,8 +125,8 @@
     <div class="map-panel">
       <div id="map-data"></div>
       <img
-        width="500"
-        src="chirtsera5-data-legend-resized.png"
+        width="300"
+        src="chirtsera5-data-legend.png"
         alt="CHIRTS-ERA5 Tmax Legend"
       />
     </div>
@@ -136,8 +135,8 @@
     <div class="map-panel">
       <div id="map-anom"></div>
       <img
-        width="500"
-        src="chirtsera5-anomaly-legend-resized.png"
+        width="300"
+        src="chirtsera5-anomaly-legend.png"
         alt="CHIRTS-ERA5 Tmax Anomaly Legend"
       />
     </div>
@@ -146,8 +145,9 @@
     <div class="map-panel">
       <div id="map-zscore"></div>
       <img
-        width="500"
-        src="chirtsera5-zscore-legend-resized.png"
+        width="300"
+		height="35"
+        src="chirtsera5-zscore-legend.png"
         alt="CHIRTS-ERA5 Tmax Z-Score Legend"
       />
     </div>
@@ -171,7 +171,7 @@
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
-      units: 'mm',
+      units: '°C',
       statistic: 'data',
       width: 500,
       height: 375,
@@ -194,7 +194,7 @@
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
-      units: 'mm',
+      units: '°C',
       statistic: 'anom',
       width: 500,
       height: 375,
@@ -217,7 +217,7 @@
       period: 'latest',
       showDekadControl: true,
       showYearControl: true,
-      units: 'mm',
+      units: '',
       statistic: 'zscore',
       width: 500,
       height: 375,
