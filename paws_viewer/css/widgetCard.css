@@ -1,0 +1,42 @@
+.plot-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.card-header {
+    height: fit-content;
+}
+
+p.card-title {
+    margin: 1em;
+}
+
+.card-body {
+    flex-grow: 1; /* Takes remaining space */
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    background-color: white;
+}.darkmode .card-body {
+    background-color: var(--dark-bg-color);
+}
+
+.card-title-select {
+    position: relative;
+    display: flex;
+}
+.card-title-select-button {
+    padding: 15px 16px;
+    max-width: 100%;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.card-button {
+    display: flex;
+    margin: 8px 8px;
+}

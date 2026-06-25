@@ -1,0 +1,30 @@
+/* Fonts */
+
+@font-face {
+    font-family: 'Material Icons Filled';
+    font-style: normal;
+    font-weight: 400;
+    src: url(material-icons.woff2) format('woff2');
+}
+
+.mi {
+    font-family: 'Material Icons Filled';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.mi.w3-button { /* Icon Buttons */
+    font-size: 1.5em;
+    padding: 1.5px 12px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Report</title>
+
+    <!-- Library Styles -->
+    <link rel="stylesheet" href="./css/libraryStyles/w3.css">
+    <link rel="stylesheet" href="./css/libraryStyles/billboard_modern.min.css">
+    <link rel="stylesheet" href="./css/libraryStyles/gridstack.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/map.css">
+    <link rel="stylesheet" href="./css/icons.css">
+    <link rel="stylesheet" href="./css/plots.css">
+    <link rel="stylesheet" href="./css/widgetCard.css">
+
+    <!-- Libraries -->
+    <script type="text/javascript" src="./js/libraries/lodash-4.17.21.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/d3.v7.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/d3-geo-voronoi@2.js"></script>
+    <script type="text/javascript" src="./js/libraries/billboard.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/html2canvas.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/topojson.v3.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/pako.min.js"></script>
+    <script type="text/javascript" src="./js/libraries/gridstack-all.min.js"></script>
+</head>
+
+<body class="w3-white sidebar-closed">
+    <div id="documentRoot">
+
+        <div id="leftSidebar" class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left">
+            <header id="leftSidebarHeader" class="w3-container w3-card w3-blue-grey w3-padding-small">
+                <span><button id="closeButton" class="mi w3-button w3-ripple w3-left" title="Close places menu" onclick="menuToggle()">close</button></span>
+                <span class="place-list-title w3-center">Places</span>
+            </header>
+            <div class="w3-container w3-padding-small">
+                <input id="placeSearch" class="w3-input w3-border" type="text" onkeyup="searchFunction()" onkeydown="confirmSearch(event)" autocomplete="off" placeholder="Search place">
+                <ul id="placeList"></ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="contentRoot">
+                <header id="contentHeader" class="w3-container w3-card w3-blue-grey w3-padding-small">
+                    <span><button id="menuButton" class="mi w3-button w3-ripple w3-left" title="Open places menu" onclick="menuToggle()">menu</button></span>
+                    <span id="contentHeaderText"></span>
+                    <span><button class="mi w3-button w3-ripple w3-right capture-ignore" title="Toggle dark mode" onclick="toggleDarkMode()">dark_mode</button></span>
+                    <span><button class="mi w3-button w3-ripple w3-right capture-ignore" title="Download current view" onclick="save_reports()">save</button></span>
+                    <span><button id="editLayoutButton" class="mi w3-button w3-ripple w3-right capture-ignore" title="Edit layout" onclick="toggleLayoutEdit()">edit</button></span>
+                    <span><button id="stopEditLayoutButton" class="mi w3-button w3-ripple w3-right w3-hide capture-ignore" title="Stop edit layout" onclick="toggleLayoutEdit()">edit_off</button></span>
+                    <span><button id="sortLayoutButton" class="mi w3-button w3-ripple w3-right w3-hide capture-ignore" title="Sort layout" onclick="grid.compact()">swap_horiz</button></span>
+                    <span><button id="addWidgetButton" class="mi w3-button w3-ripple w3-right w3-hide capture-ignore" title="Add widget" onclick="add_widget()">add</button></span>
+                </header>
+                <div id="contentBody" class="w3-padding-small">
+                    <div id="gridstackRoot" class="grid-stack">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4">
+
+            <header class="w3-container w3-red">
+              <span onclick="closeModal()"
+              class="w3-button w3-display-topright w3-ripple w3-hover-pale-red">&times;</span>
+              <h2 id="modalHeaderText"></h2>
+            </header>
+        
+            <div class="w3-container">
+              <p id="modalText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data -->
+    <script src="./data/topojson_map.js"></script>
+
+    <!-- SMPG Scripts -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/bbPlotUtils.js"></script>
+    <script src="./js/widgetClasses.js"></script>
+    <script src="./js/makePlots.js"></script>
+    <script src="./js/makeMap.js"></script>
+    <script src="./js/htmlToCanvasExporter.js"></script>
+    <script src="./js/FileCacheManager.js"></script>
+
+    <!-- Main Script -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

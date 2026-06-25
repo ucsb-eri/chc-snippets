@@ -1,0 +1,104 @@
+/* Plot card elements */
+
+.chart-table-container {
+    position: absolute;
+    top: 5px;
+    left: 10%;
+    width: 100%;
+    display: inline-block;
+    pointer-events: none;
+}
+
+.plot-context-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.plot-chart-container {
+    flex-grow: 1; /* Takes remaining space */
+    position: relative;
+    overflow: auto;
+    width: 100%;
+}
+
+.plot-legend-container {
+    padding-top: 0 !important;
+    height: fit-content;
+}
+
+.chart-table {
+    background-color: white !important;
+    opacity: .8;
+    margin-top: 0.25rem;
+    margin-right: 0.25rem;
+    width: auto;
+    line-height: 0;
+    font-size: x-small;
+    box-shadow: #000 1px 1px 1px;
+}
+
+/* Plot internal elements */
+
+.bb-chart {
+    position: relative;
+}
+
+.bb-legend-item {
+    display: inline-block;
+}
+
+.sos-marker text {
+    paint-order: stroke;
+    fill: #000f !important;
+    stroke: #fffe !important;
+    stroke-width: 3px;
+}
+.sos-marker line{
+    stroke: #888;
+    
+    stroke-width: 2px;
+    stroke-opacity: 50%;
+    stroke-dasharray: 10 10;
+}
+.current-sos-marker line {
+    stroke: blue !important;
+}
+.forecast-sos-marker line {
+    stroke: #FF00FF !important;
+}
+.avg-sos-marker line {
+    stroke: red !important;
+    stroke-dashoffset: 10;
+}
+
+/* Custom line styles */
+
+.bb-line-LTA, .bb-line-Climatology-Average, 
+.bb-line-Ensemble-Med-, .bb-line-Ensemble-Med--w--Forecast,
+.bb-line-Current-Season-Accumulation, 
+.bb-line-Current-Season-Accumulation-with-Forecast, .bb-line-Forecast, 
+.bb-line-Forecast-Accumulation {
+    stroke-width: 4px !important;
+}
+
+.bb-line-Ensemble-Med-, .bb-line-Ensemble-Med--w--Forecast {
+    stroke-dasharray: 10 2;
+}
+
+.bb-areas {
+    opacity: .5;
+}
+
+.bb-area-LTA±20- {
+    opacity: .33 !important;
+}
+
+.bb-circle-1, .bb-circle-0 {
+    opacity: 1 !important;
+}
+
+path {
+    shape-rendering: geometricPrecision !important;
+}

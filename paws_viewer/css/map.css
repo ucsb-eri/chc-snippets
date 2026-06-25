@@ -1,0 +1,104 @@
+
+/* Map Styles */
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    align-content: center;
+}.darkmode .map-container {
+    background-color: var(--dark-bg-color) !important;
+}
+
+.map-svg {
+    max-width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+.map-description-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 50%;
+    font-size: larger;
+    line-height: 1.25;
+}
+.map-description-text {
+    background-color: #fffb;
+    margin-top: 0;
+}.darkmode .map-description-text {
+    background-color: var(--dark-bg-color-translucent);
+
+}
+
+.map-control-panel-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    width: auto;
+    margin: 1rem;
+    display: inline-block;
+}.darkmode .map-control-panel-container {
+    background-color: var(--dark-bg-color);
+}
+
+.selection-path {
+    fill: #f00f;
+    stroke: none;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+.persistent-selection-path {
+    fill: #0f0f;
+    stroke: none;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    pointer-events: none;
+    stroke-dasharray: 8, 4;
+}
+
+.country {
+    /* fill: white; */
+    stroke: black;
+    stroke-width: .75px;
+    stroke-linecap: round;
+    /* stroke-dasharray: 8, 4; */
+}.darkmode .country {
+    stroke: var(--dark-bg-color);
+}
+
+.reference-polygon {
+    fill: none;
+    stroke: black;
+    stroke-width: .5px;
+    stroke-linecap: round;
+    stroke-dasharray: 8, 4;
+}
+
+
+.map-text-label {
+    pointer-events: none;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.svg-outline-text {
+    paint-order: stroke;
+    fill: #000f !important;
+    stroke: #fffe !important;
+    stroke-width: 3px;
+}
+
+.map-legend {
+    position: absolute;
+    right: 5pt;
+    bottom: 1pt;
+    display: inline-block;
+    pointer-events: none;
+}
