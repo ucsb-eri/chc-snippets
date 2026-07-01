@@ -3,7 +3,7 @@
 "use strict";
 
 // uninitialized variables
-var pawsFilesData, pawsFirstEntry, pawsData, pawsStationProperties, pawsSeries, pawsFirstEntry,
+var pawsFilesData, pawsFirstEntry, pawsData, pawsStationProperties, pawsSeries, pawsFirstEntry, stationsGeoJson,
     currentDataIndex, locationParam, mapJson, referenceMapJson, property_ids,
     grid, cards, sidebarElements,
     GS_H_CELL_SIZE, GS_H_RES, GS_V_CELL_SIZE, GS_V_RES;
@@ -25,7 +25,7 @@ var editingLayout = false;
 const hasMap = isDeclared("topojson_map") && topojson_map !== null;
 const hasReferenceMap = isDeclared("reference_topojson_map") && reference_topojson_map !== null;
 const mapFields = ['None'];
-var idField = 'SMPG_names';
+var idField = 'id';
 
 // HTML Elements
 const BODY = document.body;
@@ -44,10 +44,11 @@ function initDashboard() {
 
     locationParam = getHashParamsObject()['country'];
     if (locationParam) {
+        const dataKey = locationParam.toUpperCase();
         const dataByCountry = objectGroupBy('country', pawsParsedCSV);
         
-        if (Object.keys(dataByCountry).includes(locationParam)) {
-            pawsData = objectGroupBy(pawsIdField, dataByCountry[locationParam]);
+        if (Object.keys(dataByCountry).includes(dataKey)) {
+            pawsData = objectGroupBy(pawsIdField, dataByCountry[dataKey]);
         } else {
             pawsData = objectGroupBy(pawsIdField, pawsParsedCSV);
         }
@@ -60,6 +61,7 @@ function initDashboard() {
     pawsStationProperties = objectMap(pawsData, (value, key, index) => {
         return {
             id: key,
+            station_name: value[0].station_name,
             local_id: value[0].local_id,
             country: value[0].country,
             lat: value[0].latitude,
@@ -82,9 +84,22 @@ function initDashboard() {
     
         mapJson = topojson.feature(topoJsonObjectMap, topoJsonObjectMap.objects.countries);
         referenceMapJson = topojson.feature(referenceTopoJsonObjectMap, referenceTopoJsonObjectMap.objects.countries);
+
+
+        const stations = Object.values(pawsStationProperties);
+
+        // Create GeoJSON FeatureCollection from stations
+        stationsGeoJson = {
+            type: "FeatureCollection",
+            features: stations.map(s => ({
+                type: "Feature",
+                geometry: { type: "Point", coordinates: [s.lon, s.lat] },
+                data: {...s}
+            }))
+        };
     
         // Populate stat selects
-        property_ids = Object.keys(Object.values(mapJson["features"])[0]["properties"]);
+        property_ids = Object.keys(Object.values(stationsGeoJson["features"])[0]["data"]);
         property_ids.splice(0, 0, "None"); // Add None element
     }
     
@@ -145,7 +160,7 @@ function initDashboard() {
         new chartCard('[gs-id="item2"] .grid-stack-item-content', "Map"),
     ];
     
-    sidebarElements = makeSelectionMenu(Object.keys(pawsData)); //init places list
+    sidebarElements = makeSelectionMenu(pawsStationProperties); //init places list
     
     window.addEventListener("hashchange", handleNavigation); // update everything when the url changes
     window.addEventListener("resize", handleResize);

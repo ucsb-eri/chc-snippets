@@ -26,7 +26,7 @@ function handleNavigation(event) {
     const oldUrl = event.oldURL;
     const newUrl = event.newURL;
     const params = getHashParamsObject();
-    const selectedStationId = params['station'];
+    let selectedStationId = params['station'];
     
     if (getHashParams(oldUrl, 'country') !== getHashParams(newUrl, 'country')) {
         window.location.reload()
@@ -41,10 +41,12 @@ function handleNavigation(event) {
         currentDataIndex = selectedStationId;
     }
     else{
-        showModal(`There is no data for ${selectedStationId}.`);
+        navigateTo('station', pawsFirstEntry);
+        currentDataIndex = pawsFirstEntry;
+        selectedStationId = pawsFirstEntry;
         return;
     }
-    let headerText = `Station ID: ${selectedStationId} ${params['country'] ? ", Country: " + params['country'] : ""}`;
+    let headerText = `Station ID: ${pawsStationProperties[selectedStationId].station_name} ${params['country'] ? ", Country: " + params['country'] : ""}`;
 
     HEADER.text(headerText);
 
@@ -250,9 +252,10 @@ function confirmSearch(event) {
 }
 
 function makeSelectionMenu(data) {
+    const ids = Object.keys(data);
     const sidebarList = document.getElementById('placeList');
     let sidebarElements = {};
-    for (const place of data.toSorted()) {
+    for (const place of ids.toSorted()) {
         const listElement = document.createElement('li');
         listElement.className = 'place-list-element';
         const placeLink = document.createElement('a');
@@ -260,7 +263,7 @@ function makeSelectionMenu(data) {
         sidebarElements[place] = placeLink;
         placeLink.id = place;
         placeLink.className = 'w3-bar-item w3-button w3-ripple';
-        placeLink.innerHTML = place;
+        placeLink.innerHTML = data[place].station_name;
         placeLink.addEventListener('click', function () {
             navigateTo({"station": place});
         });

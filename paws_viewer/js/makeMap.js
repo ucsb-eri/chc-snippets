@@ -27,18 +27,6 @@ class d3Map {
             // .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", `0, 0, ${this.internal_width}, ${this.internal_height}`)
 
-        const stations = Object.values(pawsStationProperties);
-
-        // Create GeoJSON FeatureCollection from stations
-        const stationsGeoJson = {
-            type: "FeatureCollection",
-            features: stations.map(s => ({
-                type: "Feature",
-                geometry: { type: "Point", coordinates: [s.lon, s.lat] },
-                data: {...s}
-            }))
-        };
-
         const padding = 50;
         this.projection = d3.geoMercator()
             .fitSize([this.internal_width - padding * 2, this.internal_height - padding * 2], mapJson.features.find(item => item.properties.name === locationParam) || stationsGeoJson) // Fit the map to the SVG viewport size
@@ -102,7 +90,7 @@ class d3Map {
                 navigateTo({"station": d.properties.site.data.id});
             })
             .append("title")
-            .text(d => d.properties.site.data.id)
+            .text(d => d.properties.site.data.station_name)
 
         // draw selection bounding box rectangle
         this.mapPersistentSelectorPath = this.svg.append("g")
@@ -126,11 +114,13 @@ class d3Map {
         this.labels = this.svg.append("g")
             .attr("class", "map-labels zoomable")
             .selectAll(".map-text-label")
-            .data(this.geoJsonMap.features)
+            .data(stationsGeoJson.features)
             .enter().append("text")
-            .text(d => d.properties[idField])
+            // .text(d => d.data.station_name)
             .attr("class", "map-text-label svg-outline-text")
             .attr("transform", d => `translate(${this.projection(d3.geoCentroid(d))})`)
+            .attr("dy", "1em")
+            
             .attr("font-size", this.FONT_SIZE)
             .style("dominant-baseline", "middle")
             // .style("text-anchor", "middle")
@@ -168,8 +158,7 @@ class d3Map {
     changeLabels(fieldId) {
         // Update label text based on the selected property
         this.currentDisplayField = fieldId;
-        this.labels.text(d => d.properties[fieldId]);
-        this.polygonTooltips.text(d => d.properties[fieldId]);
+        this.labels.text(d => d.data[fieldId]);
     }
 
     changeLegend(statId) {
@@ -308,7 +297,7 @@ class mapControlPanel {
                 map.changeLabels(displayId);
             });
         updateSelect(this.labelFieldSelect, property_ids);
-        this.labelFieldSelect.property("value", idField);
+        this.labelFieldSelect.property("value", null);
 
         // this.controlPanelBody.append("br");
 
