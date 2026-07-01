@@ -10,7 +10,7 @@ var pawsFilesData, pawsFirstEntry, pawsData, pawsStationProperties, pawsSeries, 
 
 // Globals
 var pawsToolVersion = '1.0';
-var fileIndexUrl = 'https://data.chc.ucsb.edu/people/saldivar/3dpaws/logs/';
+var fileIndexUrl = 'http://127.0.0.1:5500/testData/Index of _people_saldivar_3dpaws_logs_.html';
 
 var pawsIdField = "station_seqnum";
 var pawsFiles = {};
@@ -178,4 +178,7 @@ async function loadDataAndInit() {
     }
 }
 
-loadDataAndInit();
+// loadDataAndInit();
+
+pawsParsedCSV = d3.csvParse(pawsDataCSV)
+initDashboard();
