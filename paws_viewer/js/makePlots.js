@@ -432,6 +432,24 @@ function makeAccumulationPercentilesCard(containerElement) {
 
 function makePawsPlot(containerElement) {
     let xNames = [...pawsSeries[pawsFirstEntry]['date']];
+    let customSettings = {
+        axis: {
+            x: {
+                // type: "timeseries",
+                tick: {
+                    format: (x) => {
+                        return xNames[x].toISOString().split('T')[0];
+                    },
+                },
+            }
+        },
+        data: {
+            colors: {
+                imerg: "#9013FE",
+                // rg2: "#D0021B",
+            },
+        },
+    };
     
     const xsDefinition = {
         'default_xs': ascendingArray(xNames.length),
@@ -454,7 +472,7 @@ function makePawsPlot(containerElement) {
         }
     };
     const plot = new BBPlot(containerElement, getPawsPlotData, xNames, 
-        xsDefinition, xsDataRelation, plotTypes);
+        xsDefinition, xsDataRelation, plotTypes, ()=>[], customSettings);
     return plot;
 }
 

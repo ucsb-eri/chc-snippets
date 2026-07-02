@@ -41,11 +41,10 @@ class BBPlot {
                 zerobased: false,
             }
         };
-        this.plot = bb.generate({
+        this.plot = bb.generate(_.merge({
             bindto: chartContainer.node(),
             data: { json: {}, },
-            ..._.merge(defaultOptions, chartOptions, this.customSettings)
-        });
+        }, defaultOptions, chartOptions, this.customSettings));
     }
 
     update(index) {
@@ -67,6 +66,11 @@ class BBPlot {
             unload: true,
         });
         this.plot.xgrids(this.gridLinesGetter(index));
+
+        // Limit y axis to 400, and fit under 400
+        const allValues = Object.values(data).flat();
+        const maxVal = Math.max(...allValues);
+        this.plot.axis.max(maxVal < 400 ? false : 400);
     }
 
     resize(size) {

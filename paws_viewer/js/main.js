@@ -195,5 +195,5 @@ async function loadDataAndInit() {
 
 // loadDataAndInit();
 
-pawsParsedCSV = d3.csvParse(pawsDataCSV)
+pawsParsedCSV = d3.csvParse(pawsDataCSV, d3.autoType)
 initDashboard();
