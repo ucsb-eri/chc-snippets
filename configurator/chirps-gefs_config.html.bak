@@ -185,7 +185,7 @@
               <option value="data"><b>Data<b></option>
               <option value="anom">Anomaly</option>
               // anom for CHIRPS
-              <option value="z-score">Z-score</option>
+              <option value="zscore">Z-score</option>
             </select>
           </p>
         </td>
