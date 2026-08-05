@@ -58,9 +58,11 @@
 
     /* ===== Header ===== */
 
+     /* --- Header --- */
     .header {
       background-color: #003660;
-      color: #ffffff;
+      color: white;
+      padding: 0;
     }
 
     .header table {
@@ -70,25 +72,10 @@
     }
 
     .header a {
-      color: #ffffff;
+      color: white;
       font-weight: 500;
     }
 
-    .header-logo-cell {
-      padding: 10px 15px;
-    }
-
-    .header-logo {
-      display: block;
-      width: 175px;
-      height: auto;
-    }
-
-    .university-name {
-      padding: 15px 20px;
-      text-align: right;
-      vertical-align: middle;
-    }
 
     .navigation {
       padding: 12px 20px 16px;
@@ -313,58 +300,34 @@ main {
 
 <body>
 
-  <!-- ===== Header ===== -->
-
-  <header class="header">
+ <!-- ====== Header ====== -->
+  <div class="header">
     <table>
       <tr>
-        <td class="header-logo-cell">
+        <td style="padding-left: 15px;">
           <a href="https://chc.ucsb.edu">
-            <img
-              class="header-logo"
-              src="CHC_logo_white.png"
-              alt="Climate Hazards Center - UC Santa Barbara">
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 105px;" />
           </a>
         </td>
-
-        <td class="university-name">
-          <a href="https://www.ucsb.edu">
-            University of California,<br>
-            Santa Barbara
-          </a>
+        <td style="text-align: right; padding-right: 20px;">
+          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
         </td>
       </tr>
-
       <tr>
-        <td colspan="2" class="navigation">
-          <a href="https://chc.ucsb.edu/about">About</a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/people">People</a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/research">Publications</a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/tools">Tools</a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/data">Data Sets</a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/monitoring">
-            Monitoring &amp; Forecasting
-          </a>
-          &nbsp;|&nbsp;
-
-          <a href="https://chc.ucsb.edu/news">News</a>
-          &nbsp;|&nbsp;
-
+        <td colspan="2" style="text-align: center;">
+          <a href="https://chc.ucsb.edu/about">About</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/people">People</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/research">Publications</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/tools">Tools</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/data">Data Sets</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/news">News</a> &nbsp;|&nbsp;
           <a href="https://chc.ucsb.edu/activities">Activities</a>
         </td>
       </tr>
     </table>
-  </header>
+  </div>
 
 
   <!-- ===== Main Page Content ===== -->
@@ -378,14 +341,14 @@ main {
 
         <p>
           Through the Enhancing Meteorological Networks Partnership (EMNP), the UCSB Climate Hazards Center, in collaboration with the University
-          Corporation for Atmospheric Research (UCAR) COMET's Innovative Capacity Development Program (<a href="https://www.comet.ucar.edu/capacity-development">ICDP</a>)and the
-          Famine Early Warning Systems Network (FEWS NET), is working with
+          Corporation for Atmospheric Research (UCAR) COMET's Innovative Capacity Development Program (<a href="https://www.comet.ucar.edu/capacity-development">ICDP</a>) and the
+          Famine Early Warning Systems Network (<a href="https://fews.net">FEWS NET</a>), is working with
           national meteorological agencies across Africa to support the
           deployment of 3D-Printed Automatic Weather Stations (3D-PAWS).
           These low-cost, locally manufactured stations provide real-time
           weather observations that strengthen drought and food security monitoring, weather
           forecasting, and early warning systems. The 3D-PAWS stations feature multiple temperature sensors, relative humidity sensor, wind 
-		  speed and wind direction sensors, and two rain gauges. The dual raingauge design allows for cross-checking of rainfall measurements and improved data
+		  speed and wind direction sensors, and two rain gauges. The dual rain gauge design allows for cross-checking of rainfall measurements and improved data
 		  reliability in operational networks. More information on the design and installation can be accessed <a href="https://3dpaws.comet.ucar.edu/other-3d-paws-resources/3d-paws-station-variants">here.</a> 
         </p>
 
@@ -422,7 +385,8 @@ main {
         <p>
           Select a station on the map to view rainfall observations from that
           location. The accompanying graph displays rainfall recorded by the
-          station's two rain gauges, rg1 and rg2, alongside CHIRP and IMERG
+          station's two rain gauges, rg1 and rg2, alongside <a href="https://chc.ucsb.edu/data/chirps3"> CHIRP</a> and 
+		  NASA's <a href="https://gpm.nasa.gov/data/imerg"> IMERG </a>
           satellite rainfall estimates and the CHPclim1 rainfall climatology.
           Comparing 3D-PAWS rain gauge data with satellite products helps users
           assess rainfall conditions and identify potential data quality issues.
