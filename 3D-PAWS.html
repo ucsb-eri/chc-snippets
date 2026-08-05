@@ -2,36 +2,65 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    3D-PAWS Dashboard | Climate Hazards Center - UC Santa Barbara
+  </title>
+
   <style>
-    /* --- General Styling --- */
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #333;
+    /* ===== General Styling ===== */
+
+    * {
+      box-sizing: border-box;
     }
 
-    h1, h2 {
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333333;
+    }
+
+    h1,
+    h2,
+    h3 {
       color: #003660;
+    }
+
+    p,
+    li {
+      font-size: 16px;
+      line-height: 1.7;
     }
 
     a {
-      text-decoration: none;
       color: #003660;
+      text-decoration: none;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       text-decoration: underline;
     }
 
-    /* --- Header --- */
+
+    /* ===== Header ===== */
+
     .header {
       background-color: #003660;
-      color: white;
-      padding: 0;
+      color: #ffffff;
     }
 
     .header table {
@@ -41,159 +70,497 @@
     }
 
     .header a {
-      color: white;
+      color: #ffffff;
       font-weight: 500;
     }
 
-    /* --- Page Container --- */
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .header-logo-cell {
+      padding: 10px 15px;
     }
 
-    /* --- Section Cards --- */
-    .section {
-      background-color: white;
-      border-left: 6px solid #059AB5;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-      padding: 25px 30px;
+    .header-logo {
+      display: block;
+      width: 175px;
+      height: auto;
     }
 
-    .section h2 {
-      margin-top: 0;
-      color: #02788a;
+    .university-name {
+      padding: 15px 20px;
+      text-align: right;
+      vertical-align: middle;
     }
 
-    .section p {
-      line-height: 1.6;
-    }
-
-    .section a {
-      color: #02788a;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: #003660;
-      color: white;
+    .navigation {
+      padding: 12px 20px 16px;
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
+      line-height: 2;
+    }
+
+
+   /* ===== Main Page Content ===== */
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+.container {
+    width: calc(100% - 40px);
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.content-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
+    padding: 15px;
+}
+
+.content-section h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.content-section h2 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #003660;
+    font-size: 23px;
+}
+.content-section h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #000000;
+    font-size: 19px;
+}
+.content-section p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* All links in the main content */
+.content-section a {
+    color: #02788a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.content-section a:hover {
+    color: #003660;
+    text-decoration: underline;
+}
+
+.dashboard-list {
+    margin: 12px 0 25px;
+    padding-left: 24px;
+}
+
+.dashboard-list li {
+    margin-bottom: 8px;
+}
+
+/* ===== Related Articles ===== */
+
+.related-articles {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.article-card {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.article-card a {
+    display: block;
+    text-decoration: none;
+}
+
+.article-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.article-card img:hover {
+    transform: scale(1.03);
+}
+
+.article-card h3 {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #02788a;   /* Match the other links */
+    line-height: 1.4;
+}
+
+.article-card a:hover h3 {
+    color: #003660;
+    text-decoration: underline;
+}
+
+    /* ===== Footer ===== */
+
+    .footer {
+      width: 100%;
+      margin-top: auto;
+      background-color: #003660;
+      color: #ffffff;
+    }
+
+    .footer table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #003660;
+    }
+
+    .footer-contact {
+      padding: 20px;
+      color: #ffffff;
+      vertical-align: middle;
+    }
+
+    .footer-contact p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer-social {
+      padding: 20px;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .footer-social a {
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .footer-social img {
+      display: block;
+      width: 33px;
+      height: 33px;
+    }
+
+    .footer-links {
+      padding: 12px 20px;
+      text-align: center;
+      line-height: 2;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      margin: 0 10px;
+    }
+
+    .footer-copyright {
+      padding: 10px 20px 16px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 13px;
+    }
+
+
+    /* ===== Mobile Styling ===== */
+
+    @media screen and (max-width: 700px) {
+      .header-logo {
+        width: 145px;
+      }
+
+      .university-name {
+        font-size: 14px;
+      }
+
+      .navigation {
+        font-size: 14px;
+      }
+
+      .container {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+      }
+
+      .content-section {
+        padding: 22px 20px;
+      }
+
+      .content-section h1 {
+        font-size: 26px;
+      }
+
+      .footer-contact,
+      .footer-social {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .footer-social a {
+        margin: 5px;
+      }
     }
   </style>
 </head>
 
 <body>
- <!-- ====== Header ====== -->
-  <div class="header">
+
+  <!-- ===== Header ===== -->
+
+  <header class="header">
     <table>
       <tr>
-        <td style="padding-left: 15px;">
+        <td class="header-logo-cell">
           <a href="https://chc.ucsb.edu">
-            <img src="CHC_logo_white.png"
-              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 105px;" />
+            <img
+              class="header-logo"
+              src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara">
           </a>
         </td>
-        <td style="text-align: right; padding-right: 20px;">
-          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
+
+        <td class="university-name">
+          <a href="https://www.ucsb.edu">
+            University of California,<br>
+            Santa Barbara
+          </a>
         </td>
       </tr>
+
       <tr>
-        <td colspan="2" style="text-align: center;">
-          <a href="https://chc.ucsb.edu/about">About</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/people">People</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/research">Publications</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/tools">Tools</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/data">Data Sets</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> &nbsp;|&nbsp;
-          <a href="https://chc.ucsb.edu/news">News</a> &nbsp;|&nbsp;
+        <td colspan="2" class="navigation">
+          <a href="https://chc.ucsb.edu/about">About</a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/people">People</a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/research">Publications</a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/tools">Tools</a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/data">Data Sets</a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/monitoring">
+            Monitoring &amp; Forecasting
+          </a>
+          &nbsp;|&nbsp;
+
+          <a href="https://chc.ucsb.edu/news">News</a>
+          &nbsp;|&nbsp;
+
           <a href="https://chc.ucsb.edu/activities">Activities</a>
         </td>
       </tr>
     </table>
-  </div>
-<!-- ====== Main Page Content ====== -->
-<p>
-   The Climate Hazards Center, in collaboration with the University Corporation for Atmospheric Research (UCAR) COMET Program and the Famine Early Warning Systems Network (FEWS NET), is working with national meteorological agencies across Africa to support the deployment of 3D-Printed Automatic Weather Stations (3D-PAWS). These low-cost, locally manufactured stations provide real-time weather observations that strengthen climate monitoring, weather forecasting, and early warning systems.
-   
-   The 3D-PAWS Dashboard provides interactive access to rainfall observations collected by this growing network of weather stations. Users can explore station locations, view rainfall measurements from the two on-site rain gauges, and compare these observations with CHIRP and IMERG satellite rainfall estimates. 
-   </p>
-   <p>
-    3D-PAWS Country Dashboards
-   </p>
+  </header>
 
-  <ul>
-    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Kenya">3D-PAWS Kenya</a></li>
-    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Malawi">3D-PAWS Malawi</a></li>
-    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Zimbabwe">3D-PAWS Zimbabwe</a></li>
-  </ul>
-  <h3>Using the Dashboard</h3>
 
-<p>
-Select a station on the map to view rainfall observations from that location. The accompanying graph displays rainfall recorded by the station's two rain gauges (rg1 and rg2) alongside chirp and IMERG satellite rainfall estimates, as well as the chpclim1 rainfall climatology. Comparing 3D-PAWS raingauge data with satellite products helps assess rainfall conditions and identify potential data quality issues.
+  <!-- ===== Main Page Content ===== -->
 
-Selecting a station automatically updates the rainfall comparison graph for that location. The dashboard URL updates with the selected country and station, allowing users to bookmark or share a direct link to a specific station.
+  <main>
+    <div class="container">
 
-</p>
-</div>
-<html>
- <!-- FOOTER -->
-<div>
-  <table style="width:100%; background-color:#003660; border-collapse:collapse;">
-    
-    <!-- TOP ROW -->
-    <tr>
-      <!-- Left: CHC text -->
-      <td style="padding:15px; color:#ffffff; vertical-align:left;">
-        <p style="margin:0;">
-          <strong>Climate Hazards Center</strong><br>
-          UC Santa Barbara<br>
-          Santa Barbara, CA 93106
+      <section class="content-section">
+
+        <h1>3D Printed Automatic Weather Station</h1>
+
+        <p>
+          Through the Enhancing Meteorological Networks Partnership (EMNP), the UCSB Climate Hazards Center, in collaboration with the University
+          Corporation for Atmospheric Research (UCAR) COMET's Innovative Capacity Development Program (<a href="https://www.comet.ucar.edu/capacity-development">ICDP</a>)and the
+          Famine Early Warning Systems Network (FEWS NET), is working with
+          national meteorological agencies across Africa to support the
+          deployment of 3D-Printed Automatic Weather Stations (3D-PAWS).
+          These low-cost, locally manufactured stations provide real-time
+          weather observations that strengthen drought and food security monitoring, weather
+          forecasting, and early warning systems. The 3D-PAWS stations feature multiple temperature sensors, relative humidity sensor, wind 
+		  speed and wind direction sensors, and two rain gauges. The dual raingauge design allows for cross-checking of rainfall measurements and improved data
+		  reliability in operational networks. More information on the design and installation can be accessed <a href="https://3dpaws.comet.ucar.edu/other-3d-paws-resources/3d-paws-station-variants">here.</a> 
         </p>
-      </td>
 
-      <!-- Right: Social icons -->
-      <td style="padding:15px; text-align:right; vertical-align:middle;">
-        <a href="https://x.com/climatehazards" target="_blank">
-          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
-               alt="X" style="width:33px; height:33px; margin-left:6px;">
-        </a>
-        <a href="https://www.facebook.com/climatehazardscenter/" target="_blank">
-          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
-               alt="Facebook" style="width:33px; height:33px; margin-left:6px;">
-        </a>
-        <a href="https://www.instagram.com/ucsb_chc/?hl=en" target="_blank">
-          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
-               alt="Instagram" style="width:33px; height:33px; margin-left:6px;">
-        </a>
-        <a href="https://www.linkedin.com/company/climate-hazards-center/about/" target="_blank">
-          <img src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
-               alt="LinkedIn" style="width:33px; height:33px; margin-left:6px;">
-        </a>
-      </td>
-    </tr>
+        <h2>3D-PAWS Country Dashboards</h2>
+        <p>
+          The 3D-PAWS Dashboard provides interactive access to rainfall
+          observations collected by this growing network of weather stations.
+          Users can explore station locations, view rainfall measurements from
+          the two on-site rain gauges, and compare these observations with
+          satellite rainfall estimates.
+        </p>
+        <ul class="dashboard-list">
+          <li>
+            <a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Kenya">
+              3D-PAWS Kenya
+            </a>
+          </li>
 
-    <!-- BOTTOM ROW: LINKS -->
-    <tr>
-      <td colspan="2" style="padding:10px; text-align:center;">
-        <a href="http://www.college.ucsb.edu" style="color:#ffffff; margin:0 10px;">College of Letters and Science</a>
-        <a href="http://www.ucsb.edu" style="color:#ffffff; margin:0 10px;">UC Santa Barbara</a>
-        <a href="https://chc.ucsb.edu/accessibility" style="color:#ffffff; margin:0 10px;">Accessibility</a>
-        <a href="http://www.policy.ucsb.edu/terms_of_use/" style="color:#ffffff; margin:0 10px;">Appropriate Use</a>
-        <a href="http://www.policy.ucsb.edu/privacy-notification/" style="color:#ffffff; margin:0 10px;">Privacy</a>
-        <a href="mailto:dcalaso@ucsb.edu" style="color:#ffffff; margin:0 10px;">Webmaster</a>
-      </td>
-    </tr>
+          <li>
+            <a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Malawi">
+              3D-PAWS Malawi
+            </a>
+          </li>
 
-    <!-- COPYRIGHT -->
-    <tr>
-      <td colspan="2" style="color:#ffffff; text-align:center; padding:8px; font-size:13px;">
-        &copy;2026 The Regents of the University of California. All Rights Reserved.
-      </td>
-    </tr>
+          <li>
+            <a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Zimbabwe">
+              3D-PAWS Zimbabwe
+            </a>
+          </li>
+        </ul>
 
-  </table>
+        <h3>Using the Dashboard</h3>
+
+        <p>
+          Select a station on the map to view rainfall observations from that
+          location. The accompanying graph displays rainfall recorded by the
+          station's two rain gauges, rg1 and rg2, alongside CHIRP and IMERG
+          satellite rainfall estimates and the CHPclim1 rainfall climatology.
+          Comparing 3D-PAWS rain gauge data with satellite products helps users
+          assess rainfall conditions and identify potential data quality issues.
+        </p>
+
+        <p>
+          Selecting a station automatically updates the rainfall comparison
+          graph for that location. The dashboard URL also updates with the
+          selected country and station, allowing users to bookmark or share a
+          direct link to a specific station.
+        </p>
+		
+        <h2>3D-PAWS Resources</h2>
+		<p> The 3D-PAWS station network has expanded across Kenya, Ethiopia, Somalia, Malawi, Zimbabwe, and Madagascar, providing valuable real-time weather observations for climate monitoring and early warning applications. Rainfall observations from the <a href="https://3d-fewsnet.icdp.ucar.edu/instruments"> Kenya 3D-PAWS network </a> are
+		now incorporated into the <a href="https://www.chc.ucsb.edu/data/chirps3"> CHIRPS</a> data stream, improving the density of available station observations used in rainfall monitoring.</p>
+        <p> These stations have also provided additional sources of corroboration. When each gauge records similar extremes, we have added confidence that rainfall was truly exceptional as was in the case of <a href="https://blog.chc.ucsb.edu/?p=1905"> very low rainfall values in eastern Kenya </a> during the October to December 2025 short rain season.</p>		
+        <h2>Related Articles</h2>
+
+<div class="related-articles">
+
+    <div class="article-card">
+	         <a href="https://news.ucsb.edu/2026/022428/3d-printed-weather-station-initiative-enhances-local-monitoring-southern-africa">
+            <img src="3D-PAWS/Images/Zimbabwe3D-PAWS2025.jpg">
+            <h3>3D-printed weather station initiative enhances local monitoring in Southern Africa</h3>
+        </a>
+    </div>
+	<div class="article-card">
+        <a href="https://fews.net/blog/2024-01-16/african-scientists-harness-power-3d-printing-monitor-forecast-extreme-weather">
+             <img src="3D-PAWS/Images/Kenya3D-PAWS2024.jpg">
+            <h3>African scientists harness the power of 3D printing to monitor, forecast extreme weather</h3>
+        </a>
+    </div>
+
+    <div class="article-card">
+        <a href="https://blog.chc.ucsb.edu/?p=1905">
+            <img src="3D-PAWS/Images/3d-paws-stationKenya2025.jpg">
+            <h3>CHIRPS3 and Station Data For October and November 2025 indicate extremely severe drought conditions in Somalia and Central-Eastern Kenya</h3>
+        </a>
+    </div>
+
+   </div>
 </div>
+	 </section>
+
+    </div>
+  </main>
+
+
+  <!-- ===== Footer ===== -->
+
+  <footer class="footer">
+    <table>
+
+      <tr>
+        <td class="footer-contact">
+          <p>
+            <strong>Climate Hazards Center</strong><br>
+            UC Santa Barbara<br>
+            Santa Barbara, CA 93106
+          </p>
+        </td>
+
+        <td class="footer-social">
+          <a
+            href="https://x.com/climatehazards"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img
+              src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/logo-white.png"
+              alt="Climate Hazards Center on X">
+          </a>
+
+          <a
+            href="https://www.facebook.com/climatehazardscenter/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img
+              src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/facebook.png"
+              alt="Climate Hazards Center on Facebook">
+          </a>
+
+          <a
+            href="https://www.instagram.com/ucsb_chc/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img
+              src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/instagram.png"
+              alt="Climate Hazards Center on Instagram">
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/climate-hazards-center/about/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img
+              src="https://chc.ucsb.edu/sites/default/themes/at_lsit/images/department/linkedin100.png"
+              alt="Climate Hazards Center on LinkedIn">
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="footer-links">
+          <a href="https://www.college.ucsb.edu">
+            College of Letters and Science
+          </a>
+
+          <a href="https://www.ucsb.edu">
+            UC Santa Barbara
+          </a>
+
+          <a href="https://chc.ucsb.edu/accessibility">
+            Accessibility
+          </a>
+
+          <a href="https://www.policy.ucsb.edu/terms-of-use">
+            Appropriate Use
+          </a>
+
+          <a href="https://www.policy.ucsb.edu/privacy-notification">
+            Privacy
+          </a>
+
+          <a href="mailto:dcalaso@ucsb.edu">
+            Webmaster
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="footer-copyright">
+          &copy; 2026 The Regents of the University of California.
+          All Rights Reserved.
+        </td>
+      </tr>
+
+    </table>
+  </footer>
+
+</body>
+</html>
