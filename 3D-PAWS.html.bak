@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Climate Services Dashboard | Climate Hazards Center - UC Santa Barbara</title>
+  <style>
+    /* --- General Styling --- */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #003660;
+    }
+
+    a {
+      text-decoration: none;
+      color: #003660;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Header --- */
+    .header {
+      background-color: #003660;
+      color: white;
+      padding: 0;
+    }
+
+    .header table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #003660;
+    }
+
+    .header a {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* --- Page Container --- */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* --- Section Cards --- */
+    .section {
+      background-color: white;
+      border-left: 6px solid #059AB5;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      padding: 25px 30px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #02788a;
+    }
+
+    .section p {
+      line-height: 1.6;
+    }
+
+    .section a {
+      color: #02788a;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #003660;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+ <!-- ====== Header ====== -->
+  <div class="header">
+    <table>
+      <tr>
+        <td style="padding-left: 15px;">
+          <a href="https://chc.ucsb.edu">
+            <img src="CHC_logo_white.png"
+              alt="Climate Hazards Center - UC Santa Barbara" style="width: 175px; height: 105px;" />
+          </a>
+        </td>
+        <td style="text-align: right; padding-right: 20px;">
+          <a href="http://www.ucsb.edu">University of California,<br>Santa Barbara</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <a href="https://chc.ucsb.edu/about">About</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/people">People</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/research">Publications</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/tools">Tools</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/data">Data Sets</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/monitoring">Monitoring & Forecasting</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/news">News</a> &nbsp;|&nbsp;
+          <a href="https://chc.ucsb.edu/activities">Activities</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+<!-- ====== Main Page Content ====== -->
+<p>
+   The Climate Hazards Center, in collaboration with the University Corporation for Atmospheric Research (UCAR) COMET Program and the Famine Early Warning Systems Network (FEWS NET), is working with national meteorological agencies across Africa to support the deployment of 3D-Printed Automatic Weather Stations (3D-PAWS). These low-cost, locally manufactured stations provide real-time weather observations that strengthen climate monitoring, weather forecasting, and early warning systems.
+   
+   The 3D-PAWS Dashboard provides interactive access to rainfall observations collected by this growing network of weather stations. Users can explore station locations, view rainfall measurements from the two on-site rain gauges, and compare these observations with CHIRP and IMERG satellite rainfall estimates. 
+   </p>
+   <p>
+    3D-PAWS Country Dashboards
+   </p>
+
+  <ul>
+    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Kenya">3D-PAWS Kenya</a></li>
+    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Malawi">3D-PAWS Malawi</a></li>
+    <li><a href="https://climateservices.chc.ucsb.edu/paws_viewer/#country=Zimbabwe">3D-PAWS Zimbabwe</a></li>
+  </ul>
+  <h3>Using the Dashboard</h3>
+
+<p>
+Select a station on the map to view rainfall observations from that location. The accompanying graph displays rainfall recorded by the station's two rain gauges (rg1 and rg2) alongside chirp and IMERG satellite rainfall estimates, as well as the chpclim1 rainfall climatology. Comparing 3D-PAWS raingauge data with satellite products helps assess rainfall conditions and identify potential data quality issues.
+
+Selecting a station automatically updates the rainfall comparison graph for that location. The dashboard URL updates with the selected country and station, allowing users to bookmark or share a direct link to a specific station.
+
+</p>
+</div>
