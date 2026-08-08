@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHIRPS Snippet Examples</title>
+
+<style>
+h1, h2 {
+  color: #003660;
+}
+a {
+  text-decoration: none;
+  color: #003660;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Header --- */
+.header {
+  background-color: #003660;
+  color: white;
+  padding: 0;
+}
+.header table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #003660;
+}
+.header a {
+  color: white;
+  font-weight: 500;
+}
+
+/* --- Page Container --- */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- Section Cards --- */
+.section {
+  background-color: white;
+  border-left: 6px solid #059AB5;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  padding: 25px 30px;
+}
+.section h2 {
+  margin-top: 0;
+  color: #02788a;
+}
+.section p {
+  line-height: 1.6;
+}
+.section a {
+  color: #02788a;
+  font-weight: bold;
+}
+
+/* --- Snippet Layout --- */
+.snippet-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 20px;
+}
+.snippet-column {
+  width: 300px;
+  flex: 0 0 300px;
+}
+.legend {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 700px) {
+  .snippet-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+footer {
+  background-color: #003660;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="section">
+    <h2>Snippet Examples</h2>
+    <p>Below are examples of the CHIRPS and CHIRPS-GEFS snippet configurators.</p>
+
+    <div class="snippet-row">
+      <div class="snippet-column">
+        <div id="map-data"></div>
+        <img
+          class="legend"
+          src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_data_raster.png"
+          alt="Monthly Rainfall Legend"
+        />
+      </div>
+
+      <div class="snippet-column">
+        <div id="map-anom"></div>
+        <img
+          class="legend"
+          src="https://chc-ewx3.chc.ucsb.edu/images/legends/precip_monthly_anom_raster.png"
+          alt="Monthly Rainfall Anomaly Legend"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+new Snippet({
+  ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+  id: 'map-data',
+  dataset: 'CHIRPSv3',
+  subDataset: 'chirpsv3',
+  showGaul20080: true,
+  showGaul20081: true,
+  showGaul20082: false,
+  showKenyaWards: false,
+  region: 'global',
+  periodicity: '1-month',
+  period: 'latest',
+  units: 'mm',
+  statistic: 'data',
+  width: 300,
+  height: 350,
+  zoom: 5.5,
+  center: [0.3, 37.4]
+});
+
+new Snippet({
+  ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+  id: 'map-anom',
+  dataset: 'CHIRPSv3',
+  subDataset: 'chirpsv3',
+  showGaul20080: true,
+  showGaul20081: true,
+  showGaul20082: false,
+  showKenyaWards: false,
+  region: 'global',
+  periodicity: '1-month',
+  period: 'latest',
+  units: 'mm',
+  statistic: 'anom',
+  width: 300,
+  height: 350,
+  zoom: 5.5,
+  center: [0.3, 37.4]
+});
+</script>
+
+</body>
+</html>
